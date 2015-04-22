@@ -12,6 +12,9 @@
 		31203BD21AD2DA95003CBAA9 /* LotteryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31203BD11AD2DA95003CBAA9 /* LotteryTests.m */; };
 		319B706A1AD2ECCB00171A28 /* BGAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 319B70681AD2ECCB00171A28 /* BGAAppDelegate.m */; };
 		319B706B1AD2ECCB00171A28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 319B70691AD2ECCB00171A28 /* main.m */; };
+		31A385451AE7F61200148C08 /* BGATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385441AE7F61200148C08 /* BGATabBarController.m */; };
+		31A385481AE7F77200148C08 /* BGATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385471AE7F77200148C08 /* BGATabBar.m */; };
+		31A3854B1AE804F900148C08 /* BGATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A3854A1AE804F900148C08 /* BGATabBarButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,12 @@
 		319B70681AD2ECCB00171A28 /* BGAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAAppDelegate.m; sourceTree = "<group>"; };
 		319B70691AD2ECCB00171A28 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		319B706C1AD2F0C900171A28 /* Lottery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lottery-Prefix.pch"; sourceTree = "<group>"; };
+		31A385431AE7F61200148C08 /* BGATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATabBarController.h; sourceTree = "<group>"; };
+		31A385441AE7F61200148C08 /* BGATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATabBarController.m; sourceTree = "<group>"; };
+		31A385461AE7F77200148C08 /* BGATabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATabBar.h; sourceTree = "<group>"; };
+		31A385471AE7F77200148C08 /* BGATabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATabBar.m; sourceTree = "<group>"; };
+		31A385491AE804F900148C08 /* BGATabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATabBarButton.h; sourceTree = "<group>"; };
+		31A3854A1AE804F900148C08 /* BGATabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATabBarButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +301,8 @@
 		319B70631AD2ECCB00171A28 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				31A385431AE7F61200148C08 /* BGATabBarController.h */,
+				31A385441AE7F61200148C08 /* BGATabBarController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,6 +317,10 @@
 		319B70651AD2ECCB00171A28 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31A385461AE7F77200148C08 /* BGATabBar.h */,
+				31A385471AE7F77200148C08 /* BGATabBar.m */,
+				31A385491AE804F900148C08 /* BGATabBarButton.h */,
+				31A3854A1AE804F900148C08 /* BGATabBarButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -421,6 +436,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A385481AE7F77200148C08 /* BGATabBar.m in Sources */,
+				31A3854B1AE804F900148C08 /* BGATabBarButton.m in Sources */,
+				31A385451AE7F61200148C08 /* BGATabBarController.m in Sources */,
 				319B706A1AD2ECCB00171A28 /* BGAAppDelegate.m in Sources */,
 				319B706B1AD2ECCB00171A28 /* main.m in Sources */,
 			);
