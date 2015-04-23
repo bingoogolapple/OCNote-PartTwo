@@ -14,6 +14,32 @@
 
 @implementation BGANavigationController
 
+// 第一次使用这个类或者这个类的子类的时候
++ (void)initialize {
+    // 判断一下当前类是否是BGANavigationController，避免是在该类的子类调用
+    if(self == [BGANavigationController class]) {
+        // 获取应用程序中所有的导航条
+        // 获取所有当行条外观
+        UINavigationBar *navBar = [UINavigationBar appearance];
+        // iOS6导航条高度44
+        NSString *navImgName = nil;
+        if(ios7) {
+            Logger(@"iOS7及以上");
+            navImgName = @"NavBar64";
+        } else {
+            Logger(@"iOS7以下");
+            navImgName = @"NavBar";
+        }
+        [navBar setBackgroundImage:[UIImage imageNamed:navImgName] forBarMetrics:UIBarMetricsDefault];
+        
+        
+        NSDictionary *textAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor],
+                                         NSFontAttributeName : [UIFont systemFontOfSize:15]};
+        [navBar setTitleTextAttributes:textAttributes];
+        Logger(@"%s", __func__);
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 }

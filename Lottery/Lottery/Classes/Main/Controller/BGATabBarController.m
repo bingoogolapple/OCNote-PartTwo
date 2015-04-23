@@ -39,6 +39,8 @@
         selectedImgName = [NSString stringWithFormat:@"TabBar%dSel", i + 1];
         [tabBar addTabBarButtonWithImgName:imgName selectedImgName:selectedImgName];
     }
+    
+    
 }
 
 - (void)tabBar:(BGATabBar *)tabBar didSelectedIndex:(int)index {

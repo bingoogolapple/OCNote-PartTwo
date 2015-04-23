@@ -19,5 +19,8 @@
 #define Logger(...)
 #endif
 
+#define ios7 [[UIDevice currentDevice].systemVersion floatValue] >= 7.0
+
+
 
 #endif

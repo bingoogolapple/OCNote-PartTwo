@@ -155,7 +155,7 @@
             </objects>
             <point key="canvasLocation" x="2125" y="-469"/>
         </scene>
-        <!--View Controller-->
+        <!--开奖信息-->
         <scene sceneID="Zfd-Kj-zKO">
             <objects>
                 <viewController id="ZJe-Yi-K8V" sceneMemberID="viewController">
@@ -164,7 +164,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="T7x-HQ-Q0T"/>
+                    <navigationItem key="navigationItem" title="开奖信息" id="T7x-HQ-Q0T"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcA-zf-oN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -179,13 +179,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90196084980000002" green="0.9215686917" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gDf-mA-zWI"/>
+                    <navigationItem key="navigationItem" id="gDf-mA-zWI">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dCg-uP-X05" customClass="BGATitleButton">
+                            <rect key="frame" x="115" y="11" width="90" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="全部彩种" image="YellowDownArrow">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zP1-SW-fdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1713" y="247"/>
         </scene>
-        <!--View Controller-->
+        <!--幸运广场-->
         <scene sceneID="oBg-xV-H85">
             <objects>
                 <viewController id="fN5-kM-NUa" sceneMemberID="viewController">
@@ -194,13 +204,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.54303892549999999" blue="0.095571067950000005" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rcX-CN-6PT"/>
+                    <navigationItem key="navigationItem" title="幸运广场" id="rcX-CN-6PT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rcs-Hz-j7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1713" y="1656"/>
         </scene>
-        <!--View Controller-->
+        <!--我的彩票-->
         <scene sceneID="9PP-mE-x0H">
             <objects>
                 <viewController id="DM1-9l-0fp" sceneMemberID="viewController">
@@ -209,7 +219,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.78823536630000002" green="0.94901967050000002" blue="0.91764712329999998" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sH1-kv-dFi"/>
+                    <navigationItem key="navigationItem" title="我的彩票" id="sH1-kv-dFi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FTr-qi-sIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -217,6 +227,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="YellowDownArrow" width="16" height="16"/>
         <image name="zixunBarFlat" width="13" height="11"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

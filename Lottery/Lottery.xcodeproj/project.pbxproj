@@ -17,6 +17,7 @@
 		31A3854B1AE804F900148C08 /* BGATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A3854A1AE804F900148C08 /* BGATabBarButton.m */; };
 		31A3854E1AE8788100148C08 /* BGAHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A3854D1AE8788100148C08 /* BGAHallViewController.m */; };
 		31A385511AE87C0400148C08 /* BGANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385501AE87C0400148C08 /* BGANavigationController.m */; };
+		31A385541AE9B18A00148C08 /* BGATitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385531AE9B18A00148C08 /* BGATitleButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		31A3854D1AE8788100148C08 /* BGAHallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAHallViewController.m; sourceTree = "<group>"; };
 		31A3854F1AE87C0400148C08 /* BGANavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGANavigationController.h; sourceTree = "<group>"; };
 		31A385501AE87C0400148C08 /* BGANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGANavigationController.m; sourceTree = "<group>"; };
+		31A385521AE9B18A00148C08 /* BGATitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATitleButton.h; sourceTree = "<group>"; };
+		31A385531AE9B18A00148C08 /* BGATitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATitleButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +200,8 @@
 		319B70551AD2ECCB00171A28 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31A385521AE9B18A00148C08 /* BGATitleButton.h */,
+				31A385531AE9B18A00148C08 /* BGATitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 				31A3854E1AE8788100148C08 /* BGAHallViewController.m in Sources */,
 				31A385511AE87C0400148C08 /* BGANavigationController.m in Sources */,
 				31A385481AE7F77200148C08 /* BGATabBar.m in Sources */,
+				31A385541AE9B18A00148C08 /* BGATitleButton.m in Sources */,
 				31A3854B1AE804F900148C08 /* BGATabBarButton.m in Sources */,
 				31A385451AE7F61200148C08 /* BGATabBarController.m in Sources */,
 				319B706A1AD2ECCB00171A28 /* BGAAppDelegate.m in Sources */,
