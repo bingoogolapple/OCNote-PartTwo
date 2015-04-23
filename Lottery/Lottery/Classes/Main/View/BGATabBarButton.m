@@ -12,7 +12,7 @@
 
 // 取消点击时的高亮
 - (void)setHighlighted:(BOOL)highlighted {
-    Logger(@"%s", __func__);
+//    Logger(@"%s", __func__);
 }
 
 @end

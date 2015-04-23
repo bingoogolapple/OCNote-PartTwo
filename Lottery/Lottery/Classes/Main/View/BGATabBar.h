@@ -24,4 +24,6 @@
 //@property (nonatomic, copy) BGATabBarBlock block;
 @property (nonatomic, weak) id<BGATabBarDelegate> delegate;
 
+- (void)addTabBarButtonWithImgName:(NSString *)imgName selectedImgName:(NSString *)selectedImgName;
+
 @end

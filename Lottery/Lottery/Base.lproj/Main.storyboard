@@ -30,7 +30,7 @@
         <!--Item-->
         <scene sceneID="nQ5-Ky-v9N">
             <objects>
-                <navigationController id="Bw3-c1-R6o" sceneMemberID="viewController">
+                <navigationController id="Bw3-c1-R6o" customClass="BGANavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="0hG-mW-thV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M2j-ZR-vTg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -47,7 +47,7 @@
         <!--Item-->
         <scene sceneID="efk-6V-NTS">
             <objects>
-                <navigationController id="on0-LN-wFD" sceneMemberID="viewController">
+                <navigationController id="on0-LN-wFD" customClass="BGANavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="ABt-Mi-rb7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bgs-6C-ScZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -64,7 +64,7 @@
         <!--Item-->
         <scene sceneID="lDE-6O-x4a">
             <objects>
-                <navigationController id="X9F-GT-Kbb" sceneMemberID="viewController">
+                <navigationController id="X9F-GT-Kbb" customClass="BGANavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="0zn-go-3gX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SCu-us-r85">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -81,7 +81,7 @@
         <!--Item-->
         <scene sceneID="Bvl-uf-2J9">
             <objects>
-                <navigationController id="flg-cL-p8g" sceneMemberID="viewController">
+                <navigationController id="flg-cL-p8g" customClass="BGANavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Jgg-MJ-Yvi"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AQ3-qi-XIa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -98,7 +98,7 @@
         <!--Item-->
         <scene sceneID="DZs-vs-ldt">
             <objects>
-                <navigationController id="ALS-lo-dim" sceneMemberID="viewController">
+                <navigationController id="ALS-lo-dim" customClass="BGANavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="4eS-FW-f07"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SmY-8a-1cV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -112,20 +112,48 @@
             </objects>
             <point key="canvasLocation" x="1108" y="-474"/>
         </scene>
-        <!--View Controller-->
+        <!--购彩大厅-->
         <scene sceneID="QfZ-6j-gnU">
             <objects>
-                <viewController id="4f2-6m-i5r" sceneMemberID="viewController">
+                <viewController id="4f2-6m-i5r" customClass="BGAHallViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tey-MJ-uPL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.068581810940000001" blue="0.1099512216" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IHg-KK-el1"/>
+                    <navigationItem key="navigationItem" title="购彩大厅" id="IHg-KK-el1">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="yFQ-SV-Scn">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kD5-c9-c6M">
+                                <rect key="frame" x="244" y="11" width="49" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="资讯" image="zixunBarFlat">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3y4-BB-fNV" kind="push" id="aNQ-SV-G9C"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gL-tb-UY7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1725" y="-469"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QYe-tE-4nj">
+            <objects>
+                <viewController id="3y4-BB-fNV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TdQ-dS-RXZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xEK-wA-bbT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yKm-Dj-FfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2125" y="-469"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Zfd-Kj-zKO">
@@ -188,6 +216,9 @@
             <point key="canvasLocation" x="1720" y="2453"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="zixunBarFlat" width="13" height="11"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -15,6 +15,8 @@
 		31A385451AE7F61200148C08 /* BGATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385441AE7F61200148C08 /* BGATabBarController.m */; };
 		31A385481AE7F77200148C08 /* BGATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385471AE7F77200148C08 /* BGATabBar.m */; };
 		31A3854B1AE804F900148C08 /* BGATabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A3854A1AE804F900148C08 /* BGATabBarButton.m */; };
+		31A3854E1AE8788100148C08 /* BGAHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A3854D1AE8788100148C08 /* BGAHallViewController.m */; };
+		31A385511AE87C0400148C08 /* BGANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385501AE87C0400148C08 /* BGANavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,10 @@
 		31A385471AE7F77200148C08 /* BGATabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATabBar.m; sourceTree = "<group>"; };
 		31A385491AE804F900148C08 /* BGATabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATabBarButton.h; sourceTree = "<group>"; };
 		31A3854A1AE804F900148C08 /* BGATabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATabBarButton.m; sourceTree = "<group>"; };
+		31A3854C1AE8788100148C08 /* BGAHallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAHallViewController.h; sourceTree = "<group>"; };
+		31A3854D1AE8788100148C08 /* BGAHallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAHallViewController.m; sourceTree = "<group>"; };
+		31A3854F1AE87C0400148C08 /* BGANavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGANavigationController.h; sourceTree = "<group>"; };
+		31A385501AE87C0400148C08 /* BGANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGANavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +214,8 @@
 		319B70571AD2ECCB00171A28 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				31A3854C1AE8788100148C08 /* BGAHallViewController.h */,
+				31A3854D1AE8788100148C08 /* BGAHallViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -303,6 +311,8 @@
 			children = (
 				31A385431AE7F61200148C08 /* BGATabBarController.h */,
 				31A385441AE7F61200148C08 /* BGATabBarController.m */,
+				31A3854F1AE87C0400148C08 /* BGANavigationController.h */,
+				31A385501AE87C0400148C08 /* BGANavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -436,6 +446,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A3854E1AE8788100148C08 /* BGAHallViewController.m in Sources */,
+				31A385511AE87C0400148C08 /* BGANavigationController.m in Sources */,
 				31A385481AE7F77200148C08 /* BGATabBar.m in Sources */,
 				31A3854B1AE804F900148C08 /* BGATabBarButton.m in Sources */,
 				31A385451AE7F61200148C08 /* BGATabBarController.m in Sources */,
