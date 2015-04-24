@@ -24,8 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // 设置登陆按钮的拉伸好的图片
+    [self.loginBtn setBackgroundColor:[UIColor clearColor]];
+    // 设置登陆按钮的拉伸好的图片，Type选择Custom，否则设置高亮状态无效
     [self.loginBtn setBackgroundImage:[UIImage imageWithResizableImageName:@"RedButton"] forState:UIControlStateNormal];
     [self.loginBtn setBackgroundImage:[UIImage imageWithResizableImageName:@"RedButtonPressed"] forState:UIControlStateHighlighted];
 }
