@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fon-fw-MDe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fon-fw-MDe">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -116,6 +116,10 @@
         <scene sceneID="QfZ-6j-gnU">
             <objects>
                 <viewController id="4f2-6m-i5r" customClass="BGAHallViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3xc-77-w3G"/>
+                        <viewControllerLayoutGuide type="bottom" id="6V1-To-qZM"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tey-MJ-uPL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,6 +148,10 @@
         <scene sceneID="QYe-tE-4nj">
             <objects>
                 <viewController id="3y4-BB-fNV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Km-PF-2eF"/>
+                        <viewControllerLayoutGuide type="bottom" id="QVM-5a-XCq"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TdQ-dS-RXZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,6 +167,10 @@
         <scene sceneID="Zfd-Kj-zKO">
             <objects>
                 <viewController id="ZJe-Yi-K8V" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZCt-Op-iNR"/>
+                        <viewControllerLayoutGuide type="bottom" id="QCK-Zg-GKW"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Vl1-UG-HJo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,6 +186,10 @@
         <scene sceneID="QRm-5V-uM4">
             <objects>
                 <viewController id="OWC-pS-sdE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xWn-cz-JX2"/>
+                        <viewControllerLayoutGuide type="bottom" id="gBJ-rp-4CH"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NMO-m1-ifQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,6 +205,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
+                        <barButtonItem key="rightBarButtonItem" image="NavInfoFlat" id="sRK-H7-nym"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zP1-SW-fdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -199,6 +216,10 @@
         <scene sceneID="oBg-xV-H85">
             <objects>
                 <viewController id="fN5-kM-NUa" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SIW-Mq-b7a"/>
+                        <viewControllerLayoutGuide type="bottom" id="xhf-e6-fJA"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Fkm-dU-GDA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,13 +234,47 @@
         <!--我的彩票-->
         <scene sceneID="9PP-mE-x0H">
             <objects>
-                <viewController id="DM1-9l-0fp" sceneMemberID="viewController">
+                <viewController id="DM1-9l-0fp" customClass="BGALoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OPp-uZ-R5I"/>
+                        <viewControllerLayoutGuide type="bottom" id="zuC-EL-lFD"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4mB-9Z-e6i">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.78823536630000002" green="0.94901967050000002" blue="0.91764712329999998" alpha="1" colorSpace="deviceRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginScreen" translatesAutoresizingMaskIntoConstraints="NO" id="5Vd-N2-X7z">
+                                <rect key="frame" x="10" y="10" width="300" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="2vE-Hj-g8Y"/>
+                                    <constraint firstAttribute="height" constant="140" id="EHm-2q-Fri"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aua-om-fzL">
+                                <rect key="frame" x="10" y="213" width="300" height="40"/>
+                                <rect key="contentStretch" x="0.5" y="0.5" width="0.0" height="0.0"/>
+                                <state key="normal" title="登陆" backgroundImage="RedButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RedButton" translatesAutoresizingMaskIntoConstraints="NO" id="Ff3-EB-INE">
+                                <rect key="frame" x="10" y="293" width="300" height="40"/>
+                                <rect key="contentStretch" x="0.5" y="0.5" width="0.0" height="0.0"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Vd-N2-X7z" firstAttribute="leading" secondItem="4mB-9Z-e6i" secondAttribute="leading" constant="10" id="CHg-Xd-dTU"/>
+                            <constraint firstItem="5Vd-N2-X7z" firstAttribute="top" secondItem="4mB-9Z-e6i" secondAttribute="top" constant="10" id="Hix-aF-jc2"/>
+                            <constraint firstAttribute="trailing" secondItem="5Vd-N2-X7z" secondAttribute="trailing" constant="10" id="enJ-HB-ho4"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="我的彩票" id="sH1-kv-dFi"/>
+                    <connections>
+                        <outlet property="loginBtn" destination="aua-om-fzL" id="Yza-5q-sP3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FTr-qi-sIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -227,6 +282,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LoginScreen" width="150" height="70"/>
+        <image name="NavInfoFlat" width="22" height="22"/>
+        <image name="RedButton" width="61" height="34"/>
         <image name="YellowDownArrow" width="16" height="16"/>
         <image name="zixunBarFlat" width="13" height="11"/>
     </resources>

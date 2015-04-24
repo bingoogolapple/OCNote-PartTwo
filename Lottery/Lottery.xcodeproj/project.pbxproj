@@ -10,6 +10,8 @@
 		31203BC11AD2DA94003CBAA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31203BBF1AD2DA94003CBAA9 /* Main.storyboard */; };
 		31203BC31AD2DA94003CBAA9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31203BC21AD2DA94003CBAA9 /* Images.xcassets */; };
 		31203BD21AD2DA95003CBAA9 /* LotteryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31203BD11AD2DA95003CBAA9 /* LotteryTests.m */; };
+		3174050A1AE9C9C40012DC43 /* BGALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 317405071AE9C9C40012DC43 /* BGALoginViewController.m */; };
+		3174050E1AE9CE5F0012DC43 /* UIImage+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3174050D1AE9CE5F0012DC43 /* UIImage+Tool.m */; };
 		319B706A1AD2ECCB00171A28 /* BGAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 319B70681AD2ECCB00171A28 /* BGAAppDelegate.m */; };
 		319B706B1AD2ECCB00171A28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 319B70691AD2ECCB00171A28 /* main.m */; };
 		31A385451AE7F61200148C08 /* BGATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385441AE7F61200148C08 /* BGATabBarController.m */; };
@@ -38,6 +40,10 @@
 		31203BCB1AD2DA95003CBAA9 /* LotteryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LotteryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31203BD01AD2DA95003CBAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31203BD11AD2DA95003CBAA9 /* LotteryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LotteryTests.m; sourceTree = "<group>"; };
+		317405061AE9C9C40012DC43 /* BGALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGALoginViewController.h; sourceTree = "<group>"; };
+		317405071AE9C9C40012DC43 /* BGALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGALoginViewController.m; sourceTree = "<group>"; };
+		3174050C1AE9CE5F0012DC43 /* UIImage+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tool.h"; sourceTree = "<group>"; };
+		3174050D1AE9CE5F0012DC43 /* UIImage+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tool.m"; sourceTree = "<group>"; };
 		319B70671AD2ECCB00171A28 /* BGAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAAppDelegate.h; sourceTree = "<group>"; };
 		319B70681AD2ECCB00171A28 /* BGAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAAppDelegate.m; sourceTree = "<group>"; };
 		319B70691AD2ECCB00171A28 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -128,13 +134,55 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		317405041AE9C9C40012DC43 /* Mine(我的彩票) */ = {
+			isa = PBXGroup;
+			children = (
+				317405051AE9C9C40012DC43 /* Controller */,
+				317405081AE9C9C40012DC43 /* Model */,
+				317405091AE9C9C40012DC43 /* View */,
+			);
+			path = "Mine(我的彩票)";
+			sourceTree = "<group>";
+		};
+		317405051AE9C9C40012DC43 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				317405061AE9C9C40012DC43 /* BGALoginViewController.h */,
+				317405071AE9C9C40012DC43 /* BGALoginViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		317405081AE9C9C40012DC43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		317405091AE9C9C40012DC43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3174050B1AE9CD7F0012DC43 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				3174050C1AE9CE5F0012DC43 /* UIImage+Tool.h */,
+				3174050D1AE9CE5F0012DC43 /* UIImage+Tool.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		319B704D1AD2ECCB00171A28 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				317405041AE9C9C40012DC43 /* Mine(我的彩票) */,
 				319B704E1AD2ECCB00171A28 /* Award(开奖信息) */,
 				319B70521AD2ECCB00171A28 /* Buy(合买跟单) */,
 				319B70561AD2ECCB00171A28 /* Hall(购彩大厅) */,
-				319B705A1AD2ECCB00171A28 /* Hall(购彩大厅)副本 */,
 				319B705E1AD2ECCB00171A28 /* Hall(购彩大厅)副本 2 */,
 				319B70621AD2ECCB00171A28 /* Main */,
 				319B70661AD2ECCB00171A28 /* Other */,
@@ -239,37 +287,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		319B705A1AD2ECCB00171A28 /* Hall(购彩大厅)副本 */ = {
-			isa = PBXGroup;
-			children = (
-				319B705B1AD2ECCB00171A28 /* Controller */,
-				319B705C1AD2ECCB00171A28 /* Model */,
-				319B705D1AD2ECCB00171A28 /* View */,
-			);
-			path = "Hall(购彩大厅)副本";
-			sourceTree = "<group>";
-		};
-		319B705B1AD2ECCB00171A28 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		319B705C1AD2ECCB00171A28 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		319B705D1AD2ECCB00171A28 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		319B705E1AD2ECCB00171A28 /* Hall(购彩大厅)副本 2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +360,7 @@
 		319B70661AD2ECCB00171A28 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				3174050B1AE9CD7F0012DC43 /* Category */,
 				319B70671AD2ECCB00171A28 /* BGAAppDelegate.h */,
 				319B70681AD2ECCB00171A28 /* BGAAppDelegate.m */,
 				319B70691AD2ECCB00171A28 /* main.m */,
@@ -451,12 +469,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3174050A1AE9C9C40012DC43 /* BGALoginViewController.m in Sources */,
 				31A3854E1AE8788100148C08 /* BGAHallViewController.m in Sources */,
 				31A385511AE87C0400148C08 /* BGANavigationController.m in Sources */,
 				31A385481AE7F77200148C08 /* BGATabBar.m in Sources */,
 				31A385541AE9B18A00148C08 /* BGATitleButton.m in Sources */,
 				31A3854B1AE804F900148C08 /* BGATabBarButton.m in Sources */,
 				31A385451AE7F61200148C08 /* BGATabBarController.m in Sources */,
+				3174050E1AE9CE5F0012DC43 /* UIImage+Tool.m in Sources */,
 				319B706A1AD2ECCB00171A28 /* BGAAppDelegate.m in Sources */,
 				319B706B1AD2ECCB00171A28 /* main.m in Sources */,
 			);

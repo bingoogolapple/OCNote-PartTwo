@@ -40,7 +40,7 @@
         [tabBar addTabBarButtonWithImgName:imgName selectedImgName:selectedImgName];
     }
     
-    
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)tabBar:(BGATabBar *)tabBar didSelectedIndex:(int)index {
