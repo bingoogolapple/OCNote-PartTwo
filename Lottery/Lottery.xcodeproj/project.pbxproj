@@ -10,8 +10,14 @@
 		31203BC11AD2DA94003CBAA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31203BBF1AD2DA94003CBAA9 /* Main.storyboard */; };
 		31203BC31AD2DA94003CBAA9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31203BC21AD2DA94003CBAA9 /* Images.xcassets */; };
 		31203BD21AD2DA95003CBAA9 /* LotteryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31203BD11AD2DA95003CBAA9 /* LotteryTests.m */; };
+		315FC51F1AED14F300139F29 /* BGASettingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 315FC51E1AED14F300139F29 /* BGASettingGroup.m */; };
 		3174050A1AE9C9C40012DC43 /* BGALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 317405071AE9C9C40012DC43 /* BGALoginViewController.m */; };
 		3174050E1AE9CE5F0012DC43 /* UIImage+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3174050D1AE9CE5F0012DC43 /* UIImage+Tool.m */; };
+		317E59EE1AED1A6F0004B893 /* BGASettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 317E59ED1AED1A6F0004B893 /* BGASettingCell.m */; };
+		317E59F11AED1F770004B893 /* BGASettingArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 317E59F01AED1F770004B893 /* BGASettingArrowItem.m */; };
+		317E59F41AED20020004B893 /* BGASettingSwitchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 317E59F31AED20020004B893 /* BGASettingSwitchItem.m */; };
+		317E59F81AED29120004B893 /* BGATestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 317E59F61AED29120004B893 /* BGATestController.m */; };
+		317E59F91AED29120004B893 /* BGATestController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317E59F71AED29120004B893 /* BGATestController.xib */; };
 		319B706A1AD2ECCB00171A28 /* BGAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 319B70681AD2ECCB00171A28 /* BGAAppDelegate.m */; };
 		319B706B1AD2ECCB00171A28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 319B70691AD2ECCB00171A28 /* main.m */; };
 		31A385451AE7F61200148C08 /* BGATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385441AE7F61200148C08 /* BGATabBarController.m */; };
@@ -20,6 +26,7 @@
 		31A3854E1AE8788100148C08 /* BGAHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A3854D1AE8788100148C08 /* BGAHallViewController.m */; };
 		31A385511AE87C0400148C08 /* BGANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385501AE87C0400148C08 /* BGANavigationController.m */; };
 		31A385541AE9B18A00148C08 /* BGATitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385531AE9B18A00148C08 /* BGATitleButton.m */; };
+		31F326871AED0F46009F68BE /* BGASettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F326861AED0F46009F68BE /* BGASettingItem.m */; };
 		53EB1F441AEC959E001D997D /* BGASettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -41,10 +48,21 @@
 		31203BCB1AD2DA95003CBAA9 /* LotteryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LotteryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31203BD01AD2DA95003CBAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31203BD11AD2DA95003CBAA9 /* LotteryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LotteryTests.m; sourceTree = "<group>"; };
+		315FC51D1AED14F300139F29 /* BGASettingGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASettingGroup.h; sourceTree = "<group>"; };
+		315FC51E1AED14F300139F29 /* BGASettingGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASettingGroup.m; sourceTree = "<group>"; };
 		317405061AE9C9C40012DC43 /* BGALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGALoginViewController.h; sourceTree = "<group>"; };
 		317405071AE9C9C40012DC43 /* BGALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGALoginViewController.m; sourceTree = "<group>"; };
 		3174050C1AE9CE5F0012DC43 /* UIImage+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tool.h"; sourceTree = "<group>"; };
 		3174050D1AE9CE5F0012DC43 /* UIImage+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tool.m"; sourceTree = "<group>"; };
+		317E59EC1AED1A6F0004B893 /* BGASettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASettingCell.h; sourceTree = "<group>"; };
+		317E59ED1AED1A6F0004B893 /* BGASettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASettingCell.m; sourceTree = "<group>"; };
+		317E59EF1AED1F770004B893 /* BGASettingArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASettingArrowItem.h; sourceTree = "<group>"; };
+		317E59F01AED1F770004B893 /* BGASettingArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASettingArrowItem.m; sourceTree = "<group>"; };
+		317E59F21AED20020004B893 /* BGASettingSwitchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASettingSwitchItem.h; sourceTree = "<group>"; };
+		317E59F31AED20020004B893 /* BGASettingSwitchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASettingSwitchItem.m; sourceTree = "<group>"; };
+		317E59F51AED29120004B893 /* BGATestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATestController.h; sourceTree = "<group>"; };
+		317E59F61AED29120004B893 /* BGATestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATestController.m; sourceTree = "<group>"; };
+		317E59F71AED29120004B893 /* BGATestController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BGATestController.xib; sourceTree = "<group>"; };
 		319B70671AD2ECCB00171A28 /* BGAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAAppDelegate.h; sourceTree = "<group>"; };
 		319B70681AD2ECCB00171A28 /* BGAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAAppDelegate.m; sourceTree = "<group>"; };
 		319B70691AD2ECCB00171A28 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -61,6 +79,8 @@
 		31A385501AE87C0400148C08 /* BGANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGANavigationController.m; sourceTree = "<group>"; };
 		31A385521AE9B18A00148C08 /* BGATitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATitleButton.h; sourceTree = "<group>"; };
 		31A385531AE9B18A00148C08 /* BGATitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATitleButton.m; sourceTree = "<group>"; };
+		31F326851AED0F46009F68BE /* BGASettingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASettingItem.h; sourceTree = "<group>"; };
+		31F326861AED0F46009F68BE /* BGASettingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASettingItem.m; sourceTree = "<group>"; };
 		53EB1F421AEC959E001D997D /* BGASettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASettingTableViewController.h; sourceTree = "<group>"; };
 		53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASettingTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -388,6 +408,9 @@
 			children = (
 				53EB1F421AEC959E001D997D /* BGASettingTableViewController.h */,
 				53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */,
+				317E59F51AED29120004B893 /* BGATestController.h */,
+				317E59F61AED29120004B893 /* BGATestController.m */,
+				317E59F71AED29120004B893 /* BGATestController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -395,6 +418,14 @@
 		53EB1F401AEC9569001D997D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				31F326851AED0F46009F68BE /* BGASettingItem.h */,
+				31F326861AED0F46009F68BE /* BGASettingItem.m */,
+				315FC51D1AED14F300139F29 /* BGASettingGroup.h */,
+				315FC51E1AED14F300139F29 /* BGASettingGroup.m */,
+				317E59EF1AED1F770004B893 /* BGASettingArrowItem.h */,
+				317E59F01AED1F770004B893 /* BGASettingArrowItem.m */,
+				317E59F21AED20020004B893 /* BGASettingSwitchItem.h */,
+				317E59F31AED20020004B893 /* BGASettingSwitchItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -402,6 +433,8 @@
 		53EB1F411AEC9569001D997D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				317E59EC1AED1A6F0004B893 /* BGASettingCell.h */,
+				317E59ED1AED1A6F0004B893 /* BGASettingCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -489,6 +522,7 @@
 			files = (
 				31203BC11AD2DA94003CBAA9 /* Main.storyboard in Resources */,
 				31203BC31AD2DA94003CBAA9 /* Images.xcassets in Resources */,
+				317E59F91AED29120004B893 /* BGATestController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,16 +541,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				3174050A1AE9C9C40012DC43 /* BGALoginViewController.m in Sources */,
+				317E59EE1AED1A6F0004B893 /* BGASettingCell.m in Sources */,
+				317E59F81AED29120004B893 /* BGATestController.m in Sources */,
+				315FC51F1AED14F300139F29 /* BGASettingGroup.m in Sources */,
 				31A3854E1AE8788100148C08 /* BGAHallViewController.m in Sources */,
 				31A385511AE87C0400148C08 /* BGANavigationController.m in Sources */,
 				31A385481AE7F77200148C08 /* BGATabBar.m in Sources */,
 				31A385541AE9B18A00148C08 /* BGATitleButton.m in Sources */,
 				31A3854B1AE804F900148C08 /* BGATabBarButton.m in Sources */,
+				31F326871AED0F46009F68BE /* BGASettingItem.m in Sources */,
 				31A385451AE7F61200148C08 /* BGATabBarController.m in Sources */,
+				317E59F41AED20020004B893 /* BGASettingSwitchItem.m in Sources */,
 				3174050E1AE9CE5F0012DC43 /* UIImage+Tool.m in Sources */,
 				319B706A1AD2ECCB00171A28 /* BGAAppDelegate.m in Sources */,
 				319B706B1AD2ECCB00171A28 /* main.m in Sources */,
 				53EB1F441AEC959E001D997D /* BGASettingTableViewController.m in Sources */,
+				317E59F11AED1F770004B893 /* BGASettingArrowItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
