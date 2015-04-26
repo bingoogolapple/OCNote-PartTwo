@@ -8,6 +8,7 @@
 
 #import "BGALoginViewController.h"
 #import "UIImage+Tool.h"
+#import "BGASettingTableViewController.h"
 
 @interface BGALoginViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
@@ -30,8 +31,9 @@
     [self.loginBtn setBackgroundImage:[UIImage imageWithResizableImageName:@"RedButtonPressed"] forState:UIControlStateHighlighted];
 }
 
-
-
-
+- (IBAction)setting:(id)sender {
+    BGASettingTableViewController *settingController = [[BGASettingTableViewController alloc] init];
+    [self.navigationController pushViewController:settingController animated:YES];
+}
 
 @end

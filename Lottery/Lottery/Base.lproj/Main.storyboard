@@ -272,7 +272,13 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="我的彩票" id="sH1-kv-dFi"/>
+                    <navigationItem key="navigationItem" title="我的彩票" id="sH1-kv-dFi">
+                        <barButtonItem key="rightBarButtonItem" title="设置" id="nXf-fF-t6z">
+                            <connections>
+                                <action selector="setting:" destination="DM1-9l-0fp" id="Gbi-TU-qRO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="loginBtn" destination="aua-om-fzL" id="Yza-5q-sP3"/>
                     </connections>

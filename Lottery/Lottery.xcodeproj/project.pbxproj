@@ -20,6 +20,7 @@
 		31A3854E1AE8788100148C08 /* BGAHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A3854D1AE8788100148C08 /* BGAHallViewController.m */; };
 		31A385511AE87C0400148C08 /* BGANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385501AE87C0400148C08 /* BGANavigationController.m */; };
 		31A385541AE9B18A00148C08 /* BGATitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385531AE9B18A00148C08 /* BGATitleButton.m */; };
+		53EB1F441AEC959E001D997D /* BGASettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		31A385501AE87C0400148C08 /* BGANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGANavigationController.m; sourceTree = "<group>"; };
 		31A385521AE9B18A00148C08 /* BGATitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATitleButton.h; sourceTree = "<group>"; };
 		31A385531AE9B18A00148C08 /* BGATitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATitleButton.m; sourceTree = "<group>"; };
+		53EB1F421AEC959E001D997D /* BGASettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASettingTableViewController.h; sourceTree = "<group>"; };
+		53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASettingTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,7 @@
 		319B704D1AD2ECCB00171A28 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				53EB1F3E1AEC9569001D997D /* Setting */,
 				317405041AE9C9C40012DC43 /* Mine(我的彩票) */,
 				319B704E1AD2ECCB00171A28 /* Award(开奖信息) */,
 				319B70521AD2ECCB00171A28 /* Buy(合买跟单) */,
@@ -369,6 +373,39 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		53EB1F3E1AEC9569001D997D /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				53EB1F3F1AEC9569001D997D /* Controller */,
+				53EB1F401AEC9569001D997D /* Model */,
+				53EB1F411AEC9569001D997D /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		53EB1F3F1AEC9569001D997D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				53EB1F421AEC959E001D997D /* BGASettingTableViewController.h */,
+				53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		53EB1F401AEC9569001D997D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		53EB1F411AEC9569001D997D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -479,6 +516,7 @@
 				3174050E1AE9CE5F0012DC43 /* UIImage+Tool.m in Sources */,
 				319B706A1AD2ECCB00171A28 /* BGAAppDelegate.m in Sources */,
 				319B706B1AD2ECCB00171A28 /* main.m in Sources */,
+				53EB1F441AEC959E001D997D /* BGASettingTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
