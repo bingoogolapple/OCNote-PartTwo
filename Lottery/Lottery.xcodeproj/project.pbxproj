@@ -21,6 +21,7 @@
 		317E5A011AED3D440004B893 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 317E59FD1AED3D440004B893 /* MBProgressHUD+MJ.m */; };
 		317E5A021AED3D440004B893 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 317E59FE1AED3D440004B893 /* MBProgressHUD.bundle */; };
 		317E5A031AED3D440004B893 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 317E5A001AED3D440004B893 /* MBProgressHUD.m */; };
+		317E5A071AEF0CEB0004B893 /* BGAProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 317E5A061AEF0CEB0004B893 /* BGAProductViewController.m */; };
 		319B706A1AD2ECCB00171A28 /* BGAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 319B70681AD2ECCB00171A28 /* BGAAppDelegate.m */; };
 		319B706B1AD2ECCB00171A28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 319B70691AD2ECCB00171A28 /* main.m */; };
 		31A385451AE7F61200148C08 /* BGATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385441AE7F61200148C08 /* BGATabBarController.m */; };
@@ -71,6 +72,8 @@
 		317E59FE1AED3D440004B893 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		317E59FF1AED3D440004B893 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		317E5A001AED3D440004B893 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		317E5A051AEF0CEB0004B893 /* BGAProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAProductViewController.h; sourceTree = "<group>"; };
+		317E5A061AEF0CEB0004B893 /* BGAProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAProductViewController.m; sourceTree = "<group>"; };
 		319B70671AD2ECCB00171A28 /* BGAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAAppDelegate.h; sourceTree = "<group>"; };
 		319B70681AD2ECCB00171A28 /* BGAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAAppDelegate.m; sourceTree = "<group>"; };
 		319B70691AD2ECCB00171A28 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -225,6 +228,15 @@
 				317E5A001AED3D440004B893 /* MBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		317E5A041AEF0CA10004B893 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				317E5A051AEF0CEB0004B893 /* BGAProductViewController.h */,
+				317E5A061AEF0CEB0004B893 /* BGAProductViewController.m */,
+			);
+			path = Product;
 			sourceTree = "<group>";
 		};
 		319B704D1AD2ECCB00171A28 /* Classes */ = {
@@ -435,6 +447,7 @@
 		53EB1F3F1AEC9569001D997D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				317E5A041AEF0CA10004B893 /* Product */,
 				53EB1F421AEC959E001D997D /* BGASettingTableViewController.h */,
 				53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */,
 				317E59F51AED29120004B893 /* BGATestController.h */,
@@ -581,6 +594,7 @@
 				31A385481AE7F77200148C08 /* BGATabBar.m in Sources */,
 				31A385541AE9B18A00148C08 /* BGATitleButton.m in Sources */,
 				31A3854B1AE804F900148C08 /* BGATabBarButton.m in Sources */,
+				317E5A071AEF0CEB0004B893 /* BGAProductViewController.m in Sources */,
 				31F326871AED0F46009F68BE /* BGASettingItem.m in Sources */,
 				31A385451AE7F61200148C08 /* BGATabBarController.m in Sources */,
 				317E59F41AED20020004B893 /* BGASettingSwitchItem.m in Sources */,

@@ -14,6 +14,7 @@
 #import "BGASettingSwitchItem.h"
 #import "BGATestController.h"
 #import "MBProgressHUD+MJ.h"
+#import "BGAProductViewController.h"
 
 @interface BGASettingTableViewController ()
 
@@ -64,7 +65,7 @@
         BGASettingItem *help = [BGASettingArrowItem itemWithIcon:@"MoreHelp" title:@"帮助"];
         BGASettingItem *share = [BGASettingArrowItem itemWithIcon:@"MoreShare" title:@"分享"];
         BGASettingItem *message = [BGASettingArrowItem itemWithIcon:@"MoreMessage" title:@"查看消息"];
-        BGASettingItem *netease = [BGASettingArrowItem itemWithIcon:@"MoreNetease" title:@"产品推荐"];
+        BGASettingItem *netease = [BGASettingArrowItem itemWithIcon:@"MoreNetease" title:@"产品推荐" destVcClass:[BGAProductViewController class]];
         BGASettingItem *about = [BGASettingArrowItem itemWithIcon:@"MoreAbout" title:@"关于"];
         BGASettingGroup *group1 = [[BGASettingGroup alloc] init];
         group1.items = @[checkNewVersion, help, share, message, netease, about];
