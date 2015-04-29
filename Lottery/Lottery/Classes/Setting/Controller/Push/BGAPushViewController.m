@@ -11,6 +11,7 @@
 #import "BGASettingGroup.h"
 #import "BGATestController.h"
 #import "BGASettingCell.h"
+#import "BGAScoreNoticeViewController.h"
 
 @interface BGAPushViewController ()
 @end
@@ -25,7 +26,7 @@
 - (void)addGroup0 {
     BGASettingArrowItem *push = [BGASettingArrowItem itemWithIcon:nil title:@"开奖号码推送" destVcClass:[BGATestController class]];
     BGASettingArrowItem *anim = [BGASettingArrowItem itemWithIcon:nil title:@"中奖动画" destVcClass:[BGATestController class]];
-    BGASettingArrowItem *score = [BGASettingArrowItem itemWithIcon:nil title:@"比分直播提醒" destVcClass:[BGATestController class]];
+    BGASettingArrowItem *score = [BGASettingArrowItem itemWithIcon:nil title:@"比分直播提醒" destVcClass:[BGAScoreNoticeViewController class]];
     BGASettingArrowItem *timer = [BGASettingArrowItem itemWithIcon:nil title:@"购彩限时提醒" destVcClass:[BGATestController class]];
     BGASettingGroup *group0 = [[BGASettingGroup alloc] init];
     group0.items = @[push, anim, score, timer];

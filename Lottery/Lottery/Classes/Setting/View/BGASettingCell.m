@@ -10,12 +10,13 @@
 #import "BGASettingItem.h"
 #import "BGASettingArrowItem.h"
 #import "BGASettingSwitchItem.h"
+#import "BGASettingLabelItem.h"
 
 @interface BGASettingCell()
 
 @property (nonatomic, strong) UISwitch *switchAccessoryView;
 @property (nonatomic, strong) UIImageView *imageAccessoryView;
-
+@property (nonatomic, strong) UILabel *labelAccessoryView;
 
 @end
 
@@ -42,6 +43,16 @@
         _imageAccessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CellArrow"]];
     }
     return _imageAccessoryView;
+}
+
+- (UILabel *)labelAccessoryView {
+    if (_labelAccessoryView == nil) {
+        _labelAccessoryView = [[UILabel alloc] init];
+        _labelAccessoryView.bounds = CGRectMake(0, 0, 100, 44);
+        _labelAccessoryView.textAlignment = NSTextAlignmentRight;
+        _labelAccessoryView.textColor = [UIColor redColor];
+    }
+    return _labelAccessoryView;
 }
 
 - (void)setItem:(BGASettingItem *)item {
@@ -71,6 +82,11 @@
         self.accessoryView = self.switchAccessoryView;
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+    } else if ([_item isKindOfClass:[BGASettingLabelItem class]]) {
+        self.accessoryView = self.labelAccessoryView;
+        BGASettingLabelItem *labelItem = (BGASettingLabelItem *)self.item;
+        self.labelAccessoryView.text = labelItem.text;
+        self.selectionStyle = UITableViewCellSelectionStyleDefault;
     } else {
         self.accessoryView = nil;
         
