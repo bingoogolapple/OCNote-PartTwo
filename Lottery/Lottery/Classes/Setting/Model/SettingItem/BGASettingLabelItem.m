@@ -7,7 +7,18 @@
 //
 
 #import "BGASettingLabelItem.h"
+#import "BGASaveTool.h"
 
 @implementation BGASettingLabelItem
+
+- (void)setText:(NSString *)text {
+    _text = text;
+    [BGASaveTool setObject:text forKey:self.title];
+}
+
+- (void)setTitle:(NSString *)title {
+    [super setTitle:title];
+    _text = [BGASaveTool objectForKey:title];
+}
 
 @end

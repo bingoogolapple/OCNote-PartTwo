@@ -10,8 +10,11 @@
 #import "BGASettingSwitchItem.h"
 #import "BGASettingGroup.h"
 #import "BGASettingLabelItem.h"
+#import "BGASaveTool.h"
 
 @interface BGAScoreNoticeViewController ()
+
+@property (nonatomic, strong) BGASettingLabelItem *startItem;
 
 @end
 
@@ -34,9 +37,29 @@
 
 - (void)addGroup1 {
     BGASettingLabelItem *start = [BGASettingLabelItem itemWithIcon:nil title:@"开始时间"];
-    start.text = @"00:00";
+    
+    if (!start.text.length) {
+        start.text = @"00:00";
+    }
+    start.option = ^ {
+        UITextField *textField = [[UITextField alloc] init];
+        UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+        datePicker.datePickerMode = UIDatePickerModeTime;
+        datePicker.locale = [NSLocale localeWithLocaleIdentifier:@"zh"];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"HH:mm";
+        datePicker.date = [dateFormatter dateFromString:self.startItem.text];
+        [datePicker addTarget:self action:@selector(dateValueChange:) forControlEvents:UIControlEventValueChanged];
+        textField.inputView = datePicker;
+        
+        [self.view addSubview:textField];
+        [textField becomeFirstResponder];
+        
+    };
+    self.startItem = start;
     BGASettingGroup *group = [[BGASettingGroup alloc] init];
-    group.header = @"dfsdfs";
+    group.header = @"只在一下时间接受比分直播";
     group.items = @[start];
     [self.dataList addObject:group];
 }
@@ -47,6 +70,14 @@
     BGASettingGroup *group = [[BGASettingGroup alloc] init];
     group.items = @[stop];
     [self.dataList addObject:group];
+}
+
+- (void)dateValueChange:(UIDatePicker *)datePicker {
+    Logger(@"%@", datePicker.date);
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"HH:mm";
+    _startItem.text = [dateFormatter stringFromDate:datePicker.date];
+    [self.tableView reloadData];
 }
 
 @end

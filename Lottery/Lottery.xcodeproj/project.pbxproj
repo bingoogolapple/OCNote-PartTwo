@@ -39,6 +39,7 @@
 		31B508021AF062E1006B058B /* BGABaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B508011AF062E1006B058B /* BGABaseTableViewController.m */; };
 		31B508051AF09EF1006B058B /* BGAScoreNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B508041AF09EF1006B058B /* BGAScoreNoticeViewController.m */; };
 		31B508081AF0A118006B058B /* BGASettingLabelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B508071AF0A118006B058B /* BGASettingLabelItem.m */; };
+		31B5080C1AF10617006B058B /* BGASaveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5080B1AF10617006B058B /* BGASaveTool.m */; };
 		53EB1F441AEC959E001D997D /* BGASettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,8 @@
 		31B508041AF09EF1006B058B /* BGAScoreNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAScoreNoticeViewController.m; sourceTree = "<group>"; };
 		31B508061AF0A118006B058B /* BGASettingLabelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASettingLabelItem.h; sourceTree = "<group>"; };
 		31B508071AF0A118006B058B /* BGASettingLabelItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASettingLabelItem.m; sourceTree = "<group>"; };
+		31B5080A1AF10617006B058B /* BGASaveTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASaveTool.h; sourceTree = "<group>"; };
+		31B5080B1AF10617006B058B /* BGASaveTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASaveTool.m; sourceTree = "<group>"; };
 		53EB1F421AEC959E001D997D /* BGASettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASettingTableViewController.h; sourceTree = "<group>"; };
 		53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASettingTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -494,9 +497,19 @@
 			path = Push;
 			sourceTree = "<group>";
 		};
+		31B508091AF105FF006B058B /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				31B5080A1AF10617006B058B /* BGASaveTool.h */,
+				31B5080B1AF10617006B058B /* BGASaveTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		53EB1F3E1AEC9569001D997D /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				31B508091AF105FF006B058B /* Tool */,
 				53EB1F3F1AEC9569001D997D /* Controller */,
 				53EB1F401AEC9569001D997D /* Model */,
 				53EB1F411AEC9569001D997D /* View */,
@@ -658,6 +671,7 @@
 				317E5A1E1AEFB7520004B893 /* BGAProductCell.m in Sources */,
 				31A385481AE7F77200148C08 /* BGATabBar.m in Sources */,
 				317E5A141AEFB40F0004B893 /* BGASettingArrowItem.m in Sources */,
+				31B5080C1AF10617006B058B /* BGASaveTool.m in Sources */,
 				31B508081AF0A118006B058B /* BGASettingLabelItem.m in Sources */,
 				31A385541AE9B18A00148C08 /* BGATitleButton.m in Sources */,
 				31A3854B1AE804F900148C08 /* BGATabBarButton.m in Sources */,
