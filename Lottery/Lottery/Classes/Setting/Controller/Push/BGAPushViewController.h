@@ -1,16 +1,14 @@
 //
-//  BGASettingTableViewController.h
+//  BGAPushViewController.h
 //  Lottery
 //
-//  Created by iqeggandroid on 15/4/26.
+//  Created by bingoogol on 15/4/29.
 //  Copyright (c) 2015年 bingoogolapple. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
 #import "BGABaseTableViewController.h"
 
-
-@interface BGASettingTableViewController : BGABaseTableViewController
+@interface BGAPushViewController : BGABaseTableViewController
 
 @end

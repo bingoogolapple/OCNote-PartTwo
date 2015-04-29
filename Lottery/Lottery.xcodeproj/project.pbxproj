@@ -35,6 +35,8 @@
 		31A3854E1AE8788100148C08 /* BGAHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A3854D1AE8788100148C08 /* BGAHallViewController.m */; };
 		31A385511AE87C0400148C08 /* BGANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385501AE87C0400148C08 /* BGANavigationController.m */; };
 		31A385541AE9B18A00148C08 /* BGATitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A385531AE9B18A00148C08 /* BGATitleButton.m */; };
+		31B507FC1AF05E41006B058B /* BGAPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B507FB1AF05E41006B058B /* BGAPushViewController.m */; };
+		31B508021AF062E1006B058B /* BGABaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B508011AF062E1006B058B /* BGABaseTableViewController.m */; };
 		53EB1F441AEC959E001D997D /* BGASettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,10 @@
 		31A385501AE87C0400148C08 /* BGANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGANavigationController.m; sourceTree = "<group>"; };
 		31A385521AE9B18A00148C08 /* BGATitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATitleButton.h; sourceTree = "<group>"; };
 		31A385531AE9B18A00148C08 /* BGATitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATitleButton.m; sourceTree = "<group>"; };
+		31B507FA1AF05E41006B058B /* BGAPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPushViewController.h; sourceTree = "<group>"; };
+		31B507FB1AF05E41006B058B /* BGAPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAPushViewController.m; sourceTree = "<group>"; };
+		31B508001AF062E1006B058B /* BGABaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGABaseTableViewController.h; sourceTree = "<group>"; };
+		31B508011AF062E1006B058B /* BGABaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGABaseTableViewController.m; sourceTree = "<group>"; };
 		53EB1F421AEC959E001D997D /* BGASettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASettingTableViewController.h; sourceTree = "<group>"; };
 		53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASettingTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -469,6 +475,15 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		31B507F91AF05E27006B058B /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				31B507FA1AF05E41006B058B /* BGAPushViewController.h */,
+				31B507FB1AF05E41006B058B /* BGAPushViewController.m */,
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
 		53EB1F3E1AEC9569001D997D /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,12 +497,15 @@
 		53EB1F3F1AEC9569001D997D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				31B507F91AF05E27006B058B /* Push */,
 				317E5A041AEF0CA10004B893 /* Product */,
 				53EB1F421AEC959E001D997D /* BGASettingTableViewController.h */,
 				53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */,
 				317E59F51AED29120004B893 /* BGATestController.h */,
 				317E59F61AED29120004B893 /* BGATestController.m */,
 				317E59F71AED29120004B893 /* BGATestController.xib */,
+				31B508001AF062E1006B058B /* BGABaseTableViewController.h */,
+				31B508011AF062E1006B058B /* BGABaseTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -620,6 +638,7 @@
 				317E5A011AED3D440004B893 /* MBProgressHUD+MJ.m in Sources */,
 				3174050A1AE9C9C40012DC43 /* BGALoginViewController.m in Sources */,
 				317E59EE1AED1A6F0004B893 /* BGASettingCell.m in Sources */,
+				31B508021AF062E1006B058B /* BGABaseTableViewController.m in Sources */,
 				317E59F81AED29120004B893 /* BGATestController.m in Sources */,
 				31A3854E1AE8788100148C08 /* BGAHallViewController.m in Sources */,
 				317E5A1A1AEFB4390004B893 /* BGAProduct.m in Sources */,
@@ -635,6 +654,7 @@
 				317E5A151AEFB40F0004B893 /* BGASettingGroup.m in Sources */,
 				317E5A171AEFB40F0004B893 /* BGASettingSwitchItem.m in Sources */,
 				3174050E1AE9CE5F0012DC43 /* UIImage+Tool.m in Sources */,
+				31B507FC1AF05E41006B058B /* BGAPushViewController.m in Sources */,
 				319B706A1AD2ECCB00171A28 /* BGAAppDelegate.m in Sources */,
 				317E5A161AEFB40F0004B893 /* BGASettingItem.m in Sources */,
 				319B706B1AD2ECCB00171A28 /* main.m in Sources */,

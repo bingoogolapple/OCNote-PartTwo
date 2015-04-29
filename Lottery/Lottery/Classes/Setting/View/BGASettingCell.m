@@ -54,7 +54,9 @@
 // 设置cell的子控件的数据
 - (void)setupData {
     self.textLabel.text = _item.title;
-    self.imageView.image = [UIImage imageNamed:_item.icon];
+    if (_item.icon.length) {
+        self.imageView.image = [UIImage imageNamed:_item.icon];
+    }
 }
 
 // 设置右边视图
