@@ -16,6 +16,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "BGAProductViewController.h"
 #import "BGAPushViewController.h"
+#import "BGAHelpViewController.h"
 
 @interface BGASettingTableViewController ()
 @end
@@ -50,7 +51,7 @@
             [alert show];
         });
     };
-    BGASettingItem *help = [BGASettingArrowItem itemWithIcon:@"MoreHelp" title:@"帮助"];
+    BGASettingItem *help = [BGASettingArrowItem itemWithIcon:@"MoreHelp" title:@"帮助" destVcClass:[BGAHelpViewController class]];
     BGASettingItem *share = [BGASettingArrowItem itemWithIcon:@"MoreShare" title:@"分享"];
     BGASettingItem *message = [BGASettingArrowItem itemWithIcon:@"MoreMessage" title:@"查看消息"];
     BGASettingItem *netease = [BGASettingArrowItem itemWithIcon:@"MoreNetease" title:@"产品推荐" destVcClass:[BGAProductViewController class]];

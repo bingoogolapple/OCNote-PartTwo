@@ -10,7 +10,6 @@
 #import "BGASettingArrowItem.h"
 #import "BGASettingGroup.h"
 #import "BGATestController.h"
-#import "BGASettingCell.h"
 #import "BGAScoreNoticeViewController.h"
 
 @interface BGAPushViewController ()

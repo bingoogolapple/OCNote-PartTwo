@@ -17,7 +17,7 @@
     product.icon = dict[@"icon"];
     product.url = dict[@"url"];
     product.customUrl = dict[@"customUrl"];
-    product.ID = dict[@"ID"];
+    product.ID = dict[@"id"];
     
     return product;
 }
