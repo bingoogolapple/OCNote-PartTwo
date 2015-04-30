@@ -12,6 +12,7 @@
 @interface BGASettingCell : UITableViewCell
 
 @property (nonatomic, strong) BGASettingItem *item;
+@property (nonatomic, strong) NSIndexPath *indexPath;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 

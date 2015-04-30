@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UISwitch *switchAccessoryView;
 @property (nonatomic, strong) UIImageView *imageAccessoryView;
 @property (nonatomic, strong) UILabel *labelAccessoryView;
+@property (nonatomic, strong) UIView *divider;
 
 @end
 
@@ -26,9 +27,68 @@
     static NSString *ID = @"SETTING_ITEM_CELL";
     BGASettingCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
-        cell = [[BGASettingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [[BGASettingCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
     }
     return cell;
+}
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self setupBg];
+        [self setupSubviewsBg];
+    }
+    return self;
+}
+
+- (void)setupBg {
+    self.backgroundColor = [UIColor whiteColor];
+    // 取消ios6的圆角，ios6的分割线和圆角都在backgroundView,ios7的分割线不在backgroundView中
+    UIView *backgroundView = [[UIView alloc] init];
+    self.backgroundView = backgroundView;
+    
+    // 设置选中时的背景
+    UIView *selectedBg = [[UIView alloc] init];
+    selectedBg.backgroundColor = BGAColor(237, 233, 218);
+    self.selectedBackgroundView = selectedBg;
+}
+
+- (void)setupSubviewsBg {
+    self.textLabel.backgroundColor = [UIColor clearColor];
+    self.detailTextLabel.backgroundColor = [UIColor clearColor];
+}
+
+- (void)setFrame:(CGRect)frame {
+    frame.size.width += 20;
+    frame.origin.x -= 10;
+    [super setFrame:frame];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    Logger(@"%@", NSStringFromCGRect(self.contentView.frame));
+    
+    CGFloat dividerX = 0;
+    CGFloat dividerY = 0;
+    CGFloat dividerW = self.contentView.bounds.size.width;
+    CGFloat dividerH = 1;
+    self.divider.frame = CGRectMake(dividerX, dividerY, dividerW, dividerH);
+}
+
+- (void)setIndexPath:(NSIndexPath *)indexPath {
+    _indexPath = indexPath;
+    self.divider.hidden = indexPath.row == 0;
+}
+
+- (UIView *)divider {
+    if (_divider == nil) {
+        UIView *divider = [[UIView alloc] init];
+        divider.backgroundColor = [UIColor blackColor];
+        divider.alpha = 0.2;
+        [self.contentView addSubview:divider];
+        
+        _divider = divider;
+    }
+    return _divider;
 }
 
 - (UISwitch *)switchAccessoryView {
@@ -65,6 +125,7 @@
 // 设置cell的子控件的数据
 - (void)setupData {
     self.textLabel.text = _item.title;
+    self.detailTextLabel.text = _item.subTitle;
     if (_item.icon.length) {
         self.imageView.image = [UIImage imageNamed:_item.icon];
     }

@@ -29,6 +29,13 @@
     return [super initWithStyle:UITableViewStyleGrouped];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // 清除ios6中的backgroundView，backgroundView优先级大于backgroundColor
+    self.tableView.backgroundView = nil;
+    self.tableView.backgroundColor = BGAColor(244, 243, 241);
+}
+
 - (NSMutableArray *)dataList {
     if (_dataList == nil) {
         _dataList = [NSMutableArray array];
@@ -53,6 +60,7 @@
     BGASettingItem *item = group.items[indexPath.row];
     // 传递模型
     cell.item = item;
+    cell.indexPath = indexPath;
     
     return cell;
 }

@@ -13,6 +13,7 @@ typedef void(^BGASettingItemOption)();
 @interface BGASettingItem : NSObject
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subTitle;
 @property (nonatomic, copy) NSString *icon;
 
 // 保存一段功能，在恰当的时候调用

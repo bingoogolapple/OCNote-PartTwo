@@ -74,6 +74,10 @@
 		31B508591AF129E4006B058B /* cywt.json in Resources */ = {isa = PBXBuildFile; fileRef = 31B508561AF129E4006B058B /* cywt.json */; };
 		31B5085A1AF129E4006B058B /* help.json in Resources */ = {isa = PBXBuildFile; fileRef = 31B508571AF129E4006B058B /* help.json */; };
 		31B5085B1AF129E4006B058B /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 31B508581AF129E4006B058B /* products.json */; };
+		31B5085F1AF1A48F006B058B /* BGAShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5085E1AF1A48F006B058B /* BGAShareViewController.m */; };
+		31B508631AF1A784006B058B /* BGAAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B508621AF1A784006B058B /* BGAAboutViewController.m */; };
+		31B508681AF1A929006B058B /* BGAAboutHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B508661AF1A929006B058B /* BGAAboutHeaderView.m */; };
+		31B508691AF1A929006B058B /* BGAAboutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B508671AF1A929006B058B /* BGAAboutHeaderView.xib */; };
 		53EB1F441AEC959E001D997D /* BGASettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -188,6 +192,13 @@
 		31B508561AF129E4006B058B /* cywt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cywt.json; sourceTree = "<group>"; };
 		31B508571AF129E4006B058B /* help.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = help.json; sourceTree = "<group>"; };
 		31B508581AF129E4006B058B /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
+		31B5085D1AF1A48F006B058B /* BGAShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAShareViewController.h; sourceTree = "<group>"; };
+		31B5085E1AF1A48F006B058B /* BGAShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAShareViewController.m; sourceTree = "<group>"; };
+		31B508611AF1A784006B058B /* BGAAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAAboutViewController.h; sourceTree = "<group>"; };
+		31B508621AF1A784006B058B /* BGAAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAAboutViewController.m; sourceTree = "<group>"; };
+		31B508651AF1A929006B058B /* BGAAboutHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAAboutHeaderView.h; sourceTree = "<group>"; };
+		31B508661AF1A929006B058B /* BGAAboutHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAAboutHeaderView.m; sourceTree = "<group>"; };
+		31B508671AF1A929006B058B /* BGAAboutHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BGAAboutHeaderView.xib; sourceTree = "<group>"; };
 		53EB1F421AEC959E001D997D /* BGASettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASettingTableViewController.h; sourceTree = "<group>"; };
 		53EB1F431AEC959E001D997D /* BGASettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASettingTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -644,6 +655,34 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		31B5085C1AF1A474006B058B /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				31B5085D1AF1A48F006B058B /* BGAShareViewController.h */,
+				31B5085E1AF1A48F006B058B /* BGAShareViewController.m */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
+		31B508601AF1A773006B058B /* About */ = {
+			isa = PBXGroup;
+			children = (
+				31B508611AF1A784006B058B /* BGAAboutViewController.h */,
+				31B508621AF1A784006B058B /* BGAAboutViewController.m */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		31B508641AF1A929006B058B /* AboutHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				31B508651AF1A929006B058B /* BGAAboutHeaderView.h */,
+				31B508661AF1A929006B058B /* BGAAboutHeaderView.m */,
+				31B508671AF1A929006B058B /* BGAAboutHeaderView.xib */,
+			);
+			path = AboutHeaderView;
+			sourceTree = "<group>";
+		};
 		53EB1F3E1AEC9569001D997D /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -658,6 +697,8 @@
 		53EB1F3F1AEC9569001D997D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				31B508601AF1A773006B058B /* About */,
+				31B5085C1AF1A474006B058B /* Share */,
 				31B5080D1AF1221C006B058B /* Help */,
 				31B507F91AF05E27006B058B /* Push */,
 				317E5A041AEF0CA10004B893 /* Product */,
@@ -685,6 +726,7 @@
 		53EB1F411AEC9569001D997D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31B508641AF1A929006B058B /* AboutHeaderView */,
 				317E59EC1AED1A6F0004B893 /* BGASettingCell.h */,
 				317E59ED1AED1A6F0004B893 /* BGASettingCell.m */,
 				317E5A1B1AEFB7520004B893 /* BGAProductCell.h */,
@@ -799,6 +841,7 @@
 				31B508381AF1290E006B058B /* bjdc_howto.html in Resources */,
 				31B5083A1AF1290E006B058B /* credit_help.html in Resources */,
 				317E59F91AED29120004B893 /* BGATestController.xib in Resources */,
+				31B508691AF1A929006B058B /* BGAAboutHeaderView.xib in Resources */,
 				31B508401AF1290E006B058B /* helpGroupBuy.html in Resources */,
 				31B508421AF1290E006B058B /* jczq_howto.html in Resources */,
 				31B508411AF1290E006B058B /* jclq_howto.html in Resources */,
@@ -846,14 +889,17 @@
 				31B5080C1AF10617006B058B /* BGASaveTool.m in Sources */,
 				31B508081AF0A118006B058B /* BGASettingLabelItem.m in Sources */,
 				31A385541AE9B18A00148C08 /* BGATitleButton.m in Sources */,
+				31B508681AF1A929006B058B /* BGAAboutHeaderView.m in Sources */,
 				31A3854B1AE804F900148C08 /* BGATabBarButton.m in Sources */,
 				317E5A071AEF0CEB0004B893 /* BGAProductViewController.m in Sources */,
 				31A385451AE7F61200148C08 /* BGATabBarController.m in Sources */,
 				317E5A151AEFB40F0004B893 /* BGASettingGroup.m in Sources */,
 				31B508101AF12244006B058B /* BGAHelpViewController.m in Sources */,
 				317E5A171AEFB40F0004B893 /* BGASettingSwitchItem.m in Sources */,
+				31B508631AF1A784006B058B /* BGAAboutViewController.m in Sources */,
 				3174050E1AE9CE5F0012DC43 /* UIImage+Tool.m in Sources */,
 				31B507FC1AF05E41006B058B /* BGAPushViewController.m in Sources */,
+				31B5085F1AF1A48F006B058B /* BGAShareViewController.m in Sources */,
 				319B706A1AD2ECCB00171A28 /* BGAAppDelegate.m in Sources */,
 				317E5A161AEFB40F0004B893 /* BGASettingItem.m in Sources */,
 				31B508161AF124A3006B058B /* BGAHtml.m in Sources */,

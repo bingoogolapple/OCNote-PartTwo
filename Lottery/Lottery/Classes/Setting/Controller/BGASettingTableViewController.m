@@ -17,6 +17,8 @@
 #import "BGAProductViewController.h"
 #import "BGAPushViewController.h"
 #import "BGAHelpViewController.h"
+#import "BGAShareViewController.h"
+#import "BGAAboutViewController.h"
 
 @interface BGASettingTableViewController ()
 @end
@@ -25,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self addGroup0];
     [self addGroup1];
 }
@@ -52,10 +55,10 @@
         });
     };
     BGASettingItem *help = [BGASettingArrowItem itemWithIcon:@"MoreHelp" title:@"帮助" destVcClass:[BGAHelpViewController class]];
-    BGASettingItem *share = [BGASettingArrowItem itemWithIcon:@"MoreShare" title:@"分享"];
+    BGASettingItem *share = [BGASettingArrowItem itemWithIcon:@"MoreShare" title:@"分享" destVcClass:[BGAShareViewController class]];
     BGASettingItem *message = [BGASettingArrowItem itemWithIcon:@"MoreMessage" title:@"查看消息"];
     BGASettingItem *netease = [BGASettingArrowItem itemWithIcon:@"MoreNetease" title:@"产品推荐" destVcClass:[BGAProductViewController class]];
-    BGASettingItem *about = [BGASettingArrowItem itemWithIcon:@"MoreAbout" title:@"关于"];
+    BGASettingItem *about = [BGASettingArrowItem itemWithIcon:@"MoreAbout" title:@"关于" destVcClass:[BGAAboutViewController class]];
     BGASettingGroup *group1 = [[BGASettingGroup alloc] init];
     group1.items = @[checkNewVersion, help, share, message, netease, about];
     group1.header = @"group0header";
