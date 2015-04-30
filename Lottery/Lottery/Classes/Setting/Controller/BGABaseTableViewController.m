@@ -34,6 +34,12 @@
     // 清除ios6中的backgroundView，backgroundView优先级大于backgroundColor
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = BGAColor(244, 243, 241);
+    
+    self.tableView.sectionHeaderHeight = 20;
+    self.tableView.sectionFooterHeight = 0;
+    if (ios7) {
+        self.tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
+    }
 }
 
 - (NSMutableArray *)dataList {
@@ -55,6 +61,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // 创建cell
     BGASettingCell *cell = [BGASettingCell cellWithTableView:tableView];
+    // 第一个cell的y为35，要减去15才能使header高度为20
+    Logger(@"%@", NSStringFromCGRect(cell.frame));
     // 取出模型
     BGASettingGroup *group = self.dataList[indexPath.section];
     BGASettingItem *item = group.items[indexPath.row];

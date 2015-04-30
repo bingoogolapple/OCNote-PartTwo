@@ -38,8 +38,6 @@
     BGASettingItem *soundEffect = [BGASettingSwitchItem itemWithIcon:@"sound_Effect" title:@"声音效果"];
     BGASettingGroup *group0 = [[BGASettingGroup alloc] init];
     group0.items = @[pushNotice, handShake, soundEffect];
-    group0.header = @"group0header";
-    group0.footer = @"group0footer";
     [self.dataList addObject:group0];
 }
 
@@ -61,8 +59,6 @@
     BGASettingItem *about = [BGASettingArrowItem itemWithIcon:@"MoreAbout" title:@"关于" destVcClass:[BGAAboutViewController class]];
     BGASettingGroup *group1 = [[BGASettingGroup alloc] init];
     group1.items = @[checkNewVersion, help, share, message, netease, about];
-    group1.header = @"group0header";
-    group1.footer = @"group0footer";
     [self.dataList addObject:group1];
 }
 

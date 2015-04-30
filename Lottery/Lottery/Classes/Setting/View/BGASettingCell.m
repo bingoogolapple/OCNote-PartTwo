@@ -67,7 +67,7 @@
     [super layoutSubviews];
     Logger(@"%@", NSStringFromCGRect(self.contentView.frame));
     
-    CGFloat dividerX = 0;
+    CGFloat dividerX = self.textLabel.frame.origin.x;
     CGFloat dividerY = 0;
     CGFloat dividerW = self.contentView.bounds.size.width;
     CGFloat dividerH = 1;
@@ -81,12 +81,14 @@
 
 - (UIView *)divider {
     if (_divider == nil) {
-        UIView *divider = [[UIView alloc] init];
-        divider.backgroundColor = [UIColor blackColor];
-        divider.alpha = 0.2;
-        [self.contentView addSubview:divider];
-        
-        _divider = divider;
+        if (!ios7) {
+            UIView *divider = [[UIView alloc] init];
+            divider.backgroundColor = [UIColor blackColor];
+            divider.alpha = 0.2;
+            [self.contentView addSubview:divider];
+            
+            _divider = divider;
+        }
     }
     return _divider;
 }

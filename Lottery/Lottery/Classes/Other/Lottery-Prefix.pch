@@ -19,8 +19,8 @@
 #define Logger(...)
 #endif
 
-#define ios7 [[UIDevice currentDevice].systemVersion floatValue] >= 7.0
+#define ios7 ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0)
 
-#define BGAColor(r,g,b) ([UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]);
+#define BGAColor(r,g,b) ([UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1])
 
 #endif
