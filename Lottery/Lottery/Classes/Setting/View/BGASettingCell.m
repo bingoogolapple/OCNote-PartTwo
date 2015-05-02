@@ -58,8 +58,10 @@
 }
 
 - (void)setFrame:(CGRect)frame {
-    frame.size.width += 20;
-    frame.origin.x -= 10;
+    if (!ios7) {
+        frame.size.width += 20;
+        frame.origin.x -= 10;
+    }
     [super setFrame:frame];
 }
 

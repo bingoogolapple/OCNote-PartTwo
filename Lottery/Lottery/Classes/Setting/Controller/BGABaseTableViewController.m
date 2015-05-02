@@ -37,7 +37,7 @@
     
     self.tableView.sectionHeaderHeight = 20;
     self.tableView.sectionFooterHeight = 0;
-    if (ios7) {
+    if (!ios7) {
         self.tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
     }
 }
