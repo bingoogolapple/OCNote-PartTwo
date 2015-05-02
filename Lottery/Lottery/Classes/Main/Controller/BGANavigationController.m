@@ -34,6 +34,7 @@
 + (void)setupBarButton {
     // 获取所有的UIBarButton的外观
     UIBarButtonItem *buttonItem = [UIBarButtonItem appearance];
+
     
     [buttonItem setBackgroundImage:[UIImage imageNamed:@"NavButton"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [buttonItem setBackgroundImage:[UIImage imageNamed:@"NavButtonPressed"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
@@ -48,7 +49,12 @@
 + (void)setupNav {
     // 获取应用程序中所有的导航条
     // 获取所有当行条外观
-    UINavigationBar *navBar = [UINavigationBar appearance];
+//    UINavigationBar *navBar = [UINavigationBar appearance];
+    
+    // 获取我们自己当行控制器下的导航条，以解决ios7发送短信时出现顶部黑屏
+    UINavigationBar *navBar = [UINavigationBar appearanceWhenContainedIn:[BGANavigationController class], nil];
+    
+    
     // iOS6导航条高度44
     NSString *navImgName = nil;
     if(ios7) {

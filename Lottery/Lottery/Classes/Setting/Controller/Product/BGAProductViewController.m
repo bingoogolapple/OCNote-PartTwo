@@ -89,8 +89,21 @@ static NSString * const reuseIdentifier = @"ProductCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // 为应用配置url => Info => URL Types  (Identifier:abc    URL Schemes:mm    mm://abc)
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mm://abc"]];
+    
     BGAProduct *product = [self.products objectAtIndex:indexPath.item];
-    Logger(@"点击了--》%@", product.icon);
+    Logger(@"点击了--》%@", product.title);
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@://%@", product.customUrl, product.ID];
+    UIApplication *app = [UIApplication sharedApplication];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    // 判断是否安装某个应用
+    if (![app canOpenURL:url]) {
+        // 没有安装某个应用
+        url = [NSURL URLWithString:product.url];
+    }
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 
