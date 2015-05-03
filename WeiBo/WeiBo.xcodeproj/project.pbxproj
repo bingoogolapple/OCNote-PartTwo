@@ -15,6 +15,11 @@
 		31903F431AF642E6006A2A46 /* BGAMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F421AF642E6006A2A46 /* BGAMessageCenterViewController.m */; };
 		31903F461AF64302006A2A46 /* BGADiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F451AF64302006A2A46 /* BGADiscoverViewController.m */; };
 		31903F491AF64320006A2A46 /* BGAProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F481AF64320006A2A46 /* BGAProfileViewController.m */; };
+		31903F4C1AF6497B006A2A46 /* BGATabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F4B1AF6497B006A2A46 /* BGATabBarViewController.m */; };
+		31903F4F1AF672CB006A2A46 /* BGATest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F4E1AF672CB006A2A46 /* BGATest1ViewController.m */; };
+		31903F521AF673B0006A2A46 /* BGATest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F511AF673B0006A2A46 /* BGATest2ViewController.m */; };
+		31903F551AF673F3006A2A46 /* BGATest3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F541AF673F3006A2A46 /* BGATest3ViewController.m */; };
+		31903F591AF67D3D006A2A46 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F581AF67D3D006A2A46 /* UIView+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,16 @@
 		31903F451AF64302006A2A46 /* BGADiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGADiscoverViewController.m; sourceTree = "<group>"; };
 		31903F471AF64320006A2A46 /* BGAProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAProfileViewController.h; sourceTree = "<group>"; };
 		31903F481AF64320006A2A46 /* BGAProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAProfileViewController.m; sourceTree = "<group>"; };
+		31903F4A1AF6497B006A2A46 /* BGATabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATabBarViewController.h; sourceTree = "<group>"; };
+		31903F4B1AF6497B006A2A46 /* BGATabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATabBarViewController.m; sourceTree = "<group>"; };
+		31903F4D1AF672CB006A2A46 /* BGATest1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATest1ViewController.h; sourceTree = "<group>"; };
+		31903F4E1AF672CB006A2A46 /* BGATest1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATest1ViewController.m; sourceTree = "<group>"; };
+		31903F501AF673B0006A2A46 /* BGATest2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATest2ViewController.h; sourceTree = "<group>"; };
+		31903F511AF673B0006A2A46 /* BGATest2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATest2ViewController.m; sourceTree = "<group>"; };
+		31903F531AF673F3006A2A46 /* BGATest3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATest3ViewController.h; sourceTree = "<group>"; };
+		31903F541AF673F3006A2A46 /* BGATest3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATest3ViewController.m; sourceTree = "<group>"; };
+		31903F571AF67D3D006A2A46 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		31903F581AF67D3D006A2A46 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +149,16 @@
 				31903F451AF64302006A2A46 /* BGADiscoverViewController.m */,
 				31903F471AF64320006A2A46 /* BGAProfileViewController.h */,
 				31903F481AF64320006A2A46 /* BGAProfileViewController.m */,
+				31903F4A1AF6497B006A2A46 /* BGATabBarViewController.h */,
+				31903F4B1AF6497B006A2A46 /* BGATabBarViewController.m */,
+				31903F4D1AF672CB006A2A46 /* BGATest1ViewController.h */,
+				31903F4E1AF672CB006A2A46 /* BGATest1ViewController.m */,
+				31903F501AF673B0006A2A46 /* BGATest2ViewController.h */,
+				31903F511AF673B0006A2A46 /* BGATest2ViewController.m */,
+				31903F531AF673F3006A2A46 /* BGATest3ViewController.h */,
+				31903F541AF673F3006A2A46 /* BGATest3ViewController.m */,
+				31903F571AF67D3D006A2A46 /* UIView+Extension.h */,
+				31903F581AF67D3D006A2A46 /* UIView+Extension.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -237,9 +262,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				31903F431AF642E6006A2A46 /* BGAMessageCenterViewController.m in Sources */,
+				31903F4C1AF6497B006A2A46 /* BGATabBarViewController.m in Sources */,
+				31903F591AF67D3D006A2A46 /* UIView+Extension.m in Sources */,
 				31903F401AF642C4006A2A46 /* BGAHomeViewController.m in Sources */,
 				31903F3C1AF5FE1B006A2A46 /* main.m in Sources */,
 				31903F491AF64320006A2A46 /* BGAProfileViewController.m in Sources */,
+				31903F521AF673B0006A2A46 /* BGATest2ViewController.m in Sources */,
+				31903F4F1AF672CB006A2A46 /* BGATest1ViewController.m in Sources */,
+				31903F551AF673F3006A2A46 /* BGATest3ViewController.m in Sources */,
 				31903F3B1AF5FE1B006A2A46 /* AppDelegate.m in Sources */,
 				31903F461AF64302006A2A46 /* BGADiscoverViewController.m in Sources */,
 			);
@@ -425,6 +455,7 @@
 				31903F331AF5F94C006A2A46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		31903F341AF5F94C006A2A46 /* Build configuration list for PBXNativeTarget "WeiBoTests" */ = {
 			isa = XCConfigurationList;
@@ -433,6 +464,7 @@
 				31903F361AF5F94C006A2A46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

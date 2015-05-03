@@ -7,10 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "BGAHomeViewController.h"
-#import "BGAMessageCenterViewController.h"
-#import "BGADiscoverViewController.h"
-#import "BGAProfileViewController.h"
+#import "BGATabBarViewController.h"
 
 
 @interface AppDelegate ()
@@ -19,49 +16,19 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 1.创建窗口
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
     // 2.设置根控制器
-    UITabBarController *tabbarVc = [[UITabBarController alloc] init];
+    BGATabBarViewController *tabbarVc = [[BGATabBarViewController alloc] init];
     self.window.rootViewController = tabbarVc;
     
-    BGAHomeViewController *home = [[BGAHomeViewController alloc] init];
-    [self addChildVc:home title:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
-    
-    BGAMessageCenterViewController *messageCenter = [[BGAMessageCenterViewController alloc] init];
-    [self addChildVc:messageCenter title:@"消息" image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
-
-    BGADiscoverViewController *discover = [[BGADiscoverViewController alloc] init];
-    [self addChildVc:discover title:@"发现" image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
-
-    BGAProfileViewController *profile = [[BGAProfileViewController alloc] init];
-    [self addChildVc:profile title:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
-
-    tabbarVc.viewControllers = @[home, messageCenter,discover,profile];
     
     // 3.显示窗口
     [self.window makeKeyAndVisible];
     return YES;
-}
-
-- (void)addChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage {
-    childVc.view.backgroundColor = BGARandomColor;
-    
-    childVc.tabBarItem.title = title;
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSForegroundColorAttributeName] = BGAColor(123,123,123);
-    [childVc.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
-    NSMutableDictionary *selAttrs = [NSMutableDictionary dictionary];
-    selAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    [childVc.tabBarItem setTitleTextAttributes:selAttrs forState:UIControlStateSelected];
-    
-    childVc.tabBarItem.image = [UIImage imageNamed:image];
-    // 声明这张图片按照原始的样子显示，不要自动渲染成其他颜色
-    childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
