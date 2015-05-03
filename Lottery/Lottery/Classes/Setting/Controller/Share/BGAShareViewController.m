@@ -11,6 +11,7 @@
 #import "BGASettingGroup.h"
 
 #import <MessageUI/MessageUI.h>
+#import "UMSocial.h"
 
 @interface BGAShareViewController ()<MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 @property (nonatomic, assign) int age;
@@ -77,7 +78,7 @@
 //        vc.messageComposeDelegate = self;
 //        [self presentViewController:vc animated:YES completion:nil];
         // _age 的本质是 self->_age;
-////        _age;
+//        _age;
 //        share.age;
         
         // block中不能使用self,和_成员变量，否则会出现循环引用
@@ -86,6 +87,21 @@
         [share presentViewController:vc animated:YES completion:nil];
     };
     BGASettingArrowItem *sina = [BGASettingArrowItem itemWithIcon:@"WeiboSina" title:@"新浪分享"];
+    sina.option = ^{
+        /*
+        [UMSocialSnsService presentSnsIconSheetView:self
+                                             appKey:@"55458cd167e58ef2f8000827"
+                                          shareText:@"你要分享的文字"
+                                         shareImage:[UIImage imageNamed:@"aliavator.png"]
+                                    shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,nil]
+                                           delegate:nil];
+        */
+        [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToSina] content:@"分享内嵌文字" image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+            if (response.responseCode == UMSResponseCodeSuccess) {
+                NSLog(@"分享成功！");
+            }
+        }];
+    };
     BGASettingGroup *group0 = [[BGASettingGroup alloc] init];
     group0.items = @[sina, sms, mail];
     [self.dataList addObject:group0];

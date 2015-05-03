@@ -7,6 +7,7 @@
 //
 
 #import "BGAAppDelegate.h"
+#import "UMSocial.h"
 
 @interface BGAAppDelegate ()
 
@@ -24,6 +25,8 @@
     
     // info中配置View controller-based status bar appearance为NO，使控制器不能设置状态栏样式
     application.statusBarStyle = UIStatusBarStyleLightContent;
+    
+    [UMSocialData setAppKey:@"55458cd167e58ef2f8000827"];
     
     return YES;
 }
