@@ -13,7 +13,7 @@
 #import <MessageUI/MessageUI.h>
 
 @interface BGAShareViewController ()<MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
-
+@property (nonatomic, assign) int age;
 @end
 
 @implementation BGAShareViewController
@@ -24,6 +24,7 @@
 }
 
 - (void)addGroup0 {
+    __weak BGAShareViewController *share = self;
     BGASettingArrowItem *mail = [BGASettingArrowItem itemWithIcon:@"MailShare" title:@"邮件分享"];
     mail.option = ^{
         // 用自带的邮件客户端，发完邮件后不会自动回到原应用
@@ -55,10 +56,10 @@
         NSData *data = UIImagePNGRepresentation(image);
         [vc addAttachmentData:data mimeType:@"image/png" fileName:@"aliavator.png"];
         // 设置代理
-        vc.mailComposeDelegate = self;
-        // 显示控制器
-        [self presentViewController:vc animated:YES completion:nil];
-
+//        vc.mailComposeDelegate = self;
+//        [self presentViewController:vc animated:YES completion:nil];
+        vc.mailComposeDelegate = share;
+        [share presentViewController:vc animated:YES completion:nil];
     };
     BGASettingArrowItem *sms = [BGASettingArrowItem itemWithIcon:@"SmsShare" title:@"短信分享"];
     sms.option = ^{
@@ -73,12 +74,16 @@
         // 设置收件人列表
         vc.recipients = @[@"10010", @"13693437925"];
         // 设置代理
-        vc.messageComposeDelegate = self;
+//        vc.messageComposeDelegate = self;
+//        [self presentViewController:vc animated:YES completion:nil];
+        // _age 的本质是 self->_age;
+////        _age;
+//        share.age;
         
-        // 显示控制器
-        [self presentViewController:vc animated:YES completion:nil];
-
+        // block中不能使用self,和_成员变量，否则会出现循环引用
         
+        vc.messageComposeDelegate = share;
+        [share presentViewController:vc animated:YES completion:nil];
     };
     BGASettingArrowItem *sina = [BGASettingArrowItem itemWithIcon:@"WeiboSina" title:@"新浪分享"];
     BGASettingGroup *group0 = [[BGASettingGroup alloc] init];
@@ -111,6 +116,10 @@
     } else {
         NSLog(@"发送失败");
     }
+}
+
+- (void)dealloc {
+    Logger(@"%s", __func__);
 }
 
 
