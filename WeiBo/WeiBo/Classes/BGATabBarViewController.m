@@ -11,6 +11,7 @@
 #import "BGAMessageCenterViewController.h"
 #import "BGADiscoverViewController.h"
 #import "BGAProfileViewController.h"
+#import "BGANavigationController.h"
 
 @interface BGATabBarViewController ()
 
@@ -60,7 +61,7 @@
     childVc.view.backgroundColor = BGARandomColor;
     
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
+    BGANavigationController *nav = [[BGANavigationController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
 }
 

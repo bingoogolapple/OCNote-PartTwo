@@ -20,6 +20,7 @@
 		31903F521AF673B0006A2A46 /* BGATest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F511AF673B0006A2A46 /* BGATest2ViewController.m */; };
 		31903F551AF673F3006A2A46 /* BGATest3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F541AF673F3006A2A46 /* BGATest3ViewController.m */; };
 		31903F591AF67D3D006A2A46 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F581AF67D3D006A2A46 /* UIView+Extension.m */; };
+		31903F5C1AF6EA80006A2A46 /* BGANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F5B1AF6EA80006A2A46 /* BGANavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		31903F541AF673F3006A2A46 /* BGATest3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATest3ViewController.m; sourceTree = "<group>"; };
 		31903F571AF67D3D006A2A46 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		31903F581AF67D3D006A2A46 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		31903F5A1AF6EA80006A2A46 /* BGANavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGANavigationController.h; sourceTree = "<group>"; };
+		31903F5B1AF6EA80006A2A46 /* BGANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGANavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,8 @@
 				31903F541AF673F3006A2A46 /* BGATest3ViewController.m */,
 				31903F571AF67D3D006A2A46 /* UIView+Extension.h */,
 				31903F581AF67D3D006A2A46 /* UIView+Extension.m */,
+				31903F5A1AF6EA80006A2A46 /* BGANavigationController.h */,
+				31903F5B1AF6EA80006A2A46 /* BGANavigationController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 			files = (
 				31903F431AF642E6006A2A46 /* BGAMessageCenterViewController.m in Sources */,
 				31903F4C1AF6497B006A2A46 /* BGATabBarViewController.m in Sources */,
+				31903F5C1AF6EA80006A2A46 /* BGANavigationController.m in Sources */,
 				31903F591AF67D3D006A2A46 /* UIView+Extension.m in Sources */,
 				31903F401AF642C4006A2A46 /* BGAHomeViewController.m in Sources */,
 				31903F3C1AF5FE1B006A2A46 /* main.m in Sources */,

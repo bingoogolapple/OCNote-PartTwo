@@ -7,6 +7,12 @@
 //
 
 #import "BGAProfileViewController.h"
+#import "BGATest1ViewController.h"
+
+// “duplicate symbol _OBJC_CLASS_$_类名 in:”错误
+// 1.90%的 都是因为#import了.m文件
+// 2.其他可能是因为项目中存在了2了一样的.m文件
+
 
 @interface BGAProfileViewController ()
 
@@ -17,11 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:0 target:self action:@selector(setting)];
+}
+
+- (void)setting {
+    BGATest1ViewController *test1 = [[BGATest1ViewController alloc] init];
+    test1.title = @"test1";
+    [self.navigationController pushViewController:test1 animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,17 +37,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return 0;
 }
 
