@@ -19,6 +19,7 @@
 
 #ifdef __OBJC__
     #import "UIView+Extension.h"
+    #import "UIBarButtonItem+Extension.h"
 #endif
 
 // RGB颜色

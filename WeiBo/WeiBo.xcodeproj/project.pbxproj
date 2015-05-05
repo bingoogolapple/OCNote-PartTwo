@@ -21,6 +21,7 @@
 		31903F991AF6F83E006A2A46 /* BGATest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F891AF6F83E006A2A46 /* BGATest1ViewController.m */; };
 		31903F9A1AF6F83E006A2A46 /* BGATest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F8B1AF6F83E006A2A46 /* BGATest2ViewController.m */; };
 		31903F9B1AF6F83E006A2A46 /* BGATest3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F8D1AF6F83E006A2A46 /* BGATest3ViewController.m */; };
+		31903F9E1AF83E38006A2A46 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F9D1AF83E38006A2A46 /* UIBarButtonItem+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		31903F8B1AF6F83E006A2A46 /* BGATest2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATest2ViewController.m; sourceTree = "<group>"; };
 		31903F8C1AF6F83E006A2A46 /* BGATest3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATest3ViewController.h; sourceTree = "<group>"; };
 		31903F8D1AF6F83E006A2A46 /* BGATest3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATest3ViewController.m; sourceTree = "<group>"; };
+		31903F9C1AF83E38006A2A46 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		31903F9D1AF83E38006A2A46 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +238,8 @@
 			children = (
 				31903F6C1AF6F83E006A2A46 /* UIView+Extension.h */,
 				31903F6D1AF6F83E006A2A46 /* UIView+Extension.m */,
+				31903F9C1AF83E38006A2A46 /* UIBarButtonItem+Extension.h */,
+				31903F9D1AF83E38006A2A46 /* UIBarButtonItem+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -492,6 +497,7 @@
 				31903F941AF6F83E006A2A46 /* BGATabBarViewController.m in Sources */,
 				31903F961AF6F83E006A2A46 /* main.m in Sources */,
 				31903F901AF6F83E006A2A46 /* BGADiscoverViewController.m in Sources */,
+				31903F9E1AF83E38006A2A46 /* UIBarButtonItem+Extension.m in Sources */,
 				31903F9A1AF6F83E006A2A46 /* BGATest2ViewController.m in Sources */,
 				31903F991AF6F83E006A2A46 /* BGATest1ViewController.m in Sources */,
 			);
