@@ -7,6 +7,7 @@
 //
 
 #import "BGAHomeViewController.h"
+#import "BGASearchBar.h"
 
 @interface BGAHomeViewController ()
 
@@ -21,14 +22,20 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(friendSearch) image:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted"];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(pop) image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
+    
+    BGASearchBar *searchBar = [BGASearchBar searchBar];
+    searchBar.width = self.view.bounds.size.width - 10;
+    searchBar.x = 5;
+    searchBar.height = 30;
+    [self.view addSubview:searchBar];
 }
 
 - (void)friendSearch {
-    NSLog(@"friendSearch");
+    Logger(@"friendSearch");
 }
 
 - (void)pop {
-    NSLog(@"pop");
+    Logger(@"pop");
 }
 
 #pragma mark - Table view data source

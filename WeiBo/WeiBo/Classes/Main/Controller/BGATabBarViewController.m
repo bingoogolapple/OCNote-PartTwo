@@ -58,7 +58,8 @@
     // 声明这张图片按照原始的样子显示，不要自动渲染成其他颜色
     childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    childVc.view.backgroundColor = BGARandomColor;
+    // 如果这里设置了自控制器的颜色，会导致一下子创建4个自控制器的View
+//    childVc.view.backgroundColor = BGARandomColor;
     
     
     BGANavigationController *nav = [[BGANavigationController alloc] initWithRootViewController:childVc];

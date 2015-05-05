@@ -22,6 +22,7 @@
 		31903F9A1AF6F83E006A2A46 /* BGATest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F8B1AF6F83E006A2A46 /* BGATest2ViewController.m */; };
 		31903F9B1AF6F83E006A2A46 /* BGATest3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F8D1AF6F83E006A2A46 /* BGATest3ViewController.m */; };
 		31903F9E1AF83E38006A2A46 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F9D1AF83E38006A2A46 /* UIBarButtonItem+Extension.m */; };
+		31903FA11AF8F587006A2A46 /* BGASearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FA01AF8F587006A2A46 /* BGASearchBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		31903F8D1AF6F83E006A2A46 /* BGATest3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATest3ViewController.m; sourceTree = "<group>"; };
 		31903F9C1AF83E38006A2A46 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		31903F9D1AF83E38006A2A46 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		31903F9F1AF8F586006A2A46 /* BGASearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASearchBar.h; sourceTree = "<group>"; };
+		31903FA01AF8F587006A2A46 /* BGASearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASearchBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +285,8 @@
 		31903F791AF6F83E006A2A46 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31903F9F1AF8F586006A2A46 /* BGASearchBar.h */,
+				31903FA01AF8F587006A2A46 /* BGASearchBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 			files = (
 				31903F921AF6F83E006A2A46 /* UIView+Extension.m in Sources */,
 				31903F911AF6F83E006A2A46 /* BGAHomeViewController.m in Sources */,
+				31903FA11AF8F587006A2A46 /* BGASearchBar.m in Sources */,
 				31903F951AF6F83E006A2A46 /* AppDelegate.m in Sources */,
 				31903F9B1AF6F83E006A2A46 /* BGATest3ViewController.m in Sources */,
 				31903F981AF6F83E006A2A46 /* BGAProfileViewController.m in Sources */,

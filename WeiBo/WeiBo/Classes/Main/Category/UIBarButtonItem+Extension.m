@@ -16,10 +16,7 @@
     // 设置图片
     [btn setBackgroundImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
     [btn setBackgroundImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
-    // 设置尺寸
-    //    CGSize size = btn.currentBackgroundImage.size;
-    // 这里的x,y无效
-    //    btn = CGRectMake(0, 0, size.width, size.height);
+    
     btn.size = btn.currentBackgroundImage.size;
     return [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
