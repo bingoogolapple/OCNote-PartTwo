@@ -12,8 +12,9 @@
 #import "BGADiscoverViewController.h"
 #import "BGAProfileViewController.h"
 #import "BGANavigationController.h"
+#import "BGATabBar.h"
 
-@interface BGATabBarViewController ()
+@interface BGATabBarViewController ()<BGATabBarDelegate>
 
 @end
 
@@ -36,6 +37,12 @@
     
     BGAProfileViewController *profile = [[BGAProfileViewController alloc] init];
     [self addChildVc:profile title:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
+    
+//    self.tabBar = [[BGATabBar alloc] init];
+    // tabBar为只读属性，只能用kvc设置
+    BGATabBar *tabBar = [[BGATabBar alloc] init];
+    tabBar.delegate = self;
+    [self setValue:tabBar forKey:@"tabBar"];
 }
 
 - (void)addChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage {
@@ -64,6 +71,10 @@
     
     BGANavigationController *nav = [[BGANavigationController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
+}
+
+- (void)tabBarOnClickPlusBtn:(BGATabBar *)tabBar {
+    Logger(@"点击了加号按钮");
 }
 
 @end

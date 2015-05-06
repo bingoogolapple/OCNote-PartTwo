@@ -77,7 +77,7 @@
     // 默认情况下，frame是以父控件左上角为坐标原点
     // 转换坐标系
 //    CGRect newFrame = [from convertRect:from.bounds toView:window];
-    // 和上面那句是等效的
+    // 和上面那句是等效的，如果toView为nil则是计算在主窗口中的位置
     CGRect newFrame = [from.superview convertRect:from.frame toView:window];
     self.containerView.centerX = CGRectGetMidX(newFrame);
     self.containerView.y = CGRectGetMaxY(newFrame);
