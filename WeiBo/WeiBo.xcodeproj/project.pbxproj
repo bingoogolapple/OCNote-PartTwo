@@ -23,6 +23,9 @@
 		31903F9B1AF6F83E006A2A46 /* BGATest3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F8D1AF6F83E006A2A46 /* BGATest3ViewController.m */; };
 		31903F9E1AF83E38006A2A46 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F9D1AF83E38006A2A46 /* UIBarButtonItem+Extension.m */; };
 		31903FA11AF8F587006A2A46 /* BGASearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FA01AF8F587006A2A46 /* BGASearchBar.m */; };
+		31903FA41AF8FBD4006A2A46 /* BGATitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FA31AF8FBD4006A2A46 /* BGATitleButton.m */; };
+		31903FAA1AF912AD006A2A46 /* BGADropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FA91AF912AD006A2A46 /* BGADropdownMenu.m */; };
+		31903FB01AF99350006A2A46 /* BGAHomeTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FAF1AF99350006A2A46 /* BGAHomeTitleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,12 @@
 		31903F9D1AF83E38006A2A46 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		31903F9F1AF8F586006A2A46 /* BGASearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASearchBar.h; sourceTree = "<group>"; };
 		31903FA01AF8F587006A2A46 /* BGASearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASearchBar.m; sourceTree = "<group>"; };
+		31903FA21AF8FBD4006A2A46 /* BGATitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATitleButton.h; sourceTree = "<group>"; };
+		31903FA31AF8FBD4006A2A46 /* BGATitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATitleButton.m; sourceTree = "<group>"; };
+		31903FA81AF912AD006A2A46 /* BGADropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGADropdownMenu.h; sourceTree = "<group>"; };
+		31903FA91AF912AD006A2A46 /* BGADropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGADropdownMenu.m; sourceTree = "<group>"; };
+		31903FAE1AF99350006A2A46 /* BGAHomeTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAHomeTitleViewController.h; sourceTree = "<group>"; };
+		31903FAF1AF99350006A2A46 /* BGAHomeTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAHomeTitleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +214,8 @@
 			children = (
 				31903F661AF6F83E006A2A46 /* BGAHomeViewController.h */,
 				31903F671AF6F83E006A2A46 /* BGAHomeViewController.m */,
+				31903FAE1AF99350006A2A46 /* BGAHomeTitleViewController.h */,
+				31903FAF1AF99350006A2A46 /* BGAHomeTitleViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -285,8 +296,12 @@
 		31903F791AF6F83E006A2A46 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31903FA21AF8FBD4006A2A46 /* BGATitleButton.h */,
+				31903FA31AF8FBD4006A2A46 /* BGATitleButton.m */,
 				31903F9F1AF8F586006A2A46 /* BGASearchBar.h */,
 				31903FA01AF8F587006A2A46 /* BGASearchBar.m */,
+				31903FA81AF912AD006A2A46 /* BGADropdownMenu.h */,
+				31903FA91AF912AD006A2A46 /* BGADropdownMenu.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -438,6 +453,7 @@
 		31903F061AF5F94B006A2A46 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = BGA;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = bingoogolapple;
 				TargetAttributes = {
@@ -497,11 +513,14 @@
 				31903FA11AF8F587006A2A46 /* BGASearchBar.m in Sources */,
 				31903F951AF6F83E006A2A46 /* AppDelegate.m in Sources */,
 				31903F9B1AF6F83E006A2A46 /* BGATest3ViewController.m in Sources */,
+				31903FAA1AF912AD006A2A46 /* BGADropdownMenu.m in Sources */,
 				31903F981AF6F83E006A2A46 /* BGAProfileViewController.m in Sources */,
+				31903FB01AF99350006A2A46 /* BGAHomeTitleViewController.m in Sources */,
 				31903F931AF6F83E006A2A46 /* BGANavigationController.m in Sources */,
 				31903F971AF6F83E006A2A46 /* BGAMessageCenterViewController.m in Sources */,
 				31903F941AF6F83E006A2A46 /* BGATabBarViewController.m in Sources */,
 				31903F961AF6F83E006A2A46 /* main.m in Sources */,
+				31903FA41AF8FBD4006A2A46 /* BGATitleButton.m in Sources */,
 				31903F901AF6F83E006A2A46 /* BGADiscoverViewController.m in Sources */,
 				31903F9E1AF83E38006A2A46 /* UIBarButtonItem+Extension.m in Sources */,
 				31903F9A1AF6F83E006A2A46 /* BGATest2ViewController.m in Sources */,

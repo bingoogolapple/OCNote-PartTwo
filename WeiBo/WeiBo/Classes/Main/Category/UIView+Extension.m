@@ -50,6 +50,26 @@
     return self.frame.size.width;
 }
 
+- (void)setCenterX:(CGFloat)centerX {
+    CGPoint center = self.center;
+    center.x = centerX;
+    self.center = center;
+}
+
+- (CGFloat)centerX {
+    return self.center.x;
+}
+
+- (void)setCenterY:(CGFloat)centerY {
+    CGPoint center = self.center;
+    center.y = centerY;
+    self.center = center;
+}
+
+- (CGFloat)centerY {
+    return self.center.y;
+}
+
 - (void)setSize:(CGSize)size {
     CGRect frame = self.frame;
     frame.size = size;
