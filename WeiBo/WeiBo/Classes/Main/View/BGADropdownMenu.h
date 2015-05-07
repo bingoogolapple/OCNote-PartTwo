@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class BGADropdownMenu;
+
 @protocol BGADropdownMenuDelegate <NSObject>
 
-- (void)onDropdownMenuDismiss;
-- (void)onDropdownMenuShow;
+@optional
+- (void)onDropdownMenuDismiss:(BGADropdownMenu *)menu;
+- (void)onDropdownMenuShow:(BGADropdownMenu *)menu;;
 
 @end
 
@@ -27,7 +30,7 @@
  */
 @property (nonatomic, strong) UIViewController *contentController;
 
-@property (nonatomic, strong) id<BGADropdownMenuDelegate> delegate;
+@property (nonatomic, weak) id<BGADropdownMenuDelegate> delegate;
 
 + (instancetype)menu;
 

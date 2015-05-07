@@ -21,7 +21,8 @@
     if(self == [BGANavigationController class]) {
         Logger(@"%s", __func__);
         // 设置整个项目所有item的主题样式
-        UIBarButtonItem *item = [UIBarButtonItem appearance];
+//        UIBarButtonItem *item = [UIBarButtonItem appearance];
+        UIBarButtonItem *item = [UIBarButtonItem appearanceWhenContainedIn:[BGANavigationController class], nil];
         
         // 设置普通状态
         // key：NS****AttributeName

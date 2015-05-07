@@ -12,7 +12,7 @@
 #import "BGAHomeTitleViewController.h"
 
 @interface BGAHomeViewController ()<BGADropdownMenuDelegate>
-@property (nonatomic, weak) UIButton *titleButton;
+
 @end
 
 @implementation BGAHomeViewController
@@ -46,7 +46,9 @@
     BGATitleButton *titleButton = [BGATitleButton buttonWithType:UIButtonTypeCustom];
     [titleButton setTitle:@"首页" forState:UIControlStateNormal];
     titleButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    // 如果只涉及到两张时，一开始写好图片，接下来只要设置selected
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
     titleButton.backgroundColor = BGARandomColor;
     titleButton.width = 150;
     titleButton.height = 30;
@@ -54,7 +56,6 @@
     [titleButton addTarget:self action:@selector(onClickTitle:) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.titleView = titleButton;
-    _titleButton = titleButton;
 }
 
 - (void)onClickTitle:(UIButton *)titleButton {
@@ -77,12 +78,16 @@
     Logger(@"pop");
 }
 
-- (void)onDropdownMenuDismiss {
-    [self.titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+- (void)onDropdownMenuDismiss:(BGADropdownMenu *)menu {
+    UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
+//    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    titleButton.selected = NO;
 }
 
-- (void)onDropdownMenuShow {
-    [self.titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+- (void)onDropdownMenuShow:(BGADropdownMenu *)menu {
+    UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
+//    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    titleButton.selected = YES;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

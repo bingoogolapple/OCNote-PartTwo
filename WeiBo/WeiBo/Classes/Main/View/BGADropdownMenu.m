@@ -82,16 +82,16 @@
     self.containerView.centerX = CGRectGetMidX(newFrame);
     self.containerView.y = CGRectGetMaxY(newFrame);
     
-    if ([self.delegate respondsToSelector:@selector(onDropdownMenuShow)]) {
-        [self.delegate onDropdownMenuShow];
+    if ([self.delegate respondsToSelector:@selector(onDropdownMenuShow:)]) {
+        [self.delegate onDropdownMenuShow:self];
     }
 }
 
 - (void)dismiss {
     [self removeFromSuperview];
     
-    if ([self.delegate respondsToSelector:@selector(onDropdownMenuDismiss)]) {
-        [self.delegate onDropdownMenuDismiss];
+    if ([self.delegate respondsToSelector:@selector(onDropdownMenuDismiss:)]) {
+        [self.delegate onDropdownMenuDismiss:self];
     }
 }
 
