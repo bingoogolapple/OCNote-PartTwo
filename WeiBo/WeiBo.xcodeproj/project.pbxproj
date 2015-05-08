@@ -27,6 +27,7 @@
 		31903FAA1AF912AD006A2A46 /* BGADropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FA91AF912AD006A2A46 /* BGADropdownMenu.m */; };
 		31903FB01AF99350006A2A46 /* BGAHomeTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FAF1AF99350006A2A46 /* BGAHomeTitleViewController.m */; };
 		31903FB31AFA5B16006A2A46 /* BGATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FB21AFA5B16006A2A46 /* BGATabBar.m */; };
+		31903FB81AFC3690006A2A46 /* BGANewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FB71AFC3690006A2A46 /* BGANewFeatureViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		31903FAF1AF99350006A2A46 /* BGAHomeTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAHomeTitleViewController.m; sourceTree = "<group>"; };
 		31903FB11AFA5B16006A2A46 /* BGATabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATabBar.h; sourceTree = "<group>"; };
 		31903FB21AFA5B16006A2A46 /* BGATabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATabBar.m; sourceTree = "<group>"; };
+		31903FB61AFC3690006A2A46 /* BGANewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGANewFeatureViewController.h; sourceTree = "<group>"; };
+		31903FB71AFC3690006A2A46 /* BGANewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGANewFeatureViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,7 @@
 		31903F5D1AF6F83E006A2A46 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				31903FB41AFC3657006A2A46 /* NewFeature */,
 				31903F5E1AF6F83E006A2A46 /* Discover */,
 				31903F641AF6F83E006A2A46 /* Home */,
 				31903F6A1AF6F83E006A2A46 /* Main */,
@@ -414,6 +418,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		31903FB41AFC3657006A2A46 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				31903FB51AFC3657006A2A46 /* Controller */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
+		31903FB51AFC3657006A2A46 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31903FB61AFC3690006A2A46 /* BGANewFeatureViewController.h */,
+				31903FB71AFC3690006A2A46 /* BGANewFeatureViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -516,6 +537,7 @@
 				31903F921AF6F83E006A2A46 /* UIView+Extension.m in Sources */,
 				31903F911AF6F83E006A2A46 /* BGAHomeViewController.m in Sources */,
 				31903FA11AF8F587006A2A46 /* BGASearchBar.m in Sources */,
+				31903FB81AFC3690006A2A46 /* BGANewFeatureViewController.m in Sources */,
 				31903F951AF6F83E006A2A46 /* AppDelegate.m in Sources */,
 				31903F9B1AF6F83E006A2A46 /* BGATest3ViewController.m in Sources */,
 				31903FAA1AF912AD006A2A46 /* BGADropdownMenu.m in Sources */,
