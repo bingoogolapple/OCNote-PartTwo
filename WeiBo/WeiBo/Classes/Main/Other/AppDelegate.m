@@ -10,6 +10,7 @@
 #import "BGATabBarViewController.h"
 #import "BGANewFeatureViewController.h"
 
+#define VersionKey @"CFBundleVersion"
 
 @interface AppDelegate ()
 
@@ -22,15 +23,28 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    // 2.设置根控制器
-//    BGATabBarViewController *tabbarVc = [[BGATabBarViewController alloc] init];
-//    self.window.rootViewController = tabbarVc;
-    
-    self.window.rootViewController = [[BGANewFeatureViewController alloc] init];
+    [self checkVersion];
     
     // 3.显示窗口
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)checkVersion {
+    // 上一次的使用版本（存储在沙盒中的版本号）
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:VersionKey];
+    // 当前软件的版本号（从Info.plist中获得）
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[VersionKey];
+    Logger(@"%@", currentVersion);
+    if ([currentVersion isEqualToString:lastVersion]) {
+        self.window.rootViewController = [[BGATabBarViewController alloc] init];
+    } else {
+        self.window.rootViewController = [[BGANewFeatureViewController alloc] init];
+        
+        // 将当前版本号存入沙盒
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:VersionKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

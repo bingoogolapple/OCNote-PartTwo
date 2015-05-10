@@ -7,6 +7,7 @@
 //
 
 #import "BGANewFeatureViewController.h"
+#import "BGATabBarViewController.h"
 
 #define BGANewFeatureCount 4
 
@@ -136,7 +137,16 @@
 }
 
 - (void)onClickStartBtn:(UIButton *)startBtn {
+    // 切换到BGATabBarViewController
+    /*
+     切换控制器的手段
+     1.push：依赖于UINavigationController，控制器的切换是可逆的，比如A切换到B，B又可以回到A
+     2.mod：控制器的切换是可逆的，比如A切换到B，B又可以回到A
+     3.切换window的rootViewController
+    */
     
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    window.rootViewController = [[BGATabBarViewController alloc] init];
 }
 
 - (void)setupPageControl {
@@ -163,6 +173,10 @@
     self.pageControl.currentPage = (int)(page + 0.5);
     
     Logger(@"%@--%d", NSStringFromCGPoint(scrollView.contentOffset), self.pageControl.currentPage);
+}
+
+- (void)dealloc {
+    Logger(@"%s", __func__);
 }
 
 @end
