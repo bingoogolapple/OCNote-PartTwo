@@ -35,6 +35,14 @@
         NSString *name = [NSString stringWithFormat:@"new_feature_%d", i + 1];
         imageView.image = [UIImage imageNamed:name];
         [scrollView addSubview:imageView];
+        
+        /*
+         程序启动会自动加载叫做Default.png的图片
+         3.5inch retina屏幕：Default@2x.png
+         3.5inch 非retina屏幕：Default.png
+         4inch retina屏幕：Default-568h@2x.png
+         只有程序启动时自动去加载的图片才会自动查找-568h@2x.png，在新特新界面需要程序员通过xcode手动设置Retina 4-inch
+         */
     }
     scrollView.contentSize = CGSizeMake(BGANewFeatureCount * scrollW, 0);
     // 去处弹簧效果
