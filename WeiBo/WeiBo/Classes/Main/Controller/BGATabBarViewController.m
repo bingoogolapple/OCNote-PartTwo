@@ -38,13 +38,21 @@
     BGAProfileViewController *profile = [[BGAProfileViewController alloc] init];
     [self addChildVc:profile title:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
     
+    // 更好系统自带的tabbar
 //    self.tabBar = [[BGATabBar alloc] init];
     // tabBar为只读属性，只能用kvc设置
     BGATabBar *tabBar = [[BGATabBar alloc] init];
-    tabBar.delegate = self;
+    
+    // [self setValue:tabBar forKeyPath:@"tabBar"];之后，tabbar的delegate就是当前控制器
+//    tabBar.delegate = self;
     // [self setValue:tabBar forKey:@"tabBar"];
     // forKeyPath包含了forKey的功能，以后使用forKeyPath就可以了
     [self setValue:tabBar forKeyPath:@"tabBar"];
+    
+    // Changing the delegate of a tab bar managed by a tab bar controller is not allowed.(tabbar的delegate必须在设置到controller之前设置，凡是修改系统自带的东西，先设置该设置的属性，然后再设置给系统)
+//    tabBar.delegate = self;
+    
+    Logger(@"self.tabBar.delegate = %@", self.tabBar.delegate);
 }
 
 - (void)addChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage {

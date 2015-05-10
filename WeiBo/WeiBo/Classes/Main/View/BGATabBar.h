@@ -19,6 +19,6 @@
 
 @interface BGATabBar : UITabBar
 
-@property (nonatomic, weak) id<BGATabBarDelegate> delegate;
+@property (nonatomic, assign) id<BGATabBarDelegate> delegate;
 
 @end
