@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BGATabBarViewController.h"
 #import "BGANewFeatureViewController.h"
+#import "BGAOAuthViewController.h"
 
 #define VersionKey @"CFBundleVersion"
 
@@ -23,7 +24,8 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    [self checkVersion];
+//    [self checkVersion];
+    self.window.rootViewController = [[BGAOAuthViewController alloc] init];
     
     // 3.显示窗口
     [self.window makeKeyAndVisible];

@@ -28,6 +28,7 @@
 		31903FB01AF99350006A2A46 /* BGAHomeTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FAF1AF99350006A2A46 /* BGAHomeTitleViewController.m */; };
 		31903FB31AFA5B16006A2A46 /* BGATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FB21AFA5B16006A2A46 /* BGATabBar.m */; };
 		31903FB81AFC3690006A2A46 /* BGANewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FB71AFC3690006A2A46 /* BGANewFeatureViewController.m */; };
+		31903FBD1B00F33F006A2A46 /* BGAOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FBC1B00F33F006A2A46 /* BGAOAuthViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		31903FB21AFA5B16006A2A46 /* BGATabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATabBar.m; sourceTree = "<group>"; };
 		31903FB61AFC3690006A2A46 /* BGANewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGANewFeatureViewController.h; sourceTree = "<group>"; };
 		31903FB71AFC3690006A2A46 /* BGANewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGANewFeatureViewController.m; sourceTree = "<group>"; };
+		31903FBB1B00F33F006A2A46 /* BGAOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAOAuthViewController.h; sourceTree = "<group>"; };
+		31903FBC1B00F33F006A2A46 /* BGAOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAOAuthViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,7 @@
 		31903F5D1AF6F83E006A2A46 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				31903FB91B00F306006A2A46 /* OAuth */,
 				31903FB41AFC3657006A2A46 /* NewFeature */,
 				31903F5E1AF6F83E006A2A46 /* Discover */,
 				31903F641AF6F83E006A2A46 /* Home */,
@@ -435,6 +439,23 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		31903FB91B00F306006A2A46 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				31903FBA1B00F306006A2A46 /* Controller */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		31903FBA1B00F306006A2A46 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31903FBB1B00F33F006A2A46 /* BGAOAuthViewController.h */,
+				31903FBC1B00F33F006A2A46 /* BGAOAuthViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -551,6 +572,7 @@
 				31903F901AF6F83E006A2A46 /* BGADiscoverViewController.m in Sources */,
 				31903FB31AFA5B16006A2A46 /* BGATabBar.m in Sources */,
 				31903F9E1AF83E38006A2A46 /* UIBarButtonItem+Extension.m in Sources */,
+				31903FBD1B00F33F006A2A46 /* BGAOAuthViewController.m in Sources */,
 				31903F9A1AF6F83E006A2A46 /* BGATest2ViewController.m in Sources */,
 				31903F991AF6F83E006A2A46 /* BGATest1ViewController.m in Sources */,
 			);
