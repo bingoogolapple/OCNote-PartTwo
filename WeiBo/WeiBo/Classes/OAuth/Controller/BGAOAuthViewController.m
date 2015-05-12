@@ -7,6 +7,7 @@
 //
 
 #import "BGAOAuthViewController.h"
+#import "AFNetworking.h"
 
 @interface BGAOAuthViewController ()<UIWebViewDelegate>
 
@@ -56,7 +57,36 @@
 }
 
 - (void)accessTokenWithCode:(NSString *)code {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    // 默认的序列化器就是json
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
+    // Request failed: unacceptable content-type: text/plain   新浪返回的头不是json，但是又是json格式的字符串
+    
+    //client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&grant_type=authorization_code&redirect_uri=YOUR_REGISTERED_REDIRECT_URI&code=CODE
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"client_id"] = @"3748232885";
+    params[@"client_secret"] = @"";
+    params[@"grant_type"] = @"authorization_code";
+    params[@"redirect_uri"] = @"http://www.bingoogolapple.cn";
+    params[@"code"] = code;
+    
+    
+    [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        /*
+         uid一个用户就一个
+         access_token一个用户给一个应用授权手会获得对应的一个accessToken
+         {
+         "access_token" = "2.00RU4baDHbMfFE3af002288axZ5QdE";
+         "expires_in" = 157679999;
+         "remind_in" = 157679999;
+         uid = 3289255017;
+         }
+         */
+        Logger(@"请求成功 - %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        Logger(@"请求失败 - %@", error);
+    }];
 }
 
 @end
