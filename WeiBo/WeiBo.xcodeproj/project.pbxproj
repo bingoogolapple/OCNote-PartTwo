@@ -38,6 +38,8 @@
 		31903FD81B0183A8006A2A46 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FCD1B0183A8006A2A46 /* AFURLRequestSerialization.m */; };
 		31903FD91B0183A8006A2A46 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FCF1B0183A8006A2A46 /* AFURLResponseSerialization.m */; };
 		31903FDA1B0183A8006A2A46 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FD11B0183A8006A2A46 /* AFURLSessionManager.m */; };
+		31903FDC1B025173006A2A46 /* local.json in Resources */ = {isa = PBXBuildFile; fileRef = 31903FDB1B025173006A2A46 /* local.json */; };
+		31903FE01B0254A9006A2A46 /* BGALocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FDF1B0254A9006A2A46 /* BGALocal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,9 @@
 		31903FCF1B0183A8006A2A46 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		31903FD01B0183A8006A2A46 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		31903FD11B0183A8006A2A46 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		31903FDB1B025173006A2A46 /* local.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = local.json; sourceTree = "<group>"; };
+		31903FDE1B0254A9006A2A46 /* BGALocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGALocal.h; sourceTree = "<group>"; };
+		31903FDF1B0254A9006A2A46 /* BGALocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGALocal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +174,7 @@
 				31903F1E1AF5F94C006A2A46 /* Images.xcassets */,
 				31903F121AF5F94C006A2A46 /* Info.plist */,
 				31903F3D1AF62048006A2A46 /* WeiBo-Prefix.pch */,
+				31903FDB1B025173006A2A46 /* local.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -471,6 +477,7 @@
 		31903FB91B00F306006A2A46 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
+				31903FDD1B02548F006A2A46 /* Model */,
 				31903FBA1B00F306006A2A46 /* Controller */,
 			);
 			path = OAuth;
@@ -509,6 +516,15 @@
 				31903FD11B0183A8006A2A46 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		31903FDD1B02548F006A2A46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				31903FDE1B0254A9006A2A46 /* BGALocal.h */,
+				31903FDF1B0254A9006A2A46 /* BGALocal.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -593,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31903F1F1AF5F94C006A2A46 /* Images.xcassets in Resources */,
+				31903FDC1B025173006A2A46 /* local.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +643,7 @@
 				31903FB01AF99350006A2A46 /* BGAHomeTitleViewController.m in Sources */,
 				31903F931AF6F83E006A2A46 /* BGANavigationController.m in Sources */,
 				31903F971AF6F83E006A2A46 /* BGAMessageCenterViewController.m in Sources */,
+				31903FE01B0254A9006A2A46 /* BGALocal.m in Sources */,
 				31903F941AF6F83E006A2A46 /* BGATabBarViewController.m in Sources */,
 				31903FD41B0183A8006A2A46 /* AFHTTPSessionManager.m in Sources */,
 				31903F961AF6F83E006A2A46 /* main.m in Sources */,

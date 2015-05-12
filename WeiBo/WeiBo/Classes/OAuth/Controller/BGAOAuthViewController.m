@@ -8,9 +8,10 @@
 
 #import "BGAOAuthViewController.h"
 #import "AFNetworking.h"
+#import "BGALocal.h"
 
 @interface BGAOAuthViewController ()<UIWebViewDelegate>
-
+@property (nonatomic, strong) BGALocal *local;
 @end
 
 @implementation BGAOAuthViewController
@@ -24,9 +25,21 @@
     [self.view addSubview:webView];
     
     // 回调地址默认是http://
-    NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=3748232885&redirect_uri=http://www.bingoogolapple.cn"];
+    NSString *urlStr = [NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@", self.local.clientId, self.local.redirectUri];
+    NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
+}
+
+- (BGALocal *)local {
+    if (_local == nil) {
+        NSString *fileName = [[NSBundle mainBundle] pathForResource:@"local.json" ofType:nil];
+        NSData *data = [NSData dataWithContentsOfFile:fileName];
+        NSDictionary *localDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        _local = [BGALocal localWithDict:localDict];
+        Logger(@"%@", _local);
+    }
+    return _local;
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
@@ -65,24 +78,15 @@
     
     //client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&grant_type=authorization_code&redirect_uri=YOUR_REGISTERED_REDIRECT_URI&code=CODE
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"client_id"] = @"3748232885";
-    params[@"client_secret"] = @"";
+    params[@"client_id"] = self.local.clientId;
+    params[@"client_secret"] = self.local.clientSecret;
     params[@"grant_type"] = @"authorization_code";
-    params[@"redirect_uri"] = @"http://www.bingoogolapple.cn";
+    params[@"redirect_uri"] = self.local.redirectUri;
     params[@"code"] = code;
     
     
     [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        /*
-         uid一个用户就一个
-         access_token一个用户给一个应用授权手会获得对应的一个accessToken
-         {
-         "access_token" = "2.00RU4baDHbMfFE3af002288axZ5QdE";
-         "expires_in" = 157679999;
-         "remind_in" = 157679999;
-         uid = 3289255017;
-         }
-         */
+        // uid一个用户就一个,access_token一个用户给一个应用授权手会获得对应的一个accessToken
         Logger(@"请求成功 - %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         Logger(@"请求失败 - %@", error);
