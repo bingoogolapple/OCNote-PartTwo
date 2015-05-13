@@ -9,11 +9,9 @@
 #import "BGAOAuthViewController.h"
 #import "AFNetworking.h"
 #import "BGALocal.h"
-#import "BGATabBarViewController.h"
-#import "BGANewFeatureViewController.h"
 #import "BGAAccount.h"
-
-#define VersionKey @"CFBundleVersion"
+#import "MBProgressHUD+MJ.h"
+#import "BGAAccountTool.h"
 
 @interface BGAOAuthViewController ()<UIWebViewDelegate>
 @property (nonatomic, strong) BGALocal *local;
@@ -49,14 +47,17 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     Logger(@"%s", __func__);
+    [MBProgressHUD showMessage:@"正在加载..."];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     Logger(@"%s", __func__);
+    [MBProgressHUD hideHUD];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     Logger(@"%s", __func__);
+    [MBProgressHUD hideHUD];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -94,39 +95,20 @@
     
     
     [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        [MBProgressHUD hideHUD];
         // uid一个用户就一个,access_token一个用户给一个应用授权手会获得对应的一个accessToken
         Logger(@"请求成功 - %@", responseObject);
-        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [doc stringByAppendingPathComponent:@"account.archiver"];
         
+        // 存储账号信息
         BGAAccount *account = [BGAAccount accountWithDict:responseObject];
-        // 自定义对象的存储必须用NSKeyedArchiver，不再有什么writeToFile方法
-        [NSKeyedArchiver archiveRootObject:account toFile:path];
+        [BGAAccountTool saveAccount:account];
         
-        [self checkVersion];
-        
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window switchRootViewController];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         Logger(@"请求失败 - %@", error);
+        [MBProgressHUD hideHUD];
     }];
-}
-
-- (void)checkVersion {
-    // 上一次的使用版本（存储在沙盒中的版本号）
-    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:VersionKey];
-    // 当前软件的版本号（从Info.plist中获得）
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[VersionKey];
-    Logger(@"%@", currentVersion);
-    
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    if ([currentVersion isEqualToString:lastVersion]) {
-        window.rootViewController = [[BGATabBarViewController alloc] init];
-    } else {
-        window.rootViewController = [[BGANewFeatureViewController alloc] init];
-        
-        // 将当前版本号存入沙盒
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:VersionKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
 }
 
 @end

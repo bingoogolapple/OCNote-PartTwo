@@ -41,6 +41,11 @@
 		31903FDC1B025173006A2A46 /* local.json in Resources */ = {isa = PBXBuildFile; fileRef = 31903FDB1B025173006A2A46 /* local.json */; };
 		31903FE01B0254A9006A2A46 /* BGALocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FDF1B0254A9006A2A46 /* BGALocal.m */; };
 		31903FE31B02D5D0006A2A46 /* BGAAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FE21B02D5D0006A2A46 /* BGAAccount.m */; };
+		31903FEA1B036EF1006A2A46 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FE61B036EF1006A2A46 /* MBProgressHUD+MJ.m */; };
+		31903FEB1B036EF1006A2A46 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 31903FE71B036EF1006A2A46 /* MBProgressHUD.bundle */; };
+		31903FEC1B036EF1006A2A46 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FE91B036EF1006A2A46 /* MBProgressHUD.m */; };
+		31903FF01B0378B9006A2A46 /* BGAAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FEF1B0378B9006A2A46 /* BGAAccountTool.m */; };
+		31903FF31B038434006A2A46 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FF21B038434006A2A46 /* UIWindow+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +129,15 @@
 		31903FDF1B0254A9006A2A46 /* BGALocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGALocal.m; sourceTree = "<group>"; };
 		31903FE11B02D5D0006A2A46 /* BGAAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAAccount.h; sourceTree = "<group>"; };
 		31903FE21B02D5D0006A2A46 /* BGAAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAAccount.m; sourceTree = "<group>"; };
+		31903FE51B036EF1006A2A46 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
+		31903FE61B036EF1006A2A46 /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		31903FE71B036EF1006A2A46 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		31903FE81B036EF1006A2A46 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		31903FE91B036EF1006A2A46 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		31903FEE1B0378B9006A2A46 /* BGAAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAAccountTool.h; sourceTree = "<group>"; };
+		31903FEF1B0378B9006A2A46 /* BGAAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAAccountTool.m; sourceTree = "<group>"; };
+		31903FF11B038434006A2A46 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
+		31903FF21B038434006A2A46 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +316,8 @@
 				31903F6D1AF6F83E006A2A46 /* UIView+Extension.m */,
 				31903F9C1AF83E38006A2A46 /* UIBarButtonItem+Extension.h */,
 				31903F9D1AF83E38006A2A46 /* UIBarButtonItem+Extension.m */,
+				31903FF11B038434006A2A46 /* UIWindow+Extension.h */,
+				31903FF21B038434006A2A46 /* UIWindow+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -320,6 +336,7 @@
 		31903F731AF6F83E006A2A46 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				31903FE41B036EF1006A2A46 /* MBProgressHUD */,
 				31903FBE1B0183A8006A2A46 /* AFNetworking */,
 			);
 			path = Lib;
@@ -480,6 +497,7 @@
 		31903FB91B00F306006A2A46 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
+				31903FED1B03789C006A2A46 /* Tool */,
 				31903FDD1B02548F006A2A46 /* Model */,
 				31903FBA1B00F306006A2A46 /* Controller */,
 			);
@@ -530,6 +548,27 @@
 				31903FE21B02D5D0006A2A46 /* BGAAccount.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		31903FE41B036EF1006A2A46 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				31903FE51B036EF1006A2A46 /* MBProgressHUD+MJ.h */,
+				31903FE61B036EF1006A2A46 /* MBProgressHUD+MJ.m */,
+				31903FE71B036EF1006A2A46 /* MBProgressHUD.bundle */,
+				31903FE81B036EF1006A2A46 /* MBProgressHUD.h */,
+				31903FE91B036EF1006A2A46 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		31903FED1B03789C006A2A46 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				31903FEE1B0378B9006A2A46 /* BGAAccountTool.h */,
+				31903FEF1B0378B9006A2A46 /* BGAAccountTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -615,6 +654,7 @@
 			files = (
 				31903F1F1AF5F94C006A2A46 /* Images.xcassets in Resources */,
 				31903FDC1B025173006A2A46 /* local.json in Resources */,
+				31903FEB1B036EF1006A2A46 /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,9 +673,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				31903FD81B0183A8006A2A46 /* AFURLRequestSerialization.m in Sources */,
+				31903FF31B038434006A2A46 /* UIWindow+Extension.m in Sources */,
 				31903FD71B0183A8006A2A46 /* AFURLConnectionOperation.m in Sources */,
 				31903F921AF6F83E006A2A46 /* UIView+Extension.m in Sources */,
 				31903F911AF6F83E006A2A46 /* BGAHomeViewController.m in Sources */,
+				31903FEC1B036EF1006A2A46 /* MBProgressHUD.m in Sources */,
 				31903FA11AF8F587006A2A46 /* BGASearchBar.m in Sources */,
 				31903FDA1B0183A8006A2A46 /* AFURLSessionManager.m in Sources */,
 				31903FB81AFC3690006A2A46 /* BGANewFeatureViewController.m in Sources */,
@@ -652,12 +694,14 @@
 				31903F941AF6F83E006A2A46 /* BGATabBarViewController.m in Sources */,
 				31903FD41B0183A8006A2A46 /* AFHTTPSessionManager.m in Sources */,
 				31903F961AF6F83E006A2A46 /* main.m in Sources */,
+				31903FEA1B036EF1006A2A46 /* MBProgressHUD+MJ.m in Sources */,
 				31903FA41AF8FBD4006A2A46 /* BGATitleButton.m in Sources */,
 				31903F901AF6F83E006A2A46 /* BGADiscoverViewController.m in Sources */,
 				31903FD31B0183A8006A2A46 /* AFHTTPRequestOperationManager.m in Sources */,
 				31903FB31AFA5B16006A2A46 /* BGATabBar.m in Sources */,
 				31903F9E1AF83E38006A2A46 /* UIBarButtonItem+Extension.m in Sources */,
 				31903FBD1B00F33F006A2A46 /* BGAOAuthViewController.m in Sources */,
+				31903FF01B0378B9006A2A46 /* BGAAccountTool.m in Sources */,
 				31903F9A1AF6F83E006A2A46 /* BGATest2ViewController.m in Sources */,
 				31903FD51B0183A8006A2A46 /* AFNetworkReachabilityManager.m in Sources */,
 				31903FE31B02D5D0006A2A46 /* BGAAccount.m in Sources */,

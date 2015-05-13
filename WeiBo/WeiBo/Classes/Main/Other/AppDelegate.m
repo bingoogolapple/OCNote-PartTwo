@@ -7,12 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "BGATabBarViewController.h"
-#import "BGANewFeatureViewController.h"
 #import "BGAOAuthViewController.h"
 #import "BGAAccount.h"
-
-#define VersionKey @"CFBundleVersion"
+#import "BGAAccountTool.h"
 
 @interface AppDelegate ()
 
@@ -24,37 +21,17 @@
     // 1.创建窗口
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
-    
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [doc stringByAppendingPathComponent:@"account.archiver"];
-    BGAAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+
+    BGAAccount *account = [BGAAccountTool account];
     if (account) {
         // 之前已经登录成功
-        [self checkVersion];
+        [self.window switchRootViewController];
     } else {
         self.window.rootViewController = [[BGAOAuthViewController alloc] init];
     }
     
-    // 3.显示窗口
     [self.window makeKeyAndVisible];
     return YES;
-}
-
-- (void)checkVersion {
-    // 上一次的使用版本（存储在沙盒中的版本号）
-    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:VersionKey];
-    // 当前软件的版本号（从Info.plist中获得）
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[VersionKey];
-    Logger(@"%@", currentVersion);
-    if ([currentVersion isEqualToString:lastVersion]) {
-        self.window.rootViewController = [[BGATabBarViewController alloc] init];
-    } else {
-        self.window.rootViewController = [[BGANewFeatureViewController alloc] init];
-        
-        // 将当前版本号存入沙盒
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:VersionKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
