@@ -10,6 +10,7 @@
 #import "BGATabBarViewController.h"
 #import "BGANewFeatureViewController.h"
 #import "BGAOAuthViewController.h"
+#import "BGAAccount.h"
 
 #define VersionKey @"CFBundleVersion"
 
@@ -24,8 +25,15 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-//    [self checkVersion];
-    self.window.rootViewController = [[BGAOAuthViewController alloc] init];
+    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [doc stringByAppendingPathComponent:@"account.archiver"];
+    BGAAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (account) {
+        // 之前已经登录成功
+        [self checkVersion];
+    } else {
+        self.window.rootViewController = [[BGAOAuthViewController alloc] init];
+    }
     
     // 3.显示窗口
     [self.window makeKeyAndVisible];

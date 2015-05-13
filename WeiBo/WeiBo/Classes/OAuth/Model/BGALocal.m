@@ -11,7 +11,7 @@
 @implementation BGALocal
 
 + (instancetype)localWithDict:(NSDictionary *)dict {
-    BGALocal *local = [[BGALocal alloc] init];
+    BGALocal *local = [[self alloc] init];
     local.clientId = dict[@"clientId"];
     local.clientSecret = dict[@"clientSecret"];
     local.redirectUri = dict[@"redirectUri"];

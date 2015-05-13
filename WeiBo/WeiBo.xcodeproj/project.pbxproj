@@ -40,6 +40,7 @@
 		31903FDA1B0183A8006A2A46 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FD11B0183A8006A2A46 /* AFURLSessionManager.m */; };
 		31903FDC1B025173006A2A46 /* local.json in Resources */ = {isa = PBXBuildFile; fileRef = 31903FDB1B025173006A2A46 /* local.json */; };
 		31903FE01B0254A9006A2A46 /* BGALocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FDF1B0254A9006A2A46 /* BGALocal.m */; };
+		31903FE31B02D5D0006A2A46 /* BGAAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FE21B02D5D0006A2A46 /* BGAAccount.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,8 @@
 		31903FDB1B025173006A2A46 /* local.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = local.json; sourceTree = "<group>"; };
 		31903FDE1B0254A9006A2A46 /* BGALocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGALocal.h; sourceTree = "<group>"; };
 		31903FDF1B0254A9006A2A46 /* BGALocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGALocal.m; sourceTree = "<group>"; };
+		31903FE11B02D5D0006A2A46 /* BGAAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAAccount.h; sourceTree = "<group>"; };
+		31903FE21B02D5D0006A2A46 /* BGAAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAAccount.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,6 +526,8 @@
 			children = (
 				31903FDE1B0254A9006A2A46 /* BGALocal.h */,
 				31903FDF1B0254A9006A2A46 /* BGALocal.m */,
+				31903FE11B02D5D0006A2A46 /* BGAAccount.h */,
+				31903FE21B02D5D0006A2A46 /* BGAAccount.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -655,6 +660,7 @@
 				31903FBD1B00F33F006A2A46 /* BGAOAuthViewController.m in Sources */,
 				31903F9A1AF6F83E006A2A46 /* BGATest2ViewController.m in Sources */,
 				31903FD51B0183A8006A2A46 /* AFNetworkReachabilityManager.m in Sources */,
+				31903FE31B02D5D0006A2A46 /* BGAAccount.m in Sources */,
 				31903FD91B0183A8006A2A46 /* AFURLResponseSerialization.m in Sources */,
 				31903F991AF6F83E006A2A46 /* BGATest1ViewController.m in Sources */,
 			);
