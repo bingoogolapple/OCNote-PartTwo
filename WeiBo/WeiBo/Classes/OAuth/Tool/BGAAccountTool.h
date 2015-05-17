@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class BGAAccount;
+#import "BGAAccount.h"
+// @class BGAAccount   改用import，这样以后用到BGAAccountTool时就自动引入BGAAccount
 
 @interface BGAAccountTool : NSObject
 

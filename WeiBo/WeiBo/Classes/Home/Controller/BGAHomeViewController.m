@@ -10,6 +10,9 @@
 #import "BGATitleButton.h"
 #import "BGADropdownMenu.h"
 #import "BGAHomeTitleViewController.h"
+#import "AFNetworking.h"
+#import "BGAAccountTool.h"
+
 
 @interface BGAHomeViewController ()<BGADropdownMenuDelegate>
 
@@ -21,30 +24,46 @@
     [super viewDidLoad];
     [self setupNavigationItem];
     
-    UIView *grayView = [[UIView alloc] init];
-    grayView.width = 200;
-    grayView.height = 70;
-    grayView.x = 20;
-    grayView.y = 30;
-    grayView.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:grayView];
+    [self setupUserInfo];
+}
+
+- (void)setupUserInfo {
+    // https://api.weibo.com/2/users/show.json
+    // access_token	false	string	采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
+    // uid	false	int64	需要查询的用户ID。
     
-    UIButton *btn = [[UIButton alloc] init];
-    btn.width = 100;
-    btn.x = 140;
-    btn.y = 30;
-    btn.height = 30;
-    btn.backgroundColor = [UIColor redColor];
-    [btn addTarget:self action:@selector(onClickTitle:) forControlEvents:UIControlEventTouchUpInside];
-    [grayView addSubview:btn];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    // 默认的序列化器就是json
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    BGAAccount *account = [BGAAccountTool account];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+    params[@"uid"] = account.uid;
+    
+    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        Logger(@"请求成功 - %@", responseObject);
+        
+        NSString *name = responseObject[@"name"];
+        account.name = name;
+        [BGAAccountTool saveAccount:account];
+        
+        BGATitleButton *titleButton = (BGATitleButton *)self.navigationItem.titleView;
+        [titleButton setTitle:name forState:UIControlStateNormal];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        Logger(@"请求失败 - %@", error);
+    }];
 }
 
 - (void)setupNavigationItem {
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(friendSearch) image:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted"];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(pop) image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
     
+    
     BGATitleButton *titleButton = [BGATitleButton buttonWithType:UIButtonTypeCustom];
-    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
+    NSString *name = [BGAAccountTool account].name;
+    [titleButton setTitle:name? name : @"首页" forState:UIControlStateNormal];
     titleButton.titleLabel.font = [UIFont systemFontOfSize:15];
     // 如果只涉及到两张时，一开始写好图片，接下来只要设置selected
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];

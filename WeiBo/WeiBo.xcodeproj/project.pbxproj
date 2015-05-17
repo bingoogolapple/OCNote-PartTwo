@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3102AD621B07B1B200CC7A6C /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 3102AD611B07B1B200CC7A6C /* Foundation+Log.m */; };
 		31903F1F1AF5F94C006A2A46 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31903F1E1AF5F94C006A2A46 /* Images.xcassets */; };
 		31903F2E1AF5F94C006A2A46 /* WeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F2D1AF5F94C006A2A46 /* WeiBoTests.m */; };
 		31903F901AF6F83E006A2A46 /* BGADiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903F611AF6F83E006A2A46 /* BGADiscoverViewController.m */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3102AD611B07B1B200CC7A6C /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		31903F0E1AF5F94B006A2A46 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31903F121AF5F94C006A2A46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31903F1E1AF5F94C006A2A46 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 		31903F6B1AF6F83E006A2A46 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				3102AD611B07B1B200CC7A6C /* Foundation+Log.m */,
 				31903F6C1AF6F83E006A2A46 /* UIView+Extension.h */,
 				31903F6D1AF6F83E006A2A46 /* UIView+Extension.m */,
 				31903F9C1AF83E38006A2A46 /* UIBarButtonItem+Extension.h */,
@@ -695,6 +698,7 @@
 				31903FD41B0183A8006A2A46 /* AFHTTPSessionManager.m in Sources */,
 				31903F961AF6F83E006A2A46 /* main.m in Sources */,
 				31903FEA1B036EF1006A2A46 /* MBProgressHUD+MJ.m in Sources */,
+				3102AD621B07B1B200CC7A6C /* Foundation+Log.m in Sources */,
 				31903FA41AF8FBD4006A2A46 /* BGATitleButton.m in Sources */,
 				31903F901AF6F83E006A2A46 /* BGADiscoverViewController.m in Sources */,
 				31903FD31B0183A8006A2A46 /* AFHTTPRequestOperationManager.m in Sources */,
