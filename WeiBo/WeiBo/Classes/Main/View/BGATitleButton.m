@@ -14,32 +14,33 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.imageView.contentMode = UIViewContentModeCenter;
-        self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        self.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+        
+        // 如果只涉及到两张时，一开始写好图片，接下来只要设置selected
+        [self setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+        [self setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
     }
     return self;
 }
 
-// 不能使用self.titleLabel，因为self.titleLabel内部会调用titleRectForContentRect方法，导致死循环
-- (CGRect)titleRectForContentRect:(CGRect)contentRect {
-    CGFloat titleX = 0;
-    CGFloat titleY = 0;
-    CGFloat titleH = contentRect.size.height;
-    CGFloat titleW = 0;
-    
-    NSDictionary *dict = @{NSFontAttributeName : [UIFont systemFontOfSize:15]};
-    titleW = [self.currentTitle boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingTruncatesLastVisibleLine attributes:dict context:nil].size.width;
-    Logger(@"titleW = %f",titleW);
-    
-    return CGRectMake(titleX, titleY, titleW, titleH);
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    // 如果仅仅是调整按钮内部的titleLabel和imageView的位置，那么直接在layoutSubviews中单独设置位置即可
+    // 1.计算titleLabel的frame
+    self.titleLabel.x = self.imageView.x;
+    // 2.计算imageView的frame
+    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
 }
 
-- (CGRect)imageRectForContentRect:(CGRect)contentRect {
-    CGFloat imageW = 30;
-    CGFloat imageH = contentRect.size.height;
-    CGFloat imageX = contentRect.size.width - imageW;
-    CGFloat imageY = 0;
-    return CGRectMake(imageX, imageY, imageW, imageH);
+- (void)setTitle:(NSString *)title forState:(UIControlState)state {
+    [super setTitle:title forState:state];
+    [self sizeToFit];
+}
+
+- (void)setImage:(UIImage *)image forState:(UIControlState)state {
+    [super setImage:image forState:state];
+    [self sizeToFit];
 }
 
 @end

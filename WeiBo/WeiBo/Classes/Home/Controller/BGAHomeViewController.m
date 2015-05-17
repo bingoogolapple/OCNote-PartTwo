@@ -64,16 +64,7 @@
     BGATitleButton *titleButton = [BGATitleButton buttonWithType:UIButtonTypeCustom];
     NSString *name = [BGAAccountTool account].name;
     [titleButton setTitle:name? name : @"首页" forState:UIControlStateNormal];
-    titleButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    // 如果只涉及到两张时，一开始写好图片，接下来只要设置selected
-    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
-    titleButton.backgroundColor = BGARandomColor;
-    titleButton.width = 150;
-    titleButton.height = 30;
-    
     [titleButton addTarget:self action:@selector(onClickTitle:) forControlEvents:UIControlEventTouchUpInside];
-    
     self.navigationItem.titleView = titleButton;
 }
 
