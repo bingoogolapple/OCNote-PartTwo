@@ -12,9 +12,12 @@
 #import "BGAHomeTitleViewController.h"
 #import "AFNetworking.h"
 #import "BGAAccountTool.h"
+#import "UIImageView+WebCache.h"
 
 
 @interface BGAHomeViewController ()<BGADropdownMenuDelegate>
+
+@property (nonatomic, strong) NSArray *statuses;
 
 @end
 
@@ -25,6 +28,25 @@
     [self setupNavigationItem];
     
     [self setupUserInfo];
+    
+    [self loadNewStatus];
+}
+
+- (void)loadNewStatus {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    BGAAccount *account = [BGAAccountTool account];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+//    params[@"count"] = @7;
+    
+    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        Logger(@"加载最新状态成功 - %@", responseObject);
+        self.statuses = responseObject[@"statuses"];
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        Logger(@"加载最新状态失败 - %@", error);
+    }];
 }
 
 - (void)setupUserInfo {
@@ -42,7 +64,7 @@
     params[@"uid"] = account.uid;
     
     [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        Logger(@"请求成功 - %@", responseObject);
+        Logger(@"获取用户信息成功 - %@", responseObject);
         
         NSString *name = responseObject[@"name"];
         account.name = name;
@@ -52,7 +74,7 @@
         [titleButton setTitle:name forState:UIControlStateNormal];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        Logger(@"请求失败 - %@", error);
+        Logger(@"获取用户信息失败 - %@", error);
     }];
 }
 
@@ -100,12 +122,28 @@
     titleButton.selected = YES;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.statuses.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *ID = @"statuses";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    }
+    NSDictionary *status = self.statuses[indexPath.row];
+    
+    NSDictionary *user = status[@"user"];
+    cell.textLabel.text = user[@"name"];
+    
+    cell.detailTextLabel.text = status[@"text"];
+    
+    NSString *imageUrl = user[@"profile_image_url"];
+    UIImage *placeholder = [UIImage imageNamed:@"avatar_default_small"];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:placeholder];
+    
+    return cell;
 }
 
 @end
