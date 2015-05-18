@@ -13,11 +13,13 @@
 #import "AFNetworking.h"
 #import "BGAAccountTool.h"
 #import "UIImageView+WebCache.h"
+#import "BGAUser.h"
+#import "BGAStatus.h"
 
 
 @interface BGAHomeViewController ()<BGADropdownMenuDelegate>
 
-@property (nonatomic, strong) NSArray *statuses;
+@property (nonatomic, strong) NSMutableArray *statuses;
 
 @end
 
@@ -32,6 +34,13 @@
     [self loadNewStatus];
 }
 
+- (NSMutableArray *)statuses {
+    if (!_statuses) {
+        _statuses = [NSMutableArray array];
+    }
+    return _statuses;
+}
+
 - (void)loadNewStatus {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
@@ -42,7 +51,11 @@
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         Logger(@"加载最新状态成功 - %@", responseObject);
-        self.statuses = responseObject[@"statuses"];
+        NSArray *dictArray = responseObject[@"statuses"];
+        for (NSDictionary *dict in dictArray) {
+            BGAStatus *status = [BGAStatus statusWithDict:dict];
+            [self.statuses addObject:status];
+        }
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         Logger(@"加载最新状态失败 - %@", error);
@@ -66,13 +79,12 @@
     [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         Logger(@"获取用户信息成功 - %@", responseObject);
         
-        NSString *name = responseObject[@"name"];
-        account.name = name;
+        BGAUser *user = [BGAUser userWithDict:responseObject];
+        account.name = user.name;
         [BGAAccountTool saveAccount:account];
         
         BGATitleButton *titleButton = (BGATitleButton *)self.navigationItem.titleView;
-        [titleButton setTitle:name forState:UIControlStateNormal];
-        
+        [titleButton setTitle:account.name forState:UIControlStateNormal];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         Logger(@"获取用户信息失败 - %@", error);
     }];
@@ -132,16 +144,14 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
-    NSDictionary *status = self.statuses[indexPath.row];
+    BGAStatus *status = self.statuses[indexPath.row];
     
-    NSDictionary *user = status[@"user"];
-    cell.textLabel.text = user[@"name"];
+    BGAUser *user = status.user;
+    cell.textLabel.text = user.name;
     
-    cell.detailTextLabel.text = status[@"text"];
+    cell.detailTextLabel.text = status.text;
     
-    NSString *imageUrl = user[@"profile_image_url"];
-    UIImage *placeholder = [UIImage imageNamed:@"avatar_default_small"];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:placeholder];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     
     return cell;
 }
