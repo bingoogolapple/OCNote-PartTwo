@@ -16,6 +16,7 @@
 #import "BGAUser.h"
 #import "BGAStatus.h"
 #import "MJExtension.h"
+#import "BGALoadMoreFooter.h"
 
 
 @interface BGAHomeViewController ()<BGADropdownMenuDelegate>
@@ -35,6 +36,13 @@
 //    [self loadNewStatus];
     
     [self setupRefresh];
+    
+    [self setupLoadMore];
+}
+
+- (void)setupLoadMore {
+    BGALoadMoreFooter *footer = [BGALoadMoreFooter footer];
+    self.tableView.tableFooterView = footer;
 }
 
 - (void)setupRefresh {
