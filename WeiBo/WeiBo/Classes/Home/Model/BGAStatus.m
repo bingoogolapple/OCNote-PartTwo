@@ -10,12 +10,6 @@
 
 @implementation BGAStatus
 
-+ (instancetype)statusWithDict:(NSDictionary *)dict {
-    BGAStatus *status = [[self alloc] init];
-    status.idstr = dict[@"idstr"];
-    status.text = dict[@"text"];
-    status.user = [BGAUser userWithDict:dict[@"user"]];
-    return status;
-}
+
 
 @end

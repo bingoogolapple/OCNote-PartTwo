@@ -15,11 +15,12 @@
 #import "UIImageView+WebCache.h"
 #import "BGAUser.h"
 #import "BGAStatus.h"
+#import "MJExtension.h"
 
 
 @interface BGAHomeViewController ()<BGADropdownMenuDelegate>
 
-@property (nonatomic, strong) NSMutableArray *statuses;
+@property (nonatomic, strong) NSArray *statuses;
 
 @end
 
@@ -34,13 +35,6 @@
     [self loadNewStatus];
 }
 
-- (NSMutableArray *)statuses {
-    if (!_statuses) {
-        _statuses = [NSMutableArray array];
-    }
-    return _statuses;
-}
-
 - (void)loadNewStatus {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
@@ -51,11 +45,7 @@
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         Logger(@"加载最新状态成功 - %@", responseObject);
-        NSArray *dictArray = responseObject[@"statuses"];
-        for (NSDictionary *dict in dictArray) {
-            BGAStatus *status = [BGAStatus statusWithDict:dict];
-            [self.statuses addObject:status];
-        }
+        self.statuses = [BGAStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         Logger(@"加载最新状态失败 - %@", error);
@@ -79,7 +69,7 @@
     [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         Logger(@"获取用户信息成功 - %@", responseObject);
         
-        BGAUser *user = [BGAUser userWithDict:responseObject];
+        BGAUser *user = [BGAUser objectWithKeyValues:responseObject];
         account.name = user.name;
         [BGAAccountTool saveAccount:account];
         
