@@ -42,6 +42,7 @@
 
 - (void)setupLoadMore {
     BGALoadMoreFooter *footer = [BGALoadMoreFooter footer];
+    footer.hidden = YES;
     self.tableView.tableFooterView = footer;
 }
 
@@ -242,6 +243,77 @@
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     
     return cell;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat offsetY = scrollView.contentOffset.y;
+    // 如果tableView还没有数据，就直接返回
+    if (self.statuses.count == 0 || self.tableView.tableFooterView.isHidden == NO) {
+        return;
+    }
+    
+    // 当最后一个cell完全显示在眼前时，contentOffset的y值
+    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
+    // 最后一个cell完全进入视野范围内
+    if (offsetY >= judgeOffsetY) {
+        // 显示footer
+        self.tableView.tableFooterView.hidden = NO;
+        
+        // 加载更多的微博数据
+        Logger(@"加载更多的微博数据");
+        [self loadMoreStatus];
+    }
+    
+    /*
+     contentInset：除具体内容以外的边框尺寸
+     contentSize: 里面的具体内容（header、cell、footer），除掉contentInset以外的尺寸
+     contentOffset:
+     1.它可以用来判断scrollView滚动到什么位置
+     2.指scrollView的内容超出了scrollView顶部的距离（除掉contentInset以外的尺寸）
+     */
+}
+
+/**
+ *  加载更多的微博数据
+ */
+- (void)loadMoreStatus
+{
+    // 1.请求管理者
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    // 2.拼接请求参数
+    BGAAccount *account = [BGAAccountTool account];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+    
+    // 取出最后面的微博（最新的微博，ID最大的微博）
+    BGAStatus *lastStatus = [self.statuses lastObject];
+    if (lastStatus) {
+        // 若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
+        // id这种数据一般都是比较大的，一般转成整数的话，最好是long long类型
+        long long maxId = lastStatus.idstr.longLongValue - 1;
+        params[@"max_id"] = @(maxId);
+    }
+    
+    // 3.发送请求
+    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        // 将 "微博字典"数组 转为 "微博模型"数组
+        NSArray *newStatuses = [BGAStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+        // 将更多的微博数据，添加到总数组的最后面
+        [self.statuses addObjectsFromArray:newStatuses];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 结束刷新(隐藏footer)
+        self.tableView.tableFooterView.hidden = YES;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        Logger(@"请求失败-%@", error);
+        
+        // 结束刷新
+        self.tableView.tableFooterView.hidden = YES;
+    }];
 }
 
 @end
