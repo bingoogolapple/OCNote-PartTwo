@@ -26,6 +26,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    // 这种方式在iOS8上有问题
     // 如果仅仅是调整按钮内部的titleLabel和imageView的位置，那么直接在layoutSubviews中单独设置位置即可
     // 1.计算titleLabel的frame
     self.titleLabel.x = self.imageView.x;

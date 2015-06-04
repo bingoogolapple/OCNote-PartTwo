@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setupNavigationItem];
     
     [self setupUserInfo];
@@ -38,6 +39,43 @@
     [self setupRefresh];
     
     [self setupLoadMore];
+    
+    // 获得未读数
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(setupUnreadCount) userInfo:nil repeats:YES];
+    // 主线程也会抽时间处理一下timer（不管主线程是否正在其他事件）
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+/**
+ *  获得未读数
+ */
+- (void)setupUnreadCount {
+    Logger(@"setupUnreadCount");
+    // 1.请求管理者
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    // 2.拼接请求参数
+    BGAAccount *account = [BGAAccountTool account];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+    params[@"uid"] = account.uid;
+    
+    // 3.发送请求
+    [mgr GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        // description转成字符串
+        NSString *status = [responseObject[@"status"] description];
+        // 如果是0，得清空数字
+        if ([status isEqualToString:@"0"]) {
+            self.tabBarItem.badgeValue = nil;
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        } else {
+            // 非0情况
+            self.tabBarItem.badgeValue = status;
+            [UIApplication sharedApplication].applicationIconBadgeNumber = status.intValue;
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        Logger(@"请求失败-%@", error);
+    }];
 }
 
 - (void)setupLoadMore {
