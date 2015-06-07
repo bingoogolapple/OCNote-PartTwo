@@ -12,11 +12,12 @@
 #import "BGAHomeTitleViewController.h"
 #import "AFNetworking.h"
 #import "BGAAccountTool.h"
-#import "UIImageView+WebCache.h"
 #import "BGAUser.h"
 #import "BGAStatus.h"
 #import "MJExtension.h"
 #import "BGALoadMoreFooter.h"
+#import "BGAStatusCell.h"
+#import "BGAStatusFrame.h"
 
 
 @interface BGAHomeViewController ()<BGADropdownMenuDelegate>
@@ -266,19 +267,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ID = @"statuses";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    BGAStatus *status = self.statuses[indexPath.row];
-    
-    BGAUser *user = status.user;
-    cell.textLabel.text = user.name;
-    
-    cell.detailTextLabel.text = status.text;
-    
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    BGAStatusCell *cell = [BGAStatusCell cellWithTableView:tableView];
+    BGAStatusFrame *statusFrame = [[BGAStatusFrame alloc] init];
+    statusFrame.status = self.statuses[indexPath.row];
+    cell.statusFrame = statusFrame;
     
     return cell;
 }

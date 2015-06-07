@@ -9,6 +9,8 @@
 #import "BGATitleButton.h"
 #import <Availability.h>
 
+#define BGAMargin 5
+
 @implementation BGATitleButton
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -24,6 +26,12 @@
     return self;
 }
 
+- (void)setFrame:(CGRect)frame {
+    // 想要彻底的改变一个空间的尺寸，就在setFrame中改。拦截设置按钮尺寸的过程
+    frame.size.width += BGAMargin;
+    [super setFrame:frame];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     // 这种方式在iOS8上有问题
@@ -31,7 +39,7 @@
     // 1.计算titleLabel的frame
     self.titleLabel.x = self.imageView.x;
     // 2.计算imageView的frame
-    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
+    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame) + BGAMargin;
 }
 
 - (void)setTitle:(NSString *)title forState:(UIControlState)state {
