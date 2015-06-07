@@ -22,7 +22,7 @@
 
 @interface BGAHomeViewController ()<BGADropdownMenuDelegate>
 
-@property (nonatomic, strong) NSMutableArray *statuses;
+@property (nonatomic, strong) NSMutableArray *statuseFrames;
 
 @end
 
@@ -105,20 +105,21 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = account.access_token;
     
-    BGAStatus *firstStatus = [self.statuses firstObject];
-    if (firstStatus) {
-        params[@"since_id"] = firstStatus.idstr;
+    BGAStatusFrame *firstStatusFrame = [self.statuseFrames firstObject];
+    if (firstStatusFrame) {
+        params[@"since_id"] = firstStatusFrame.status.idstr;
     }
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         [control endRefreshing];
         Logger(@"加载最新状态成功 - %@", responseObject);
         NSArray *newStatuses = [BGAStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *newStatusFrames = [self statusFramesWithStatuses:newStatuses];
         
-        NSRange range = NSMakeRange(0, newStatuses.count);
+        NSRange range = NSMakeRange(0, newStatusFrames.count);
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
         
-        [self.statuses insertObjects:newStatuses atIndexes:set];
+        [self.statuseFrames insertObjects:newStatusFrames atIndexes:set];
         
         [self.tableView reloadData];
         
@@ -164,11 +165,11 @@
     }];
 }
 
-- (NSMutableArray *)statuses {
-    if (!_statuses) {
-        _statuses = [NSMutableArray array];
+- (NSMutableArray *)statuseFrames {
+    if (!_statuseFrames) {
+        _statuseFrames = [NSMutableArray array];
     }
-    return _statuses;
+    return _statuseFrames;
 }
 
 - (void)loadNewStatus {
@@ -182,7 +183,8 @@
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         Logger(@"加载最新状态成功 - %@", responseObject);
         NSArray *newStatuses = [BGAStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-        [self.statuses addObjectsFromArray:newStatuses];
+        
+        [self.statuseFrames addObjectsFromArray:newStatuses];
         
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -263,22 +265,25 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.statuses.count;
+    return self.statuseFrames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BGAStatusCell *cell = [BGAStatusCell cellWithTableView:tableView];
-    BGAStatusFrame *statusFrame = [[BGAStatusFrame alloc] init];
-    statusFrame.status = self.statuses[indexPath.row];
-    cell.statusFrame = statusFrame;
+    cell.statusFrame = self.statuseFrames[indexPath.row];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BGAStatusFrame *statusFrame = self.statuseFrames[indexPath.row];
+    return statusFrame.cellHeight;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
     // 如果tableView还没有数据，就直接返回
-    if (self.statuses.count == 0 || self.tableView.tableFooterView.isHidden == NO) {
+    if (self.statuseFrames.count == 0 || self.tableView.tableFooterView.isHidden == NO) {
         return;
     }
     
@@ -317,11 +322,11 @@
     params[@"access_token"] = account.access_token;
     
     // 取出最后面的微博（最新的微博，ID最大的微博）
-    BGAStatus *lastStatus = [self.statuses lastObject];
-    if (lastStatus) {
+    BGAStatusFrame *lastStatusFrame = [self.statuseFrames lastObject];
+    if (lastStatusFrame) {
         // 若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
         // id这种数据一般都是比较大的，一般转成整数的话，最好是long long类型
-        long long maxId = lastStatus.idstr.longLongValue - 1;
+        long long maxId = lastStatusFrame.status.idstr.longLongValue - 1;
         params[@"max_id"] = @(maxId);
     }
     
@@ -329,9 +334,9 @@
     [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         // 将 "微博字典"数组 转为 "微博模型"数组
         NSArray *newStatuses = [BGAStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-        
+        NSArray *newStatusFrames = [self statusFramesWithStatuses:newStatuses];
         // 将更多的微博数据，添加到总数组的最后面
-        [self.statuses addObjectsFromArray:newStatuses];
+        [self.statuseFrames addObjectsFromArray:newStatusFrames];
         
         // 刷新表格
         [self.tableView reloadData];
@@ -344,6 +349,16 @@
         // 结束刷新
         self.tableView.tableFooterView.hidden = YES;
     }];
+}
+
+- (NSArray *)statusFramesWithStatuses:(NSArray *)statuses {
+    NSMutableArray *statusFrames = [NSMutableArray array];
+    for (BGAStatus *status in statuses) {
+        BGAStatusFrame *statusFrame = [[BGAStatusFrame alloc] init];
+        statusFrame.status = status;
+        [statusFrames addObject:statusFrame];
+    }
+    return statusFrames;
 }
 
 @end

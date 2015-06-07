@@ -10,6 +10,14 @@
 
 @implementation BGAUser
 
+- (void)setMbtype:(int)mbtype {
+    _mbtype = mbtype;
+    self.vip = mbtype > 2;
+}
 
+// 每调一次就会算一次，这样不好
+//- (BOOL)isVip {
+//    return self.mbtype > 2;
+//}
 
 @end

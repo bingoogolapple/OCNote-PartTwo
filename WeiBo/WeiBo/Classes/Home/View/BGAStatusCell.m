@@ -62,6 +62,7 @@
         self.iconView = iconView;
         /** 会员图标 */
         UIImageView *vipView = [[UIImageView alloc] init];
+        vipView.contentMode = UIViewContentModeCenter;
         [originalView addSubview:vipView];
         self.vipView = vipView;
         /** 配图 */
@@ -70,14 +71,17 @@
         self.photoView = photoView;
         /** 昵称 */
         UILabel *nameLabel = [[UILabel alloc] init];
+        nameLabel.font = BGAStatusCellNameFont;
         [originalView addSubview:nameLabel];
         self.nameLabel = nameLabel;
         /** 时间 */
         UILabel *timeLabel = [[UILabel alloc] init];
+        timeLabel.font = BGAStatusCellTimeFont;
         [originalView addSubview:timeLabel];
         self.timeLabel = timeLabel;
         /** 来源 */
         UILabel *sourceLabel = [[UILabel alloc] init];
+        sourceLabel.font = BGAStatusCellSourceFont;
         [originalView addSubview:sourceLabel];
         self.sourceLabel = sourceLabel;
         /** 正文 */
@@ -109,8 +113,10 @@
     self.nameLabel.text = user.name;
     /** 时间 */
     self.timeLabel.frame = statusFrame.timeLabelFrame;
+    self.timeLabel.text = status.created_at;
     /** 来源 */
     self.sourceLabel.frame = statusFrame.sourceLabelFrame;
+    self.sourceLabel.text = status.source;
     /** 正文 */
     self.contentLabel.frame = statusFrame.contentLabelFrame;
     self.contentLabel.text = statusFrame.status.text;

@@ -11,6 +11,14 @@
 //  3.存放这一个数据模型BGAStatus
 
 #import <Foundation/Foundation.h>
+
+// 昵称字体
+#define BGAStatusCellNameFont [UIFont systemFontOfSize:15]
+// 时间字体
+#define BGAStatusCellTimeFont [UIFont systemFontOfSize:12]
+// 来源字体
+#define BGAStatusCellSourceFont [UIFont systemFontOfSize:12]
+
 @class BGAStatus;
 
 @interface BGAStatusFrame : NSObject
