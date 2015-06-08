@@ -13,15 +13,28 @@
 
 @implementation BGAStatusFrame
 
+//- (CGSize)sizeWithText:(NSString *)text font:(UIFont*)font {
+//    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+//    attrs[NSFontAttributeName] = font;
+//    return [text sizeWithAttributes:attrs];
+//}
+
 - (CGSize)sizeWithText:(NSString *)text font:(UIFont*)font {
+    return [self sizeWithText:text font:font maxW:MAXFLOAT];
+}
+
+- (CGSize)sizeWithText:(NSString *)text font:(UIFont*)font maxW:(CGFloat)maxW {
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSFontAttributeName] = font;
-    return [text sizeWithAttributes:attrs];
+    CGSize maxSize = CGSizeMake(maxW, MAXFLOAT);
+    return [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
 }
 
 - (void)setStatus:(BGAStatus *)status {
     _status = status;
     BGAUser *user = status.user;
+    
+    CGFloat cellW = [UIScreen mainScreen].bounds.size.width;
     
     /** 头像 */
     CGFloat iconWH = 50;
@@ -52,14 +65,22 @@
     CGFloat sourceY = timeY;
     CGSize sourceSize = [self sizeWithText:status.source font:BGAStatusCellSourceFont];
     self.sourceLabelFrame = (CGRect){{sourceX, sourceY}, sourceSize};
+    /** 正文 */
+    CGFloat contentX = iconX;
+    CGFloat contentY = MAX(CGRectGetMaxY(self.iconViewFrame), CGRectGetMaxY(self.timeLabelFrame)) + BGAStatusCellEdge;
+    CGFloat maxW = cellW - 2 * BGAStatusCellEdge;
+    CGSize contentSize = [self sizeWithText:status.text font:BGAStatusCellContentFont maxW:maxW];
+    self.contentLabelFrame = (CGRect){{contentX, contentY}, contentSize};
     /** 配图 */
     
-    /** 正文 */
-    
     /** 原创微博整体 */
+    CGFloat originalX = 0;
+    CGFloat originalY = 0;
+    CGFloat originalW = cellW;
+    CGFloat originalH = CGRectGetMaxY(self.contentLabelFrame) + BGAStatusCellEdge;
+    self.originalViewFrame = CGRectMake(originalX, originalY, originalW, originalH);
     
-    
-    self.cellHeight = 70;
+    self.cellHeight = originalH;
 }
 
 @end

@@ -86,6 +86,9 @@
         self.sourceLabel = sourceLabel;
         /** 正文 */
         UILabel *contentLabel = [[UILabel alloc] init];
+        contentLabel.font = BGAStatusCellContentFont;
+        // A value of 0 means no limit
+        contentLabel.numberOfLines = 0;
         [originalView addSubview:contentLabel];
         self.contentLabel = contentLabel;
     }
@@ -103,8 +106,18 @@
     self.iconView.frame = statusFrame.iconViewFrame;
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     /** 会员图标 */
-    self.vipView.frame = statusFrame.vipViewFrame;
-    self.vipView.image = [UIImage imageNamed:@"common_icon_membership_level1"];
+    if (user.isVip) {
+        self.vipView.hidden = NO;
+        self.vipView.frame = statusFrame.vipViewFrame;
+        NSString *vipImageName = [NSString stringWithFormat:@"common_icon_membership_level%d", user.mbrank];
+        self.vipView.image = [UIImage imageNamed:vipImageName];
+        
+        self.nameLabel.textColor = [UIColor orangeColor];
+    } else {
+        self.vipView.hidden = YES;
+        
+        self.nameLabel.textColor = [UIColor blackColor];
+    }
     /** 配图 */
     self.photoView.frame = statusFrame.photoViewFrame;
     self.photoView.backgroundColor = [UIColor redColor];

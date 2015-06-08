@@ -8,7 +8,7 @@
 //  一个BGAStatusFrame模型里面包含的信息
 //  1.存放着一个cell内部所有子控件的frame的数据
 //  2.存放着一个cell的高度
-//  3.存放这一个数据模型BGAStatus
+//  3.存放着一个数据模型BGAStatus
 
 #import <Foundation/Foundation.h>
 
@@ -18,6 +18,8 @@
 #define BGAStatusCellTimeFont [UIFont systemFontOfSize:12]
 // 来源字体
 #define BGAStatusCellSourceFont [UIFont systemFontOfSize:12]
+// 正文字体
+#define BGAStatusCellContentFont [UIFont systemFontOfSize:14]
 
 @class BGAStatus;
 
