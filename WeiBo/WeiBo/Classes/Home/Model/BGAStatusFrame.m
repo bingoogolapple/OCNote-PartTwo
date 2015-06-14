@@ -72,14 +72,23 @@
     CGSize contentSize = [self sizeWithText:status.text font:BGAStatusCellContentFont maxW:maxW];
     self.contentLabelFrame = (CGRect){{contentX, contentY}, contentSize};
     /** 配图 */
+    CGFloat originalH = 0;
+    if (status.pic_urls.count) {
+        CGFloat photoWH = 100;
+        CGFloat photoX = contentX;
+        CGFloat photoY = CGRectGetMaxY(self.contentLabelFrame) + BGAStatusCellEdge;
+        self.photoViewFrame = CGRectMake(photoX, photoY, photoWH, photoWH);
+        
+        originalH = CGRectGetMaxY(self.photoViewFrame) + BGAStatusCellEdge;
+    } else {
+        originalH = CGRectGetMaxY(self.contentLabelFrame) + BGAStatusCellEdge;
+    }
     
     /** 原创微博整体 */
     CGFloat originalX = 0;
     CGFloat originalY = 0;
     CGFloat originalW = cellW;
-    CGFloat originalH = CGRectGetMaxY(self.contentLabelFrame) + BGAStatusCellEdge;
     self.originalViewFrame = CGRectMake(originalX, originalY, originalW, originalH);
-    
     self.cellHeight = originalH;
 }
 

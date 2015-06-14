@@ -11,6 +11,7 @@
 #import "BGAStatus.h"
 #import "UIImageView+WebCache.h"
 #import "BGAStatusFrame.h"
+#import "BGAPhoto.h"
 
 @interface BGAStatusCell()
 
@@ -119,8 +120,14 @@
         self.nameLabel.textColor = [UIColor blackColor];
     }
     /** 配图 */
-    self.photoView.frame = statusFrame.photoViewFrame;
-    self.photoView.backgroundColor = [UIColor redColor];
+    if (status.pic_urls.count) {
+        self.photoView.frame = statusFrame.photoViewFrame;
+        BGAPhoto *photo = [status.pic_urls firstObject];
+        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        self.photoView.hidden = NO;
+    } else {
+        self.photoView.hidden = YES;
+    }
     /** 昵称 */
     self.nameLabel.frame = statusFrame.nameLabelFrame;
     self.nameLabel.text = user.name;
