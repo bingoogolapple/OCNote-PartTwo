@@ -26,6 +26,10 @@
 /**	string	微博来源*/
 @property (nonatomic, copy) NSString *source;
 
+/** 源微博配图地址 */
 @property (nonatomic, strong) NSArray *pic_urls;
+
+/** 被转发的原微博 */
+@property (nonatomic, strong) BGAStatus *retweeted_status;
 
 @end

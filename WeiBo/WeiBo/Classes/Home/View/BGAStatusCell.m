@@ -33,6 +33,14 @@
 /** 正文 */
 @property (nonatomic, weak) UILabel *contentLabel;
 
+
+// 转发微博
+/** 转发微博整体 */
+@property (nonatomic, weak) UIView *retweetView;
+/** 转发微博正文+昵称 */
+@property (nonatomic, weak) UILabel *retweetContentLabel;
+/** 转发微博配图 */
+@property (nonatomic, weak) UIImageView *retweetPhotoView;
 @end
 
 @implementation BGAStatusCell
@@ -53,47 +61,72 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        /** 原创微博整体 */
-        UIView *originalView = [[UIView alloc] init];
-        [self.contentView addSubview:originalView];
-        self.originalView = originalView;
-        /** 头像 */
-        UIImageView *iconView = [[UIImageView alloc] init];
-        [originalView addSubview:iconView];
-        self.iconView = iconView;
-        /** 会员图标 */
-        UIImageView *vipView = [[UIImageView alloc] init];
-        vipView.contentMode = UIViewContentModeCenter;
-        [originalView addSubview:vipView];
-        self.vipView = vipView;
-        /** 配图 */
-        UIImageView *photoView = [[UIImageView alloc] init];
-        [originalView addSubview:photoView];
-        self.photoView = photoView;
-        /** 昵称 */
-        UILabel *nameLabel = [[UILabel alloc] init];
-        nameLabel.font = BGAStatusCellNameFont;
-        [originalView addSubview:nameLabel];
-        self.nameLabel = nameLabel;
-        /** 时间 */
-        UILabel *timeLabel = [[UILabel alloc] init];
-        timeLabel.font = BGAStatusCellTimeFont;
-        [originalView addSubview:timeLabel];
-        self.timeLabel = timeLabel;
-        /** 来源 */
-        UILabel *sourceLabel = [[UILabel alloc] init];
-        sourceLabel.font = BGAStatusCellSourceFont;
-        [originalView addSubview:sourceLabel];
-        self.sourceLabel = sourceLabel;
-        /** 正文 */
-        UILabel *contentLabel = [[UILabel alloc] init];
-        contentLabel.font = BGAStatusCellContentFont;
-        // A value of 0 means no limit
-        contentLabel.numberOfLines = 0;
-        [originalView addSubview:contentLabel];
-        self.contentLabel = contentLabel;
+        [self setupOriginal];
+        [self setupRetweet];
     }
     return self;
+}
+
+- (void)setupOriginal {
+    /** 原创微博整体 */
+    UIView *originalView = [[UIView alloc] init];
+    [self.contentView addSubview:originalView];
+    self.originalView = originalView;
+    /** 头像 */
+    UIImageView *iconView = [[UIImageView alloc] init];
+    [originalView addSubview:iconView];
+    self.iconView = iconView;
+    /** 会员图标 */
+    UIImageView *vipView = [[UIImageView alloc] init];
+    vipView.contentMode = UIViewContentModeCenter;
+    [originalView addSubview:vipView];
+    self.vipView = vipView;
+    /** 配图 */
+    UIImageView *photoView = [[UIImageView alloc] init];
+    [originalView addSubview:photoView];
+    self.photoView = photoView;
+    /** 昵称 */
+    UILabel *nameLabel = [[UILabel alloc] init];
+    nameLabel.font = BGAStatusCellNameFont;
+    [originalView addSubview:nameLabel];
+    self.nameLabel = nameLabel;
+    /** 时间 */
+    UILabel *timeLabel = [[UILabel alloc] init];
+    timeLabel.font = BGAStatusCellTimeFont;
+    [originalView addSubview:timeLabel];
+    self.timeLabel = timeLabel;
+    /** 来源 */
+    UILabel *sourceLabel = [[UILabel alloc] init];
+    sourceLabel.font = BGAStatusCellSourceFont;
+    [originalView addSubview:sourceLabel];
+    self.sourceLabel = sourceLabel;
+    /** 正文 */
+    UILabel *contentLabel = [[UILabel alloc] init];
+    contentLabel.font = BGAStatusCellContentFont;
+    // A value of 0 means no limit
+    contentLabel.numberOfLines = 0;
+    [originalView addSubview:contentLabel];
+    self.contentLabel = contentLabel;
+}
+
+- (void)setupRetweet {
+    /** 转发微博整体 */
+    UIView *retweetView = [[UIView alloc] init];
+    [self.contentView addSubview:retweetView];
+    self.retweetView = retweetView;
+    
+    /** 转发微博配图 */
+    UIImageView *retweetPhotoView = [[UIImageView alloc] init];
+    [retweetView addSubview:retweetPhotoView];
+    self.retweetPhotoView = retweetPhotoView;
+    
+    /** 转发微博正文+昵称 */
+    UILabel *retweetContentLabel = [[UILabel alloc] init];
+    retweetContentLabel.font = BGAStatusCellContentFont;
+    // A value of 0 means no limit
+    retweetContentLabel.numberOfLines = 0;
+    [retweetView addSubview:retweetContentLabel];
+    self.retweetContentLabel = retweetContentLabel;
 }
 
 - (void)setStatusFrame:(BGAStatusFrame *)statusFrame {
