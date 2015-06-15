@@ -20,6 +20,8 @@
 #define BGAStatusCellSourceFont [UIFont systemFontOfSize:12]
 // 正文字体
 #define BGAStatusCellContentFont [UIFont systemFontOfSize:14]
+// 转发微博字体
+#define BGARetweetStatusCellContentFont [UIFont systemFontOfSize:13]
 
 @class BGAStatus;
 
@@ -49,10 +51,10 @@
 
 // 转发微博
 /** 转发微博整体 */
-@property (nonatomic, assign) CGRect *retweetViewFrame;
+@property (nonatomic, assign) CGRect retweetViewFrame;
 /** 转发微博正文+昵称 */
-@property (nonatomic, assign) CGRect *retweetContentLabelFrame;
+@property (nonatomic, assign) CGRect retweetContentLabelFrame;
 /** 转发微博配图 */
-@property (nonatomic, assign) CGRect *retweetPhotoViewFrame;
+@property (nonatomic, assign) CGRect retweetPhotoViewFrame;
 
 @end

@@ -113,6 +113,7 @@
     /** 转发微博整体 */
     UIView *retweetView = [[UIView alloc] init];
     [self.contentView addSubview:retweetView];
+    retweetView.backgroundColor = BGAColor(240, 240, 240);
     self.retweetView = retweetView;
     
     /** 转发微博配图 */
@@ -122,7 +123,7 @@
     
     /** 转发微博正文+昵称 */
     UILabel *retweetContentLabel = [[UILabel alloc] init];
-    retweetContentLabel.font = BGAStatusCellContentFont;
+    retweetContentLabel.font = BGARetweetStatusCellContentFont;
     // A value of 0 means no limit
     retweetContentLabel.numberOfLines = 0;
     [retweetView addSubview:retweetContentLabel];
@@ -173,6 +174,32 @@
     /** 正文 */
     self.contentLabel.frame = statusFrame.contentLabelFrame;
     self.contentLabel.text = statusFrame.status.text;
+    
+    if (status.retweeted_status) {
+        BGAStatus *retweeted_status = status.retweeted_status;
+        BGAUser *retweeted_status_user = retweeted_status.user;
+        
+        
+        self.retweetView.hidden = NO;
+        // 转发微博整体
+        self.retweetView.frame = statusFrame.retweetViewFrame;
+        // 转发微博正文
+        self.retweetContentLabel.frame = statusFrame.retweetContentLabelFrame;
+        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@", retweeted_status_user.name, retweeted_status.text];
+        self.retweetContentLabel.text = retweetContent;
+        // 被转发微博配图
+        if (retweeted_status.pic_urls.count) {
+            self.retweetPhotoView.frame = statusFrame.retweetPhotoViewFrame;
+            BGAPhoto *retweetedPhoto = [retweeted_status.pic_urls firstObject];
+            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:retweetedPhoto.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            self.photoView.hidden = NO;
+        } else {
+            self.photoView.hidden = YES;
+        }
+        
+    } else {
+        self.retweetView.hidden = YES;
+    }
 }
 
 @end

@@ -89,7 +89,43 @@
     CGFloat originalY = 0;
     CGFloat originalW = cellW;
     self.originalViewFrame = CGRectMake(originalX, originalY, originalW, originalH);
-    self.cellHeight = originalH;
+    
+    if (status.retweeted_status) {
+        // 被转发微博
+        
+        BGAStatus *retweeted_status = status.retweeted_status;
+        BGAUser *retweeted_status_user = retweeted_status.user;
+        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@", retweeted_status_user.name, retweeted_status.text];
+        
+        CGFloat retweetContentX = BGAStatusCellEdge;
+        CGFloat retweetContentY = BGAStatusCellEdge;
+        
+        CGFloat retweetContentMaxW = cellW - 2 * BGAStatusCellEdge;
+        CGSize retweetContentSize = [self sizeWithText:retweetContent font:BGARetweetStatusCellContentFont maxW:retweetContentMaxW];
+        self.retweetContentLabelFrame = (CGRect){{retweetContentX, retweetContentY}, retweetContentSize};
+        
+        
+        CGFloat retweetH = 0;
+        if (retweeted_status.pic_urls.count) {
+            CGFloat retweetPhotoWH = 100;
+            CGFloat retweetPhotoX = retweetContentX;
+            CGFloat retweetPhotoY = CGRectGetMaxY(self.retweetContentLabelFrame) + BGAStatusCellEdge;
+            self.retweetPhotoViewFrame = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoWH, retweetPhotoWH);
+            
+            retweetH = CGRectGetMaxY(self.retweetPhotoViewFrame) + BGAStatusCellEdge;
+        } else {
+            retweetH = CGRectGetMaxY(self.retweetContentLabelFrame) + BGAStatusCellEdge;
+        }
+        
+        CGFloat retweetX = 0;
+        CGFloat retweetY = CGRectGetMaxY(self.originalViewFrame);
+        CGFloat retweetW = cellW;
+        self.retweetViewFrame = CGRectMake(retweetX, retweetY, retweetW, retweetH);
+        
+        self.cellHeight = CGRectGetMaxY(self.retweetViewFrame);
+    } else {
+        self.cellHeight = CGRectGetMaxY(self.originalViewFrame);
+    }
 }
 
 @end
