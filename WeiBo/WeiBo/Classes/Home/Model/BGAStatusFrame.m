@@ -10,7 +10,7 @@
 #import "BGAStatus.h"
 
 #define BGAStatusCellEdge 10
-#define BGAStatusCellMargin 8
+
 
 @implementation BGAStatusFrame
 
@@ -87,7 +87,7 @@
     
     /** 原创微博整体 */
     CGFloat originalX = 0;
-    CGFloat originalY = 0;
+    CGFloat originalY = BGAStatusCellMargin;
     CGFloat originalW = cellW;
     self.originalViewFrame = CGRectMake(originalX, originalY, originalW, originalH);
     
@@ -135,7 +135,7 @@
     CGFloat toolbarH = 35;
     self.toolbarViewFrame = CGRectMake(toolbarX, toolbarY, toolbarW, toolbarH);
     
-    self.cellHeight = CGRectGetMaxY(self.toolbarViewFrame) + BGAStatusCellMargin;
+    self.cellHeight = CGRectGetMaxY(self.toolbarViewFrame);
 }
 
 @end

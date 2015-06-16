@@ -15,13 +15,15 @@
 // 昵称字体
 #define BGAStatusCellNameFont [UIFont systemFontOfSize:15]
 // 时间字体
-#define BGAStatusCellTimeFont [UIFont systemFontOfSize:12]
+#define BGAStatusCellTimeFont [UIFont systemFontOfSize:10]
 // 来源字体
-#define BGAStatusCellSourceFont [UIFont systemFontOfSize:12]
+#define BGAStatusCellSourceFont [UIFont systemFontOfSize:10]
 // 正文字体
 #define BGAStatusCellContentFont [UIFont systemFontOfSize:14]
 // 转发微博字体
 #define BGARetweetStatusCellContentFont [UIFont systemFontOfSize:13]
+
+#define BGAStatusCellMargin 8
 
 @class BGAStatus;
 

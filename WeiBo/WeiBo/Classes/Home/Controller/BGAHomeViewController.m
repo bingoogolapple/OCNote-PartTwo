@@ -32,6 +32,10 @@
     [super viewDidLoad];
     
     self.tableView.backgroundColor = BGAColor(211, 211, 211);
+    // 取消分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    // 系统会在BGAStatusCellMargin的基础上再加上64。会导致下拉刷新的菊花也会往下移动BGAStatusCellMargin
+//    self.tableView.contentInset = UIEdgeInsetsMake(BGAStatusCellMargin, 0, 0, 0);
     
     [self setupNavigationItem];
     
