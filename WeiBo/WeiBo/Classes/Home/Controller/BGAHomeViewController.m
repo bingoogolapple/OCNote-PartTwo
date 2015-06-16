@@ -31,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.backgroundColor = BGAColor(211, 211, 211);
+    
     [self setupNavigationItem];
     
     [self setupUserInfo];

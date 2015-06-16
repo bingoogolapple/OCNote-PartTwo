@@ -45,8 +45,6 @@
 @property (nonatomic, assign) CGRect sourceLabelFrame;
 /** 正文 */
 @property (nonatomic, assign) CGRect contentLabelFrame;
-/** cell的高度 */
-@property (nonatomic, assign) CGFloat cellHeight;
 
 
 // 转发微博
@@ -56,5 +54,13 @@
 @property (nonatomic, assign) CGRect retweetContentLabelFrame;
 /** 转发微博配图 */
 @property (nonatomic, assign) CGRect retweetPhotoViewFrame;
+
+
+/** 工具条整体 */
+@property (nonatomic, assign) CGRect toolbarViewFrame;
+
+
+/** cell的高度 */
+@property (nonatomic, assign) CGFloat cellHeight;
 
 @end

@@ -10,6 +10,7 @@
 #import "BGAStatus.h"
 
 #define BGAStatusCellEdge 10
+#define BGAStatusCellMargin 8
 
 @implementation BGAStatusFrame
 
@@ -90,6 +91,7 @@
     CGFloat originalW = cellW;
     self.originalViewFrame = CGRectMake(originalX, originalY, originalW, originalH);
     
+    CGFloat toolbarY = 0;
     if (status.retweeted_status) {
         // 被转发微博
         
@@ -122,10 +124,18 @@
         CGFloat retweetW = cellW;
         self.retweetViewFrame = CGRectMake(retweetX, retweetY, retweetW, retweetH);
         
-        self.cellHeight = CGRectGetMaxY(self.retweetViewFrame);
+        toolbarY = CGRectGetMaxY(self.retweetViewFrame);
     } else {
-        self.cellHeight = CGRectGetMaxY(self.originalViewFrame);
+        toolbarY = CGRectGetMaxY(self.originalViewFrame);
     }
+    
+    // 工具条
+    CGFloat toolbarX = 0;
+    CGFloat toolbarW = cellW;
+    CGFloat toolbarH = 35;
+    self.toolbarViewFrame = CGRectMake(toolbarX, toolbarY, toolbarW, toolbarH);
+    
+    self.cellHeight = CGRectGetMaxY(self.toolbarViewFrame) + BGAStatusCellMargin;
 }
 
 @end
