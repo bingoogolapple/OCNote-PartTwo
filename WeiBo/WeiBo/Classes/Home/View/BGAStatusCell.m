@@ -229,6 +229,8 @@
         self.retweetView.hidden = YES;
     }
     
+    self.toolbarView.status = status;
+    
     self.toolbarView.frame = statusFrame.toolbarViewFrame;
 }
 
