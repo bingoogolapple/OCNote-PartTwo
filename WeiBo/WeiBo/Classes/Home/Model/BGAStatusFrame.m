@@ -9,27 +9,8 @@
 #import "BGAStatusFrame.h"
 #import "BGAStatus.h"
 
-#define BGAStatusCellEdge 10
-
 
 @implementation BGAStatusFrame
-
-//- (CGSize)sizeWithText:(NSString *)text font:(UIFont*)font {
-//    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-//    attrs[NSFontAttributeName] = font;
-//    return [text sizeWithAttributes:attrs];
-//}
-
-- (CGSize)sizeWithText:(NSString *)text font:(UIFont*)font {
-    return [self sizeWithText:text font:font maxW:MAXFLOAT];
-}
-
-- (CGSize)sizeWithText:(NSString *)text font:(UIFont*)font maxW:(CGFloat)maxW {
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSFontAttributeName] = font;
-    CGSize maxSize = CGSizeMake(maxW, MAXFLOAT);
-    return [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
-}
 
 - (void)setStatus:(BGAStatus *)status {
     _status = status;
@@ -45,7 +26,7 @@
     /** 昵称 */
     CGFloat nameX = CGRectGetMaxX(self.iconViewFrame) + BGAStatusCellEdge;
     CGFloat nameY = iconY;
-    CGSize nameSize = [self sizeWithText:user.name font:BGAStatusCellNameFont];
+    CGSize nameSize = [user.name sizeWithFont:BGAStatusCellNameFont];
     self.nameLabelFrame = (CGRect){{nameX, nameY}, nameSize};
     
     /** 会员图标 */
@@ -59,18 +40,18 @@
     /** 时间 */
     CGFloat timeX = nameX;
     CGFloat timeY = CGRectGetMaxY(self.nameLabelFrame) + BGAStatusCellEdge;
-    CGSize timeSize = [self sizeWithText:status.created_at font:BGAStatusCellTimeFont];
+    CGSize timeSize = [status.created_at sizeWithFont:BGAStatusCellTimeFont];
     self.timeLabelFrame = (CGRect){{timeX, timeY}, timeSize};
     /** 来源 */
-    CGFloat sourceX = CGRectGetMaxX(self.nameLabelFrame) + BGAStatusCellEdge;;
+    CGFloat sourceX = CGRectGetMaxX(self.timeLabelFrame) + BGAStatusCellEdge;;
     CGFloat sourceY = timeY;
-    CGSize sourceSize = [self sizeWithText:status.source font:BGAStatusCellSourceFont];
+    CGSize sourceSize = [status.source sizeWithFont:BGAStatusCellSourceFont];
     self.sourceLabelFrame = (CGRect){{sourceX, sourceY}, sourceSize};
     /** 正文 */
     CGFloat contentX = iconX;
     CGFloat contentY = MAX(CGRectGetMaxY(self.iconViewFrame), CGRectGetMaxY(self.timeLabelFrame)) + BGAStatusCellEdge;
     CGFloat maxW = cellW - 2 * BGAStatusCellEdge;
-    CGSize contentSize = [self sizeWithText:status.text font:BGAStatusCellContentFont maxW:maxW];
+    CGSize contentSize = [status.text sizeWithFont:BGAStatusCellContentFont maxWidth:maxW];
     self.contentLabelFrame = (CGRect){{contentX, contentY}, contentSize};
     /** 配图 */
     CGFloat originalH = 0;
@@ -103,7 +84,7 @@
         CGFloat retweetContentY = BGAStatusCellEdge;
         
         CGFloat retweetContentMaxW = cellW - 2 * BGAStatusCellEdge;
-        CGSize retweetContentSize = [self sizeWithText:retweetContent font:BGARetweetStatusCellContentFont maxW:retweetContentMaxW];
+        CGSize retweetContentSize = [retweetContent sizeWithFont:BGARetweetStatusCellContentFont maxWidth:retweetContentMaxW];
         self.retweetContentLabelFrame = (CGRect){{retweetContentX, retweetContentY}, retweetContentSize};
         
         

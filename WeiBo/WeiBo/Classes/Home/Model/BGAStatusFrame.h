@@ -23,6 +23,8 @@
 // 转发微博字体
 #define BGARetweetStatusCellContentFont [UIFont systemFontOfSize:13]
 
+#define BGAStatusCellEdge 10
+
 #define BGAStatusCellMargin 8
 
 @class BGAStatus;

@@ -107,6 +107,7 @@
     /** 时间 */
     UILabel *timeLabel = [[UILabel alloc] init];
     timeLabel.font = BGAStatusCellTimeFont;
+    timeLabel.textColor = [UIColor orangeColor];
     [originalView addSubview:timeLabel];
     self.timeLabel = timeLabel;
     /** 来源 */
@@ -186,10 +187,17 @@
     self.nameLabel.frame = statusFrame.nameLabelFrame;
     self.nameLabel.text = user.name;
     /** 时间 */
-    self.timeLabel.frame = statusFrame.timeLabelFrame;
-    self.timeLabel.text = status.created_at;
+    NSString *time = status.created_at;
+    CGFloat timeX = statusFrame.nameLabelFrame.origin.x;
+    CGFloat timeY = CGRectGetMaxY(statusFrame.nameLabelFrame) + BGAStatusCellEdge;
+    CGSize timeSize = [time sizeWithFont:BGAStatusCellTimeFont];
+    self.timeLabel.frame = (CGRect){{timeX, timeY}, timeSize};
+    self.timeLabel.text = time;
     /** 来源 */
-    self.sourceLabel.frame = statusFrame.sourceLabelFrame;
+    CGFloat sourceX = CGRectGetMaxX(self.timeLabel.frame) + BGAStatusCellEdge;
+    CGFloat sourceY = timeY;
+    CGSize sourceSize = [status.source sizeWithFont:BGAStatusCellSourceFont];
+    self.sourceLabel.frame = (CGRect){{sourceX, sourceY}, sourceSize};
     self.sourceLabel.text = status.source;
     /** 正文 */
     self.contentLabel.frame = statusFrame.contentLabelFrame;
