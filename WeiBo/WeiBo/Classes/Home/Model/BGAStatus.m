@@ -7,6 +7,7 @@
 //
 
 #import "BGAStatus.h"
+#import "NSDate+Extension.h"
 
 @implementation BGAStatus
 
@@ -57,10 +58,29 @@
     NSCalendarUnit unit = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     // 计算两个日期之间的差值
     NSDateComponents *cmps = [calendar components:unit fromDate:createDate toDate:now options:0];
-
-    Logger(@"%@ %@ %@", createDate, now, cmps);
+    // 获得某个时间的年月日时分秒
+//    NSDateComponents *createDateCmps = [calendar components:unit fromDate:createDate];
     
-    return _created_at;
+    if ([createDate isThisYear]) { // 今年
+        if ([createDate isYesterday]) { // 昨天
+            fmt.dateFormat = @"昨天 HH:mm";
+            return [fmt stringFromDate:createDate];
+        } else if ([createDate isToday]) { // 今天
+            if (cmps.hour >= 1) {
+                return [NSString stringWithFormat:@"%d小时前", cmps.hour];
+            } else if (cmps.minute >= 1) {
+                return [NSString stringWithFormat:@"%d分钟前", cmps.minute];
+            } else {
+                return @"刚刚";
+            }
+        } else { // 今年的其他日子
+            fmt.dateFormat = @"MM-dd HH:mm";
+            return [fmt stringFromDate:createDate];
+        }
+    } else { // 非今年
+        fmt.dateFormat = @"yyyy-MM-dd HH:mm";
+        return [fmt stringFromDate:createDate];
+    }
 }
 
 @end
