@@ -12,6 +12,18 @@
 
 @implementation BGAStatusFrame
 
+- (CGSize)photosSizeWithCount:(int)count {
+    CGFloat width;
+    CGFloat height;
+    if (count < 3) {
+        width = 100 * count;
+    } else {
+        width = 100 * 3;
+    }
+    height = 100 * ((count - 1) / 3 + 1);
+    return CGSizeMake(width, height);
+}
+
 - (void)setStatus:(BGAStatus *)status {
     _status = status;
     BGAUser *user = status.user;
@@ -56,12 +68,12 @@
     /** 配图 */
     CGFloat originalH = 0;
     if (status.pic_urls.count) {
-        CGFloat photoWH = 100;
-        CGFloat photoX = contentX;
-        CGFloat photoY = CGRectGetMaxY(self.contentLabelFrame) + BGAStatusCellEdge;
-        self.photoViewFrame = CGRectMake(photoX, photoY, photoWH, photoWH);
+        CGFloat photosX = contentX;
+        CGFloat photosY = CGRectGetMaxY(self.contentLabelFrame) + BGAStatusCellEdge;
+        CGSize photosSize = [self photosSizeWithCount:status.pic_urls.count];
+        self.photosViewFrame = (CGRect){{photosX, photosY}, photosSize};
         
-        originalH = CGRectGetMaxY(self.photoViewFrame) + BGAStatusCellEdge;
+        originalH = CGRectGetMaxY(self.photosViewFrame) + BGAStatusCellEdge;
     } else {
         originalH = CGRectGetMaxY(self.contentLabelFrame) + BGAStatusCellEdge;
     }
@@ -87,15 +99,14 @@
         CGSize retweetContentSize = [retweetContent sizeWithFont:BGARetweetStatusCellContentFont maxWidth:retweetContentMaxW];
         self.retweetContentLabelFrame = (CGRect){{retweetContentX, retweetContentY}, retweetContentSize};
         
-        
         CGFloat retweetH = 0;
         if (retweeted_status.pic_urls.count) {
-            CGFloat retweetPhotoWH = 100;
-            CGFloat retweetPhotoX = retweetContentX;
-            CGFloat retweetPhotoY = CGRectGetMaxY(self.retweetContentLabelFrame) + BGAStatusCellEdge;
-            self.retweetPhotoViewFrame = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoWH, retweetPhotoWH);
+            CGFloat retweetPhotosX = retweetContentX;
+            CGFloat retweetPhotosY = CGRectGetMaxY(self.retweetContentLabelFrame) + BGAStatusCellEdge;
+            CGSize retweetPhotosSize = [self photosSizeWithCount:retweeted_status.pic_urls.count];
+            self.retweetPhotosViewFrame = (CGRect){{retweetPhotosX, retweetPhotosY}, retweetPhotosSize};
             
-            retweetH = CGRectGetMaxY(self.retweetPhotoViewFrame) + BGAStatusCellEdge;
+            retweetH = CGRectGetMaxY(self.retweetPhotosViewFrame) + BGAStatusCellEdge;
         } else {
             retweetH = CGRectGetMaxY(self.retweetContentLabelFrame) + BGAStatusCellEdge;
         }

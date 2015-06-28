@@ -13,6 +13,7 @@
 #import "BGAStatusFrame.h"
 #import "BGAPhoto.h"
 #import "BGAStatusToolbar.h"
+#import "BGAStatusPhotosView.h"
 
 @interface BGAStatusCell()
 
@@ -24,7 +25,7 @@
 /** 会员图标 */
 @property (nonatomic, weak) UIImageView *vipView;
 /** 配图 */
-@property (nonatomic, weak) UIImageView *photoView;
+@property (nonatomic, weak) BGAStatusPhotosView *photosView;
 /** 昵称 */
 @property (nonatomic, weak) UILabel *nameLabel;
 /** 时间 */
@@ -41,7 +42,7 @@
 /** 转发微博正文+昵称 */
 @property (nonatomic, weak) UILabel *retweetContentLabel;
 /** 转发微博配图 */
-@property (nonatomic, weak) UIImageView *retweetPhotoView;
+@property (nonatomic, weak) BGAStatusPhotosView *retweetPhotosView;
 
 // 工具条
 /** 工具条整体 */
@@ -123,9 +124,9 @@
     [originalView addSubview:contentLabel];
     self.contentLabel = contentLabel;
     /** 配图 */
-    UIImageView *photoView = [[UIImageView alloc] init];
-    [originalView addSubview:photoView];
-    self.photoView = photoView;
+    BGAStatusPhotosView *photosView = [[BGAStatusPhotosView alloc] init];
+    [originalView addSubview:photosView];
+    self.photosView = photosView;
 }
 
 - (void)setupRetweet {
@@ -144,9 +145,9 @@
     self.retweetContentLabel = retweetContentLabel;
     
     /** 转发微博配图 */
-    UIImageView *retweetPhotoView = [[UIImageView alloc] init];
-    [retweetView addSubview:retweetPhotoView];
-    self.retweetPhotoView = retweetPhotoView;
+    BGAStatusPhotosView *retweetPhotosView = [[BGAStatusPhotosView alloc] init];
+    [retweetView addSubview:retweetPhotosView];
+    self.retweetPhotosView = retweetPhotosView;
 }
 
 - (void)setupToolbar {
@@ -204,12 +205,13 @@
     self.contentLabel.text = statusFrame.status.text;
     /** 配图 */
     if (status.pic_urls.count) {
-        self.photoView.frame = statusFrame.photoViewFrame;
+        self.photosView.frame = statusFrame.photosViewFrame;
         BGAPhoto *photo = [status.pic_urls firstObject];
-        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-        self.photoView.hidden = NO;
+        // TODO 设置图片
+        self.photosView.backgroundColor = [UIColor blueColor];
+        self.photosView.hidden = NO;
     } else {
-        self.photoView.hidden = YES;
+        self.photosView.hidden = YES;
     }
     
     if (status.retweeted_status) {
@@ -225,12 +227,13 @@
         self.retweetContentLabel.text = retweetContent;
         // 被转发微博配图
         if (retweeted_status.pic_urls.count) {
-            self.retweetPhotoView.frame = statusFrame.retweetPhotoViewFrame;
+            self.retweetPhotosView.frame = statusFrame.retweetPhotosViewFrame;
             BGAPhoto *retweetedPhoto = [retweeted_status.pic_urls firstObject];
-            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:retweetedPhoto.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-            self.retweetPhotoView.hidden = NO;
+            // 设置图片
+            self.retweetPhotosView.backgroundColor = [UIColor blueColor];
+            self.retweetPhotosView.hidden = NO;
         } else {
-            self.retweetPhotoView.hidden = YES;
+            self.retweetPhotosView.hidden = YES;
         }
         
     } else {

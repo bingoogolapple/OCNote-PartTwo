@@ -82,6 +82,7 @@
 		31903FEC1B036EF1006A2A46 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FE91B036EF1006A2A46 /* MBProgressHUD.m */; };
 		31903FF01B0378B9006A2A46 /* BGAAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FEF1B0378B9006A2A46 /* BGAAccountTool.m */; };
 		31903FF31B038434006A2A46 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FF21B038434006A2A46 /* UIWindow+Extension.m */; };
+		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,6 +247,8 @@
 		31903FEF1B0378B9006A2A46 /* BGAAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAAccountTool.m; sourceTree = "<group>"; };
 		31903FF11B038434006A2A46 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
 		31903FF21B038434006A2A46 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
+		31E336951B40484900BC12E4 /* BGAStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAStatusPhotosView.h; sourceTree = "<group>"; };
+		31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAStatusPhotosView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +343,8 @@
 				317E4CF81B23EB8D00A2F730 /* BGAStatusCell.m */,
 				317BF9A81B3083A9008B1B1A /* BGAStatusToolbar.h */,
 				317BF9A91B3083A9008B1B1A /* BGAStatusToolbar.m */,
+				31E336951B40484900BC12E4 /* BGAStatusPhotosView.h */,
+				31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -893,6 +898,7 @@
 				3102AD9A1B0A3E8E00CC7A6C /* BGAStatus.m in Sources */,
 				31903FD61B0183A8006A2A46 /* AFSecurityPolicy.m in Sources */,
 				3102AD901B09708E00CC7A6C /* UIImage+MultiFormat.m in Sources */,
+				31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */,
 				3102AD921B09708E00CC7A6C /* UIImageView+HighlightedWebCache.m in Sources */,
 				31903FD21B0183A8006A2A46 /* AFHTTPRequestOperation.m in Sources */,
 				31903FAA1AF912AD006A2A46 /* BGADropdownMenu.m in Sources */,
