@@ -206,9 +206,7 @@
     /** 配图 */
     if (status.pic_urls.count) {
         self.photosView.frame = statusFrame.photosViewFrame;
-        BGAPhoto *photo = [status.pic_urls firstObject];
-        // TODO 设置图片
-        self.photosView.backgroundColor = [UIColor blueColor];
+        self.photosView.photos = status.pic_urls;
         self.photosView.hidden = NO;
     } else {
         self.photosView.hidden = YES;
@@ -228,14 +226,11 @@
         // 被转发微博配图
         if (retweeted_status.pic_urls.count) {
             self.retweetPhotosView.frame = statusFrame.retweetPhotosViewFrame;
-            BGAPhoto *retweetedPhoto = [retweeted_status.pic_urls firstObject];
-            // 设置图片
-            self.retweetPhotosView.backgroundColor = [UIColor blueColor];
+            self.retweetPhotosView.photos = retweeted_status.pic_urls;
             self.retweetPhotosView.hidden = NO;
         } else {
             self.retweetPhotosView.hidden = YES;
         }
-        
     } else {
         self.retweetView.hidden = YES;
     }

@@ -9,5 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface BGAStatusPhotosView : UIView
+@property (nonatomic, strong) NSArray *photos;
 
+/**
+ *  根据图片个数计算相册尺寸
+ *
+ *  @param count 图片个数
+ *
+ *  @return 相册尺寸
+ */
++ (CGSize)sizeWithCount:(int)count;
 @end

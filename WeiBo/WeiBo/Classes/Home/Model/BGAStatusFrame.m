@@ -8,21 +8,9 @@
 
 #import "BGAStatusFrame.h"
 #import "BGAStatus.h"
-
+#import "BGAStatusPhotosView.h"
 
 @implementation BGAStatusFrame
-
-- (CGSize)photosSizeWithCount:(int)count {
-    CGFloat width;
-    CGFloat height;
-    if (count < 3) {
-        width = 100 * count;
-    } else {
-        width = 100 * 3;
-    }
-    height = 100 * ((count - 1) / 3 + 1);
-    return CGSizeMake(width, height);
-}
 
 - (void)setStatus:(BGAStatus *)status {
     _status = status;
@@ -70,7 +58,7 @@
     if (status.pic_urls.count) {
         CGFloat photosX = contentX;
         CGFloat photosY = CGRectGetMaxY(self.contentLabelFrame) + BGAStatusCellEdge;
-        CGSize photosSize = [self photosSizeWithCount:status.pic_urls.count];
+        CGSize photosSize = [BGAStatusPhotosView sizeWithCount:status.pic_urls.count];
         self.photosViewFrame = (CGRect){{photosX, photosY}, photosSize};
         
         originalH = CGRectGetMaxY(self.photosViewFrame) + BGAStatusCellEdge;
@@ -103,7 +91,7 @@
         if (retweeted_status.pic_urls.count) {
             CGFloat retweetPhotosX = retweetContentX;
             CGFloat retweetPhotosY = CGRectGetMaxY(self.retweetContentLabelFrame) + BGAStatusCellEdge;
-            CGSize retweetPhotosSize = [self photosSizeWithCount:retweeted_status.pic_urls.count];
+            CGSize retweetPhotosSize = [BGAStatusPhotosView sizeWithCount:retweeted_status.pic_urls.count];
             self.retweetPhotosViewFrame = (CGRect){{retweetPhotosX, retweetPhotosY}, retweetPhotosSize};
             
             retweetH = CGRectGetMaxY(self.retweetPhotosViewFrame) + BGAStatusCellEdge;
