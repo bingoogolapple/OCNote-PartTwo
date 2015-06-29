@@ -21,6 +21,30 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor redColor];
+        
+        /*
+         UIViewContentModeScaleToFill,
+         UIViewContentModeScaleAspectFit,      // contents scaled to fit with fixed aspect. remainder is transparent
+         UIViewContentModeScaleAspectFill,     // contents scaled to fill with fixed aspect. some portion of content may be clipped.
+         UIViewContentModeRedraw,              // redraw on bounds change (calls -setNeedsDisplay)
+         UIViewContentModeCenter,              // contents remain same size. positioned adjusted.
+         UIViewContentModeTop,
+         UIViewContentModeBottom,
+         UIViewContentModeLeft,
+         UIViewContentModeRight,
+         UIViewContentModeTopLeft,
+         UIViewContentModeTopRight,
+         UIViewContentModeBottomLeft,
+         UIViewContentModeBottomRight,
+         
+         1.凡是带有Scale的都会拉伸
+         2.凡是带有Aspect的都会保存原来的宽高比，不会变形
+         
+         */
+        self.contentMode = UIViewContentModeScaleAspectFill;
+        // 超出的部分裁剪掉
+        self.clipsToBounds = YES;
     }
     return self;
 }
