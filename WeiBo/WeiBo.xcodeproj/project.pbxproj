@@ -37,6 +37,7 @@
 		3102ADB41B0ABC9700CC7A6C /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3102ADAC1B0ABC9700CC7A6C /* NSString+MJExtension.m */; };
 		3102ADB81B0B7DE400CC7A6C /* BGALoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3102ADB71B0B7DE400CC7A6C /* BGALoadMoreFooter.m */; };
 		3102ADBA1B0B7E1300CC7A6C /* BGALoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3102ADB91B0B7E1300CC7A6C /* BGALoadMoreFooter.xib */; };
+		314331221B418E1B00C6AD05 /* BGAStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 314331211B418E1B00C6AD05 /* BGAStatusPhotoView.m */; };
 		3177E35A1B38404200921C9A /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3177E3591B38404200921C9A /* NSDate+Extension.m */; };
 		3177E35D1B3862BB00921C9A /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3177E35C1B3862BB00921C9A /* NSString+Extension.m */; };
 		317BF9A41B2DDACC008B1B1A /* BGAPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 317BF9A31B2DDACC008B1B1A /* BGAPhoto.m */; };
@@ -156,6 +157,8 @@
 		3102ADB61B0B7DE400CC7A6C /* BGALoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGALoadMoreFooter.h; sourceTree = "<group>"; };
 		3102ADB71B0B7DE400CC7A6C /* BGALoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGALoadMoreFooter.m; sourceTree = "<group>"; };
 		3102ADB91B0B7E1300CC7A6C /* BGALoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BGALoadMoreFooter.xib; sourceTree = "<group>"; };
+		314331201B418E1B00C6AD05 /* BGAStatusPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAStatusPhotoView.h; sourceTree = "<group>"; };
+		314331211B418E1B00C6AD05 /* BGAStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAStatusPhotoView.m; sourceTree = "<group>"; };
 		3177E3581B38404200921C9A /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		3177E3591B38404200921C9A /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		3177E35B1B3862BB00921C9A /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
@@ -345,6 +348,8 @@
 				317BF9A91B3083A9008B1B1A /* BGAStatusToolbar.m */,
 				31E336951B40484900BC12E4 /* BGAStatusPhotosView.h */,
 				31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */,
+				314331201B418E1B00C6AD05 /* BGAStatusPhotoView.h */,
+				314331211B418E1B00C6AD05 /* BGAStatusPhotoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -932,6 +937,7 @@
 				31903F9E1AF83E38006A2A46 /* UIBarButtonItem+Extension.m in Sources */,
 				3177E35D1B3862BB00921C9A /* NSString+Extension.m in Sources */,
 				3102AD941B09708E00CC7A6C /* UIView+WebCacheOperation.m in Sources */,
+				314331221B418E1B00C6AD05 /* BGAStatusPhotoView.m in Sources */,
 				3177E35A1B38404200921C9A /* NSDate+Extension.m in Sources */,
 				31903FBD1B00F33F006A2A46 /* BGAOAuthViewController.m in Sources */,
 				3102AD8D1B09708E00CC7A6C /* SDWebImagePrefetcher.m in Sources */,

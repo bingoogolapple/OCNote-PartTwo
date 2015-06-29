@@ -8,7 +8,7 @@
 
 #import "BGAStatusPhotosView.h"
 #import "BGAPhoto.h"
-#import "UIImageView+WebCache.h"
+#import "BGAStatusPhotoView.h"
 
 #define BGAStatusPhotoWH 70
 #define BGAStatusPhotoMargin 5
@@ -30,16 +30,15 @@
     
     // self.subviews.count不能单独抽出来
     while (self.subviews.count < photosCount) {
-        UIImageView *photoView = [[UIImageView alloc] init];
+        BGAStatusPhotoView *photoView = [[BGAStatusPhotoView alloc] init];
         [self addSubview:photoView];
     }
     
     for (int i = 0; i < self.subviews.count; i++) {
-        UIImageView *photoView = self.subviews[i];
+        BGAStatusPhotoView *photoView = self.subviews[i];
         if (i < photosCount) {
             photoView.hidden = NO;
-            BGAPhoto *photo = photos[i];
-            [photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            photoView.photo = photos[i];
         } else {
             photoView.hidden = YES;
         }
@@ -52,7 +51,7 @@
     int photoCount = self.photos.count;
     int maxCol = BGAStatusPhotoMaxCol(photoCount);
     for (int i = 0; i < photoCount; i++) {
-        UIImageView *photoView = self.subviews[i];
+        BGAStatusPhotoView *photoView = self.subviews[i];
         int col = i % maxCol;
         int row = i / maxCol;
         photoView.x = col * (BGAStatusPhotoWH + BGAStatusPhotoMargin);
