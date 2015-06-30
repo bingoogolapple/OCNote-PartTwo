@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    BGAUserVerifiedTypeNone = -1, // 没有任何认证
+    
+    BGAUserVerifiedPersonal = 0,  // 个人认证
+    
+    BGAUserVerifiedOrgEnterprice = 2, // 企业官方：CSDN、EOE、搜狐新闻客户端
+    BGAUserVerifiedOrgMedia = 3, // 媒体官方：程序员杂志、苹果汇
+    BGAUserVerifiedOrgWebsite = 5, // 网站官方：猫扑
+    
+    BGAUserVerifiedDaren = 220 // 微博达人
+} BGAUserVerifiedType;
+
 @interface BGAUser : NSObject
 
 /**	string	字符串型的用户UID*/
@@ -24,7 +36,9 @@
 
 /**	会员等级*/
 @property (nonatomic, assign) int mbrank;
-
+/** 是否是vip */
 @property (nonatomic, assign, getter = isVip) BOOL vip;
+
+@property (nonatomic, assign) BGAUserVerifiedType verified_type;
 
 @end
