@@ -85,6 +85,7 @@
 		31903FF01B0378B9006A2A46 /* BGAAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FEF1B0378B9006A2A46 /* BGAAccountTool.m */; };
 		31903FF31B038434006A2A46 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FF21B038434006A2A46 /* UIWindow+Extension.m */; };
 		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
+		31EA40C51B4EBF4B00849D81 /* BGAPublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EA40C41B4EBF4B00849D81 /* BGAPublicViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +256,8 @@
 		31903FF21B038434006A2A46 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		31E336951B40484900BC12E4 /* BGAStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAStatusPhotosView.h; sourceTree = "<group>"; };
 		31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAStatusPhotosView.m; sourceTree = "<group>"; };
+		31EA40C31B4EBF4B00849D81 /* BGAPublicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublicViewController.h; sourceTree = "<group>"; };
+		31EA40C41B4EBF4B00849D81 /* BGAPublicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAPublicViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,6 +418,7 @@
 		31903F5D1AF6F83E006A2A46 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				31EA40C11B4EBE0A00849D81 /* Public */,
 				31903FB91B00F306006A2A46 /* OAuth */,
 				31903FB41AFC3657006A2A46 /* NewFeature */,
 				31903F5E1AF6F83E006A2A46 /* Discover */,
@@ -782,6 +786,23 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		31EA40C11B4EBE0A00849D81 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				31EA40C21B4EBEF600849D81 /* Controller */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		31EA40C21B4EBEF600849D81 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31EA40C31B4EBF4B00849D81 /* BGAPublicViewController.h */,
+				31EA40C41B4EBF4B00849D81 /* BGAPublicViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -898,6 +919,7 @@
 				3102AD851B09708E00CC7A6C /* MKAnnotationView+WebCache.m in Sources */,
 				31903FA11AF8F587006A2A46 /* BGASearchBar.m in Sources */,
 				3102ADB41B0ABC9700CC7A6C /* NSString+MJExtension.m in Sources */,
+				31EA40C51B4EBF4B00849D81 /* BGAPublicViewController.m in Sources */,
 				31903FDA1B0183A8006A2A46 /* AFURLSessionManager.m in Sources */,
 				3102AD911B09708E00CC7A6C /* UIImage+WebP.m in Sources */,
 				31903FB81AFC3690006A2A46 /* BGANewFeatureViewController.m in Sources */,

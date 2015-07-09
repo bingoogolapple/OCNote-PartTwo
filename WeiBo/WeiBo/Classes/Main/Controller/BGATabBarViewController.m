@@ -13,6 +13,7 @@
 #import "BGAProfileViewController.h"
 #import "BGANavigationController.h"
 #import "BGATabBar.h"
+#import "BGAPublicViewController.h"
 
 @interface BGATabBarViewController ()<BGATabBarDelegate>
 
@@ -85,6 +86,10 @@
 
 - (void)tabBarOnClickPlusBtn:(BGATabBar *)tabBar {
     Logger(@"点击了加号按钮");
+    
+    BGAPublicViewController *publicVc = [[BGAPublicViewController alloc] init];
+    BGANavigationController *navVc = [[BGANavigationController alloc] initWithRootViewController:publicVc];
+    [self presentViewController:navVc animated:YES completion:nil];
 }
 
 @end
