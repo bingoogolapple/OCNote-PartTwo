@@ -8,9 +8,12 @@
 
 #import "BGAPublicViewController.h"
 #import "BGAAccountTool.h"
+#import "BGATextView.h"
 
 @interface BGAPublicViewController()
 
+/** 输入控件 */
+@property (nonatomic, weak) BGATextView *textView;
 
 @end
 
@@ -23,8 +26,6 @@
     [self setupNav];
     
     [self setupTextView];
-    
-    
     
 }
 
@@ -54,15 +55,32 @@
      2> 通知:UITextViewTextDidChangeNotification
      */
     
-    UITextView *textView = [[UITextView alloc] init];
+    BGATextView *textView = [[BGATextView alloc] init];
     textView.frame = self.view.bounds;
     // 不会判断是否被导航栏遮住
     // textView.y = 80;
     // 按住option键，点击属性快速查看文档
     textView.font = [UIFont systemFontOfSize:18];
-    textView.backgroundColor = [UIColor redColor];
-    textView.textColor = [UIColor greenColor];
+//    textView.backgroundColor = [UIColor redColor];
+//    textView.textColor = [UIColor greenColor];
+    textView.placeholder = @"分享新鲜事...";
+    textView.placeholderColor = [UIColor grayColor];
     [self.view addSubview:textView];
+    self.textView = textView;
+    
+    // 监听文字改变通知
+    [BGANotificationCenter addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:textView];
+}
+
+/**
+ * 监听文字改变
+ */
+- (void)textDidChange {
+    self.navigationItem.rightBarButtonItem.enabled = self.textView.hasText;
+}
+
+- (void)dealloc {
+    [BGANotificationCenter removeObserver:self];
 }
 
 - (void)setupNav {
