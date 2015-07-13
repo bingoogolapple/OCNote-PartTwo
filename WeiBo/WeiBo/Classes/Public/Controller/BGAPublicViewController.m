@@ -60,7 +60,7 @@
     // 不会判断是否被导航栏遮住
     // textView.y = 80;
     // 按住option键，点击属性快速查看文档
-    textView.font = [UIFont systemFontOfSize:18];
+    textView.font = [UIFont systemFontOfSize:15];
 //    textView.backgroundColor = [UIColor redColor];
 //    textView.textColor = [UIColor greenColor];
     textView.placeholder = @"分享新鲜事...";
@@ -99,18 +99,23 @@
     
     NSString *username = [BGAAccountTool account].name;
     NSString *prefix = @"发微博";
-    NSString *title = [NSString stringWithFormat:@"%@\n%@", prefix, username];
-    NSMutableAttributedString *attrTitle = [[NSMutableAttributedString alloc] initWithString:title];
-    [attrTitle addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:[title rangeOfString:prefix]];
-    [attrTitle addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:[title rangeOfString:username]];
-    [attrTitle addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:[title rangeOfString:username]];
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowColor = [UIColor redColor];
-    shadow.shadowOffset = CGSizeMake(2, 2);
-    [attrTitle addAttribute:NSShadowAttributeName value:shadow range:[title rangeOfString:prefix]];
-    
-    titleView.attributedText = attrTitle;
-    self.navigationItem.titleView = titleView;
+    // 网速慢时，用户名可能为空
+    if (username) {
+        NSString *title = [NSString stringWithFormat:@"%@\n%@", prefix, username];
+        NSMutableAttributedString *attrTitle = [[NSMutableAttributedString alloc] initWithString:title];
+        [attrTitle addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:[title rangeOfString:prefix]];
+        [attrTitle addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:[title rangeOfString:username]];
+        [attrTitle addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:[title rangeOfString:username]];
+        NSShadow *shadow = [[NSShadow alloc] init];
+        shadow.shadowColor = [UIColor redColor];
+        shadow.shadowOffset = CGSizeMake(2, 2);
+        [attrTitle addAttribute:NSShadowAttributeName value:shadow range:[title rangeOfString:prefix]];
+        
+        titleView.attributedText = attrTitle;
+        self.navigationItem.titleView = titleView;
+    } else {
+        self.title = prefix;
+    }
 }
 
 - (void)cancel {
