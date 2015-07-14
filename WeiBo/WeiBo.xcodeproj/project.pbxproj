@@ -85,8 +85,9 @@
 		31903FF01B0378B9006A2A46 /* BGAAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FEF1B0378B9006A2A46 /* BGAAccountTool.m */; };
 		31903FF31B038434006A2A46 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FF21B038434006A2A46 /* UIWindow+Extension.m */; };
 		31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C541B5433C000FBEA83 /* BGATextView.m */; };
+		31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */; };
 		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
-		31EA40C51B4EBF4B00849D81 /* BGAPublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EA40C41B4EBF4B00849D81 /* BGAPublicViewController.m */; };
+		31EA40C51B4EBF4B00849D81 /* BGAPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EA40C41B4EBF4B00849D81 /* BGAPublishViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -257,10 +258,12 @@
 		31903FF21B038434006A2A46 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		31DA1C531B5433C000FBEA83 /* BGATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATextView.h; sourceTree = "<group>"; };
 		31DA1C541B5433C000FBEA83 /* BGATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATextView.m; sourceTree = "<group>"; };
+		31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishToolbar.h; sourceTree = "<group>"; };
+		31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAPublishToolbar.m; sourceTree = "<group>"; };
 		31E336951B40484900BC12E4 /* BGAStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAStatusPhotosView.h; sourceTree = "<group>"; };
 		31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAStatusPhotosView.m; sourceTree = "<group>"; };
-		31EA40C31B4EBF4B00849D81 /* BGAPublicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublicViewController.h; sourceTree = "<group>"; };
-		31EA40C41B4EBF4B00849D81 /* BGAPublicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAPublicViewController.m; sourceTree = "<group>"; };
+		31EA40C31B4EBF4B00849D81 /* BGAPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishViewController.h; sourceTree = "<group>"; };
+		31EA40C41B4EBF4B00849D81 /* BGAPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAPublishViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -791,9 +794,19 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		31DA1C561B556A4C00FBEA83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */,
+				31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		31EA40C11B4EBE0A00849D81 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				31DA1C561B556A4C00FBEA83 /* View */,
 				31EA40C21B4EBEF600849D81 /* Controller */,
 			);
 			path = Public;
@@ -802,8 +815,8 @@
 		31EA40C21B4EBEF600849D81 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				31EA40C31B4EBF4B00849D81 /* BGAPublicViewController.h */,
-				31EA40C41B4EBF4B00849D81 /* BGAPublicViewController.m */,
+				31EA40C31B4EBF4B00849D81 /* BGAPublishViewController.h */,
+				31EA40C41B4EBF4B00849D81 /* BGAPublishViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -920,11 +933,12 @@
 				31903F921AF6F83E006A2A46 /* UIView+Extension.m in Sources */,
 				31903F911AF6F83E006A2A46 /* BGAHomeViewController.m in Sources */,
 				31903FEC1B036EF1006A2A46 /* MBProgressHUD.m in Sources */,
+				31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */,
 				3102ADB31B0ABC9700CC7A6C /* NSObject+MJProperty.m in Sources */,
 				3102AD851B09708E00CC7A6C /* MKAnnotationView+WebCache.m in Sources */,
 				31903FA11AF8F587006A2A46 /* BGASearchBar.m in Sources */,
 				3102ADB41B0ABC9700CC7A6C /* NSString+MJExtension.m in Sources */,
-				31EA40C51B4EBF4B00849D81 /* BGAPublicViewController.m in Sources */,
+				31EA40C51B4EBF4B00849D81 /* BGAPublishViewController.m in Sources */,
 				31903FDA1B0183A8006A2A46 /* AFURLSessionManager.m in Sources */,
 				3102AD911B09708E00CC7A6C /* UIImage+WebP.m in Sources */,
 				31903FB81AFC3690006A2A46 /* BGANewFeatureViewController.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "BGATextView.h"
 
+// 如果要达到拖拽时hint的位置更随移动，用添加UILabel方式实现，而不是drawRect
 @implementation BGATextView
 
 - (instancetype)initWithFrame:(CGRect)frame {

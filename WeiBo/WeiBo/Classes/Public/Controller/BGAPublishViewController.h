@@ -1,5 +1,5 @@
 //
-//  BGAPublicViewController.h
+//  BGAPublishViewController.h
 //  WeiBo
 //
 //  Created by bingoogol on 15/7/9.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BGAPublicViewController : UIViewController
+@interface BGAPublishViewController : UIViewController
 
 @end

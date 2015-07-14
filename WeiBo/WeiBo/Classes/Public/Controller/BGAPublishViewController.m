@@ -1,26 +1,29 @@
 //
-//  BGAPublicViewController.m
+//  BGAPublishViewController.m
 //  WeiBo
 //
 //  Created by bingoogol on 15/7/9.
 //  Copyright (c) 2015年 bingoogolapple. All rights reserved.
 //
 
-#import "BGAPublicViewController.h"
+#import "BGAPublishViewController.h"
 #import "BGAAccountTool.h"
 #import "BGATextView.h"
 #import "MBProgressHUD+MJ.h"
 #import "AFNetworking.h"
+#import "BGAPublishToolbar.h"
 
-@interface BGAPublicViewController()
+@interface BGAPublishViewController()<UITextViewDelegate, BGAPublishToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 /** 输入控件 */
 @property (nonatomic, weak) BGATextView *textView;
+/** 键盘顶部的工具条 */
+@property (nonatomic, weak) BGAPublishToolbar *toolbar;
 
 @end
 
 
-@implementation BGAPublicViewController
+@implementation BGAPublishViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +32,21 @@
     
     [self setupTextView];
     
+    [self setupToolbar];
+}
+
+- (void)setupToolbar {
+    BGAPublishToolbar *toolbar = [[BGAPublishToolbar alloc] init];
+    toolbar.width = self.view.width;
+    toolbar.height = 44;
+    
+    // 设置显示在键盘顶部的控件
+//    self.textView.inputAccessoryView = toolbar;
+    
+    toolbar.delegate = self;
+    toolbar.y = self.view.height - toolbar.height;
+    [self.view addSubview:toolbar];
+    self.toolbar = toolbar;
 }
 
 - (void)setupTextView {
@@ -59,6 +77,8 @@
     
     BGATextView *textView = [[BGATextView alloc] init];
     textView.frame = self.view.bounds;
+    // 垂直方向上永远可以拖拽（有弹簧效果）
+    textView.alwaysBounceVertical = YES;
     // 不会判断是否被导航栏遮住
     // textView.y = 80;
     // 按住option键，点击属性快速查看文档
@@ -67,11 +87,59 @@
 //    textView.textColor = [UIColor greenColor];
     textView.placeholder = @"分享新鲜事...";
     textView.placeholderColor = [UIColor grayColor];
+    
+    textView.delegate = self;
     [self.view addSubview:textView];
     self.textView = textView;
     
     // 监听文字改变通知
     [BGANotificationCenter addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:textView];
+    
+    // 键盘通知
+    // 键盘的frame发生改变时发出的通知（位置和尺寸）
+    //    UIKeyboardWillChangeFrameNotification
+    //    UIKeyboardDidChangeFrameNotification
+    // 键盘显示时发出的通知
+    //    UIKeyboardWillShowNotification
+    //    UIKeyboardDidShowNotification
+    // 键盘隐藏时发出的通知
+    //    UIKeyboardWillHideNotification
+    //    UIKeyboardDidHideNotification
+    [BGANotificationCenter addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+/**
+ * 键盘的frame发生改变时调用（显示、隐藏等）
+ */
+- (void)keyboardWillChangeFrame:(NSNotification *)notification {
+    /**
+     notification.userInfo = @{
+     // 键盘弹出\隐藏后的frame
+     UIKeyboardFrameEndUserInfoKey = NSRect: {{0, 352}, {320, 216}},
+     // 键盘弹出\隐藏所耗费的时间
+     UIKeyboardAnimationDurationUserInfoKey = 0.25,
+     // 键盘弹出\隐藏动画的执行节奏（先快后慢，匀速）
+     UIKeyboardAnimationCurveUserInfoKey = 7
+     }
+     */
+    
+    NSDictionary *userInfo = notification.userInfo;
+    // 动画的持续时间
+    double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    // 键盘的frame
+    CGRect keyboardF = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    // 执行动画
+    [UIView animateWithDuration:duration animations:^{
+        // 工具条的Y值 == 键盘的Y值 - 工具条的高度
+        if (keyboardF.origin.y > self.view.height) {
+            // 键盘的Y值已经远远超过了控制器view的高度
+            self.toolbar.y = self.view.height - self.toolbar.height;
+        } else {
+            self.toolbar.y = keyboardF.origin.y - self.toolbar.height;
+        }
+        Logger(@"%@", NSStringFromCGRect(self.toolbar.frame));
+    }];
 }
 
 /**
@@ -120,11 +188,20 @@
     }
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
+}
+
 - (void)cancel {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)send {
+    [self sendWithoutImage];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)sendWithoutImage {
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [BGAAccountTool account].access_token;
@@ -134,7 +211,28 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD showError:@"发送失败"];
     }];
-    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)publishToolbar:(BGAPublishToolbar *)toolbar didClickButton:(BGAPublishToolbarButtonType)buttonType {
+    switch (buttonType) {
+        case BGAPublishToolbarButtonTypeCamera:
+            Logger(@"拍照");
+            break;
+        case BGAPublishToolbarButtonTypePicture:
+           Logger(@"相册");
+            break;
+        case BGAPublishToolbarButtonTypeMention:
+            Logger(@"@");
+            break;
+        case BGAPublishToolbarButtonTypeTrend:
+            Logger(@"#");
+            break;
+        case BGAPublishToolbarButtonTypeEmotion:
+            Logger(@"表情");
+            break;
+        default:
+            break;
+    }
 }
 
 @end
