@@ -9,6 +9,8 @@
 #import "BGAPublicViewController.h"
 #import "BGAAccountTool.h"
 #import "BGATextView.h"
+#import "MBProgressHUD+MJ.h"
+#import "AFNetworking.h"
 
 @interface BGAPublicViewController()
 
@@ -123,7 +125,16 @@
 }
 
 - (void)send {
-    
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [BGAAccountTool account].access_token;
+    params[@"status"] = self.textView.text;
+    [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        [MBProgressHUD showSuccess:@"发送成功"];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD showError:@"发送失败"];
+    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
