@@ -84,6 +84,7 @@
 		31903FEC1B036EF1006A2A46 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FE91B036EF1006A2A46 /* MBProgressHUD.m */; };
 		31903FF01B0378B9006A2A46 /* BGAAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FEF1B0378B9006A2A46 /* BGAAccountTool.m */; };
 		31903FF31B038434006A2A46 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FF21B038434006A2A46 /* UIWindow+Extension.m */; };
+		31BFEED21B56B1E600B32B82 /* BGAPublishPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEED11B56B1E600B32B82 /* BGAPublishPhotosView.m */; };
 		31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C541B5433C000FBEA83 /* BGATextView.m */; };
 		31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */; };
 		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
@@ -256,6 +257,8 @@
 		31903FEF1B0378B9006A2A46 /* BGAAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAAccountTool.m; sourceTree = "<group>"; };
 		31903FF11B038434006A2A46 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
 		31903FF21B038434006A2A46 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
+		31BFEED01B56B1E600B32B82 /* BGAPublishPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishPhotosView.h; sourceTree = "<group>"; };
+		31BFEED11B56B1E600B32B82 /* BGAPublishPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAPublishPhotosView.m; sourceTree = "<group>"; };
 		31DA1C531B5433C000FBEA83 /* BGATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATextView.h; sourceTree = "<group>"; };
 		31DA1C541B5433C000FBEA83 /* BGATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATextView.m; sourceTree = "<group>"; };
 		31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishToolbar.h; sourceTree = "<group>"; };
@@ -799,6 +802,8 @@
 			children = (
 				31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */,
 				31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */,
+				31BFEED01B56B1E600B32B82 /* BGAPublishPhotosView.h */,
+				31BFEED11B56B1E600B32B82 /* BGAPublishPhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -936,6 +941,7 @@
 				31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */,
 				3102ADB31B0ABC9700CC7A6C /* NSObject+MJProperty.m in Sources */,
 				3102AD851B09708E00CC7A6C /* MKAnnotationView+WebCache.m in Sources */,
+				31BFEED21B56B1E600B32B82 /* BGAPublishPhotosView.m in Sources */,
 				31903FA11AF8F587006A2A46 /* BGASearchBar.m in Sources */,
 				3102ADB41B0ABC9700CC7A6C /* NSString+MJExtension.m in Sources */,
 				31EA40C51B4EBF4B00849D81 /* BGAPublishViewController.m in Sources */,

@@ -12,6 +12,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "AFNetworking.h"
 #import "BGAPublishToolbar.h"
+#import "BGAPublishPhotosView.h"
 
 @interface BGAPublishViewController()<UITextViewDelegate, BGAPublishToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -19,6 +20,10 @@
 @property (nonatomic, weak) BGATextView *textView;
 /** 键盘顶部的工具条 */
 @property (nonatomic, weak) BGAPublishToolbar *toolbar;
+/** 相册（存放拍照或者相册中选择的图片） */
+@property (nonatomic, weak) BGAPublishPhotosView *photosView;
+
+//@property (nonatomic, assign) BOOL  picking;
 
 @end
 
@@ -33,6 +38,26 @@
     [self setupTextView];
     
     [self setupToolbar];
+    
+    // 添加相册
+    [self setupPhotosView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    // 不要放在viewWillAppear里，键盘会受modal影响
+    // 能输入文本的控件一旦成为第一响应者，就会叫出【相应】的键盘
+    [self.textView becomeFirstResponder];
+}
+
+- (void)setupPhotosView {
+    BGAPublishPhotosView *photosView = [[BGAPublishPhotosView alloc] init];
+    photosView.y = 100;
+    photosView.width = self.view.width;
+    // 随便写的
+    photosView.height = self.view.height;
+    [self.textView addSubview:photosView];
+    self.photosView = photosView;
 }
 
 - (void)setupToolbar {
@@ -112,6 +137,8 @@
  * 键盘的frame发生改变时调用（显示、隐藏等）
  */
 - (void)keyboardWillChangeFrame:(NSNotification *)notification {
+    //    if (self.picking) return;
+    
     /**
      notification.userInfo = @{
      // 键盘弹出\隐藏后的frame
@@ -197,8 +224,29 @@
 }
 
 - (void)send {
-    [self sendWithoutImage];
+    if (self.photosView.photos.count) {
+        [self sendWithImage];
+    } else {
+        [self sendWithoutImage];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)sendWithImage {
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [BGAAccountTool account].access_token;
+    params[@"status"] = self.textView.text;
+    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        // 拼接文件数据
+        UIImage *image = [self.photosView.photos firstObject];
+        NSData *data = UIImageJPEGRepresentation(image, 1.0);
+        [formData appendPartWithFileData:data name:@"pic" fileName:@"test.jpg" mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        [MBProgressHUD showSuccess:@"发送成功"];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD showError:@"发送失败"];
+    }];
 }
 
 - (void)sendWithoutImage {
@@ -216,10 +264,10 @@
 - (void)publishToolbar:(BGAPublishToolbar *)toolbar didClickButton:(BGAPublishToolbarButtonType)buttonType {
     switch (buttonType) {
         case BGAPublishToolbarButtonTypeCamera:
-            Logger(@"拍照");
+            [self openCamera];
             break;
         case BGAPublishToolbarButtonTypePicture:
-           Logger(@"相册");
+            [self openAlbum];
             break;
         case BGAPublishToolbarButtonTypeMention:
             Logger(@"@");
@@ -234,5 +282,55 @@
             break;
     }
 }
+
+#pragma mark - 其他方法
+- (void)openCamera {
+    [self openImagePickerController:UIImagePickerControllerSourceTypeCamera];
+}
+
+- (void)openAlbum {
+    // 如果想自己写一个图片选择控制器，得利用AssetsLibrary.framework，利用这个框架可以获得手机上的所有相册图片
+    // UIImagePickerControllerSourceTypePhotoLibrary 里的图片多余 UIImagePickerControllerSourceTypeSavedPhotosAlbum
+    [self openImagePickerController:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+- (void)openImagePickerController:(UIImagePickerControllerSourceType)type {
+    if (![UIImagePickerController isSourceTypeAvailable:type]) return;
+    
+    //    self.picking = YES;
+    
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.sourceType = type;
+    ipc.delegate = self;
+    [self presentViewController:ipc animated:YES completion:nil];
+}
+
+/**
+ * 从UIImagePickerController选择完图片后就调用（拍照完毕或者选择相册图片完毕）
+ */
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    // info中就包含了选择的图片
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    // 添加图片到photosView中
+    [self.photosView addPhoto:image];
+    
+    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //        self.picking = NO;
+    //    });
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //        self.picking = NO;
+    //    });
+}
+
+// 存储图片到相册
+// UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@""]];
+// UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
 @end
