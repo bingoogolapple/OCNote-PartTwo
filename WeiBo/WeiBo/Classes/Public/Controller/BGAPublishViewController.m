@@ -13,6 +13,7 @@
 #import "AFNetworking.h"
 #import "BGAPublishToolbar.h"
 #import "BGAPublishPhotosView.h"
+#import "BGAEmotionKeyboard.h"
 
 @interface BGAPublishViewController()<UITextViewDelegate, BGAPublishToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -24,6 +25,11 @@
 @property (nonatomic, weak) BGAPublishPhotosView *photosView;
 
 //@property (nonatomic, assign) BOOL  picking;
+
+/** 表情键盘 */
+@property (nonatomic, weak) BGAEmotionKeyboard *emotionKeyboard;
+/** 是否正在切换键盘 */
+@property (nonatomic, assign) BOOL switchingKeybaord;
 
 @end
 
@@ -138,6 +144,9 @@
  */
 - (void)keyboardWillChangeFrame:(NSNotification *)notification {
     //    if (self.picking) return;
+    
+    // 如果正在切换键盘，就不要执行后面的代码
+    if (self.switchingKeybaord) return;
     
     /**
      notification.userInfo = @{
@@ -276,14 +285,41 @@
             Logger(@"#");
             break;
         case BGAPublishToolbarButtonTypeEmotion:
-            Logger(@"表情");
+            [self switchKeyboard];
             break;
         default:
             break;
     }
 }
 
-#pragma mark - 其他方法
+- (void)switchKeyboard {
+    if (self.textView.inputView == nil) {
+        // 切换为自定义的表情键盘
+        BGAEmotionKeyboard *emotionKeyboard = [[BGAEmotionKeyboard alloc] init];
+        emotionKeyboard.width = self.view.width;
+        emotionKeyboard.height = 216;
+        self.textView.inputView = emotionKeyboard;
+    } else {
+        // 切换为系统自带的键盘
+        self.textView.inputView = nil;
+    }
+    // 开始切换键盘
+    self.switchingKeybaord = YES;
+    
+    // 退出键盘
+    [self.textView endEditing:YES];
+    //    [self.view endEditing:YES];
+    //    [self.view.window endEditing:YES];
+    //    [self.textView resignFirstResponder];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 弹出键盘
+        [self.textView becomeFirstResponder];
+        // 结束切换键盘
+        self.switchingKeybaord = NO;
+    });
+}
+
 - (void)openCamera {
     [self openImagePickerController:UIImagePickerControllerSourceTypeCamera];
 }
@@ -332,5 +368,7 @@
 // 存储图片到相册
 // UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@""]];
 // UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+
+
 
 @end

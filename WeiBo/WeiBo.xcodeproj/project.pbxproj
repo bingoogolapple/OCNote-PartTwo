@@ -85,6 +85,9 @@
 		31903FF01B0378B9006A2A46 /* BGAAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FEF1B0378B9006A2A46 /* BGAAccountTool.m */; };
 		31903FF31B038434006A2A46 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31903FF21B038434006A2A46 /* UIWindow+Extension.m */; };
 		31BFEED21B56B1E600B32B82 /* BGAPublishPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEED11B56B1E600B32B82 /* BGAPublishPhotosView.m */; };
+		31BFEED51B58213700B32B82 /* BGAEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEED41B58213700B32B82 /* BGAEmotionKeyboard.m */; };
+		31BFEED81B58220500B32B82 /* BGAEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEED71B58220500B32B82 /* BGAEmotionListView.m */; };
+		31BFEEDB1B58222800B32B82 /* BGAEmotionTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEDA1B58222800B32B82 /* BGAEmotionTabBar.m */; };
 		31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C541B5433C000FBEA83 /* BGATextView.m */; };
 		31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */; };
 		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
@@ -259,6 +262,12 @@
 		31903FF21B038434006A2A46 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		31BFEED01B56B1E600B32B82 /* BGAPublishPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishPhotosView.h; sourceTree = "<group>"; };
 		31BFEED11B56B1E600B32B82 /* BGAPublishPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAPublishPhotosView.m; sourceTree = "<group>"; };
+		31BFEED31B58213700B32B82 /* BGAEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionKeyboard.h; sourceTree = "<group>"; };
+		31BFEED41B58213700B32B82 /* BGAEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionKeyboard.m; sourceTree = "<group>"; };
+		31BFEED61B58220500B32B82 /* BGAEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionListView.h; sourceTree = "<group>"; };
+		31BFEED71B58220500B32B82 /* BGAEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionListView.m; sourceTree = "<group>"; };
+		31BFEED91B58222800B32B82 /* BGAEmotionTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionTabBar.h; sourceTree = "<group>"; };
+		31BFEEDA1B58222800B32B82 /* BGAEmotionTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionTabBar.m; sourceTree = "<group>"; };
 		31DA1C531B5433C000FBEA83 /* BGATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATextView.h; sourceTree = "<group>"; };
 		31DA1C541B5433C000FBEA83 /* BGATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATextView.m; sourceTree = "<group>"; };
 		31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishToolbar.h; sourceTree = "<group>"; };
@@ -804,6 +813,12 @@
 				31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */,
 				31BFEED01B56B1E600B32B82 /* BGAPublishPhotosView.h */,
 				31BFEED11B56B1E600B32B82 /* BGAPublishPhotosView.m */,
+				31BFEED31B58213700B32B82 /* BGAEmotionKeyboard.h */,
+				31BFEED41B58213700B32B82 /* BGAEmotionKeyboard.m */,
+				31BFEED61B58220500B32B82 /* BGAEmotionListView.h */,
+				31BFEED71B58220500B32B82 /* BGAEmotionListView.m */,
+				31BFEED91B58222800B32B82 /* BGAEmotionTabBar.h */,
+				31BFEEDA1B58222800B32B82 /* BGAEmotionTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -963,12 +978,14 @@
 				317BF9A71B2DDF62008B1B1A /* BGAExtensionConfig.m in Sources */,
 				31903F981AF6F83E006A2A46 /* BGAProfileViewController.m in Sources */,
 				3102AD8F1B09708E00CC7A6C /* UIImage+GIF.m in Sources */,
+				31BFEED51B58213700B32B82 /* BGAEmotionKeyboard.m in Sources */,
 				3102AD881B09708E00CC7A6C /* SDWebImageCompat.m in Sources */,
 				31903FB01AF99350006A2A46 /* BGAHomeTitleViewController.m in Sources */,
 				3102ADB21B0ABC9700CC7A6C /* NSObject+MJKeyValue.m in Sources */,
 				31903F931AF6F83E006A2A46 /* BGANavigationController.m in Sources */,
 				31903F971AF6F83E006A2A46 /* BGAMessageCenterViewController.m in Sources */,
 				31903FE01B0254A9006A2A46 /* BGALocal.m in Sources */,
+				31BFEED81B58220500B32B82 /* BGAEmotionListView.m in Sources */,
 				3102ADAD1B0ABC9700CC7A6C /* MJConst.m in Sources */,
 				3102AD8B1B09708E00CC7A6C /* SDWebImageDownloaderOperation.m in Sources */,
 				31903F941AF6F83E006A2A46 /* BGATabBarViewController.m in Sources */,
@@ -988,6 +1005,7 @@
 				3102ADB11B0ABC9700CC7A6C /* NSObject+MJCoding.m in Sources */,
 				3102AD971B0A3D4700CC7A6C /* BGAUser.m in Sources */,
 				3102AD931B09708E00CC7A6C /* UIImageView+WebCache.m in Sources */,
+				31BFEEDB1B58222800B32B82 /* BGAEmotionTabBar.m in Sources */,
 				31903F9E1AF83E38006A2A46 /* UIBarButtonItem+Extension.m in Sources */,
 				3177E35D1B3862BB00921C9A /* NSString+Extension.m in Sources */,
 				3102AD941B09708E00CC7A6C /* UIView+WebCacheOperation.m in Sources */,
