@@ -26,4 +26,7 @@ typedef enum {
 
 @interface BGAPublishToolbar : UIView
 @property (nonatomic, weak) id<BGAPublishToolbarDelegate> delegate;
+
+/** 是否要显示键盘按钮  */
+@property (nonatomic, assign) BOOL showKeyboardButton;
 @end

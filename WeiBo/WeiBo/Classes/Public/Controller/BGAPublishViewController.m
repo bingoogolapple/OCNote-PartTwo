@@ -27,7 +27,7 @@
 //@property (nonatomic, assign) BOOL  picking;
 
 /** 表情键盘 */
-@property (nonatomic, weak) BGAEmotionKeyboard *emotionKeyboard;
+@property (nonatomic, strong) BGAEmotionKeyboard *emotionKeyboard;
 /** 是否正在切换键盘 */
 @property (nonatomic, assign) BOOL switchingKeybaord;
 
@@ -292,16 +292,26 @@
     }
 }
 
+- (BGAEmotionKeyboard *)emotionKeyboard {
+    if (!_emotionKeyboard) {
+        _emotionKeyboard = [[BGAEmotionKeyboard alloc] init];
+        _emotionKeyboard.width = self.view.width;
+        _emotionKeyboard.height = 216;
+    }
+    return _emotionKeyboard;
+}
+
 - (void)switchKeyboard {
     if (self.textView.inputView == nil) {
         // 切换为自定义的表情键盘
-        BGAEmotionKeyboard *emotionKeyboard = [[BGAEmotionKeyboard alloc] init];
-        emotionKeyboard.width = self.view.width;
-        emotionKeyboard.height = 216;
-        self.textView.inputView = emotionKeyboard;
+        self.textView.inputView = self.emotionKeyboard;
+        // 显示键盘按钮
+        self.toolbar.showKeyboardButton = YES;
     } else {
         // 切换为系统自带的键盘
         self.textView.inputView = nil;
+        // 显示表情按钮
+        self.toolbar.showKeyboardButton = NO;
     }
     // 开始切换键盘
     self.switchingKeybaord = YES;

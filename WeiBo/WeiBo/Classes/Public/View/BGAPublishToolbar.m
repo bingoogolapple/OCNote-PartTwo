@@ -8,6 +8,12 @@
 
 #import "BGAPublishToolbar.h"
 
+@interface BGAPublishToolbar()
+
+@property (nonatomic, weak) UIButton *emotionButton;
+
+@end
+
 @implementation BGAPublishToolbar
 
 - (id)initWithFrame:(CGRect)frame {
@@ -24,20 +30,38 @@
         
         [self setupBtn:@"compose_trendbutton_background" highImage:@"compose_trendbutton_background_highlighted" type:BGAPublishToolbarButtonTypeTrend];
         
-        [self setupBtn:@"compose_emoticonbutton_background" highImage:@"compose_emoticonbutton_background_highlighted" type:BGAPublishToolbarButtonTypeEmotion];
+        self.emotionButton = [self setupBtn:@"compose_emoticonbutton_background" highImage:@"compose_emoticonbutton_background_highlighted" type:BGAPublishToolbarButtonTypeEmotion];
     }
     return self;
 }
 
-- (void)setupBtn:(NSString *)image highImage:(NSString *)highImage type:(BGAPublishToolbarButtonType)type {
+- (void)setShowKeyboardButton:(BOOL)showKeyboardButton {
+    _showKeyboardButton = showKeyboardButton;
+    
+    // 默认的图片名
+    NSString *image = @"compose_emoticonbutton_background";
+    NSString *highImage = @"compose_emoticonbutton_background_highlighted";
+    
+    // 显示键盘图标
+    if (showKeyboardButton) {
+        image = @"compose_keyboardbutton_background";
+        highImage = @"compose_keyboardbutton_background_highlighted";
+    }
+    
+    // 设置图片
+    [self.emotionButton setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+    [self.emotionButton setImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
+}
+
+- (UIButton *)setupBtn:(NSString *)image highImage:(NSString *)highImage type:(BGAPublishToolbarButtonType)type {
     UIButton *btn = [[UIButton alloc] init];
     [btn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
     [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     btn.tag = type;
     [self addSubview:btn];
+    return btn;
 }
-
 
 - (void)layoutSubviews {
     [super layoutSubviews];
