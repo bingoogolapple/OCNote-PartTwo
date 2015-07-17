@@ -10,7 +10,7 @@
 #import "BGAEmotionListView.h"
 #import "BGAEmotionTabBar.h"
 
-@interface BGAEmotionKeyboard ()
+@interface BGAEmotionKeyboard ()<BGAEmotionTabBarDelegate>
 
 /** 表情内容 */
 @property (nonatomic, weak) BGAEmotionListView *listView;
@@ -32,7 +32,7 @@
         
         // 2.tabbar
         BGAEmotionTabBar *tabBar = [[BGAEmotionTabBar alloc] init];
-        tabBar.backgroundColor = BGARandomColor;
+        tabBar.delegate = self;
         [self addSubview:tabBar];
         self.tabBar = tabBar;
     }
@@ -43,13 +43,30 @@
     [super layoutSubviews];
     // 1.tabbar
     self.tabBar.width = self.width;
-    self.tabBar.height = 44;
+    self.tabBar.height = 37;
     self.tabBar.x = 0;
     self.tabBar.y = self.height - self.tabBar.height;
     // 2.表情内容
     self.listView.x = self.listView.y = 0;
     self.listView.width = self.width;
     self.listView.height = self.tabBar.y;
+}
+
+- (void)emotionTabBar:(BGAEmotionTabBar *)tabBar didSelectButton:(BGAEmotionTabBarButtonType)buttonType {
+    switch (buttonType) {
+        case BGAEmotionTabBarButtonTypeRecent: // 最近
+            Logger(@"最近");
+            break;
+        case BGAEmotionTabBarButtonTypeDefault: // 默认
+            Logger(@"默认");
+            break;
+        case BGAEmotionTabBarButtonTypeEmoji: // Emoji
+            Logger(@"Emoji");
+            break;
+        case BGAEmotionTabBarButtonTypeLxh: // Lxh
+            Logger(@"Lxh");
+            break;
+    }
 }
 
 @end

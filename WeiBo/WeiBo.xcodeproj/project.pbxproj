@@ -88,6 +88,7 @@
 		31BFEED51B58213700B32B82 /* BGAEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEED41B58213700B32B82 /* BGAEmotionKeyboard.m */; };
 		31BFEED81B58220500B32B82 /* BGAEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEED71B58220500B32B82 /* BGAEmotionListView.m */; };
 		31BFEEDB1B58222800B32B82 /* BGAEmotionTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEDA1B58222800B32B82 /* BGAEmotionTabBar.m */; };
+		31BFEEDE1B59495700B32B82 /* BGAEmotionTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEDD1B59495700B32B82 /* BGAEmotionTabBarButton.m */; };
 		31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C541B5433C000FBEA83 /* BGATextView.m */; };
 		31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */; };
 		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
@@ -268,6 +269,8 @@
 		31BFEED71B58220500B32B82 /* BGAEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionListView.m; sourceTree = "<group>"; };
 		31BFEED91B58222800B32B82 /* BGAEmotionTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionTabBar.h; sourceTree = "<group>"; };
 		31BFEEDA1B58222800B32B82 /* BGAEmotionTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionTabBar.m; sourceTree = "<group>"; };
+		31BFEEDC1B59495700B32B82 /* BGAEmotionTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionTabBarButton.h; sourceTree = "<group>"; };
+		31BFEEDD1B59495700B32B82 /* BGAEmotionTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionTabBarButton.m; sourceTree = "<group>"; };
 		31DA1C531B5433C000FBEA83 /* BGATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATextView.h; sourceTree = "<group>"; };
 		31DA1C541B5433C000FBEA83 /* BGATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATextView.m; sourceTree = "<group>"; };
 		31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishToolbar.h; sourceTree = "<group>"; };
@@ -819,6 +822,8 @@
 				31BFEED71B58220500B32B82 /* BGAEmotionListView.m */,
 				31BFEED91B58222800B32B82 /* BGAEmotionTabBar.h */,
 				31BFEEDA1B58222800B32B82 /* BGAEmotionTabBar.m */,
+				31BFEEDC1B59495700B32B82 /* BGAEmotionTabBarButton.h */,
+				31BFEEDD1B59495700B32B82 /* BGAEmotionTabBarButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -957,6 +962,7 @@
 				3102ADB31B0ABC9700CC7A6C /* NSObject+MJProperty.m in Sources */,
 				3102AD851B09708E00CC7A6C /* MKAnnotationView+WebCache.m in Sources */,
 				31BFEED21B56B1E600B32B82 /* BGAPublishPhotosView.m in Sources */,
+				31BFEEDE1B59495700B32B82 /* BGAEmotionTabBarButton.m in Sources */,
 				31903FA11AF8F587006A2A46 /* BGASearchBar.m in Sources */,
 				3102ADB41B0ABC9700CC7A6C /* NSString+MJExtension.m in Sources */,
 				31EA40C51B4EBF4B00849D81 /* BGAPublishViewController.m in Sources */,

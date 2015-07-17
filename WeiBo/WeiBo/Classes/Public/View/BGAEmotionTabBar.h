@@ -8,6 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    BGAEmotionTabBarButtonTypeRecent, // 最近
+    BGAEmotionTabBarButtonTypeDefault, // 默认
+    BGAEmotionTabBarButtonTypeEmoji, // emoji
+    BGAEmotionTabBarButtonTypeLxh, // 浪小花
+} BGAEmotionTabBarButtonType;
+
+@class BGAEmotionTabBar;
+
+@protocol BGAEmotionTabBarDelegate <NSObject>
+
+@optional
+- (void)emotionTabBar:(BGAEmotionTabBar *)tabBar didSelectButton:(BGAEmotionTabBarButtonType)buttonType;
+@end
+
 @interface BGAEmotionTabBar : UIView
+
+@property (nonatomic, weak) id<BGAEmotionTabBarDelegate> delegate;
 
 @end
