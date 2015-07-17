@@ -89,6 +89,8 @@
 		31BFEED81B58220500B32B82 /* BGAEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEED71B58220500B32B82 /* BGAEmotionListView.m */; };
 		31BFEEDB1B58222800B32B82 /* BGAEmotionTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEDA1B58222800B32B82 /* BGAEmotionTabBar.m */; };
 		31BFEEDE1B59495700B32B82 /* BGAEmotionTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEDD1B59495700B32B82 /* BGAEmotionTabBarButton.m */; };
+		31BFEEE01B59541500B32B82 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 31BFEEDF1B59541500B32B82 /* EmotionIcons */; };
+		31BFEEE41B5955C700B32B82 /* BGAEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEE31B5955C700B32B82 /* BGAEmotion.m */; };
 		31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C541B5433C000FBEA83 /* BGATextView.m */; };
 		31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */; };
 		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
@@ -271,6 +273,9 @@
 		31BFEEDA1B58222800B32B82 /* BGAEmotionTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionTabBar.m; sourceTree = "<group>"; };
 		31BFEEDC1B59495700B32B82 /* BGAEmotionTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionTabBarButton.h; sourceTree = "<group>"; };
 		31BFEEDD1B59495700B32B82 /* BGAEmotionTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionTabBarButton.m; sourceTree = "<group>"; };
+		31BFEEDF1B59541500B32B82 /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
+		31BFEEE21B5955C700B32B82 /* BGAEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotion.h; sourceTree = "<group>"; };
+		31BFEEE31B5955C700B32B82 /* BGAEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotion.m; sourceTree = "<group>"; };
 		31DA1C531B5433C000FBEA83 /* BGATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATextView.h; sourceTree = "<group>"; };
 		31DA1C541B5433C000FBEA83 /* BGATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATextView.m; sourceTree = "<group>"; };
 		31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishToolbar.h; sourceTree = "<group>"; };
@@ -411,6 +416,7 @@
 		31903F111AF5F94C006A2A46 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				31BFEEDF1B59541500B32B82 /* EmotionIcons */,
 				31903F1E1AF5F94C006A2A46 /* Images.xcassets */,
 				31903F121AF5F94C006A2A46 /* Info.plist */,
 				31903F3D1AF62048006A2A46 /* WeiBo-Prefix.pch */,
@@ -809,6 +815,15 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		31BFEEE11B5955AF00B32B82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				31BFEEE21B5955C700B32B82 /* BGAEmotion.h */,
+				31BFEEE31B5955C700B32B82 /* BGAEmotion.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		31DA1C561B556A4C00FBEA83 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -831,6 +846,7 @@
 		31EA40C11B4EBE0A00849D81 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				31BFEEE11B5955AF00B32B82 /* Model */,
 				31DA1C561B556A4C00FBEA83 /* View */,
 				31EA40C21B4EBEF600849D81 /* Controller */,
 			);
@@ -927,6 +943,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31BFEEE01B59541500B32B82 /* EmotionIcons in Resources */,
 				31903F1F1AF5F94C006A2A46 /* Images.xcassets in Resources */,
 				31903FDC1B025173006A2A46 /* local.json in Resources */,
 				3102ADBA1B0B7E1300CC7A6C /* BGALoadMoreFooter.xib in Resources */,
@@ -1018,6 +1035,7 @@
 				314331221B418E1B00C6AD05 /* BGAStatusPhotoView.m in Sources */,
 				3177E35A1B38404200921C9A /* NSDate+Extension.m in Sources */,
 				31903FBD1B00F33F006A2A46 /* BGAOAuthViewController.m in Sources */,
+				31BFEEE41B5955C700B32B82 /* BGAEmotion.m in Sources */,
 				3102AD8D1B09708E00CC7A6C /* SDWebImagePrefetcher.m in Sources */,
 				31903FF01B0378B9006A2A46 /* BGAAccountTool.m in Sources */,
 				3102AD861B09708E00CC7A6C /* NSData+ImageContentType.m in Sources */,

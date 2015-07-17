@@ -18,7 +18,7 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setupBtn:NSLocalizedString(@"recent", nil) buttonType:BGAEmotionTabBarButtonTypeRecent];
+        [self setupBtn:@"最近" buttonType:BGAEmotionTabBarButtonTypeRecent];
         [self setupBtn:@"默认" buttonType:BGAEmotionTabBarButtonTypeDefault];
         [self setupBtn:@"Emoji" buttonType:BGAEmotionTabBarButtonTypeEmoji];
         [self setupBtn:@"浪小花" buttonType:BGAEmotionTabBarButtonTypeLxh];
