@@ -14,10 +14,29 @@
 @interface BGAEmotionPageView ()
 
 @property (nonatomic, strong) BGAEmotionPopView *popView;
-
+@property (nonatomic, weak) UIButton *deleteButton;
 @end
 
 @implementation BGAEmotionPageView
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        UIButton *deleteButton = [[UIButton alloc] init];
+        [deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete_highlighted"] forState:UIControlStateHighlighted];
+        [deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete"] forState:UIControlStateNormal];
+        [deleteButton addTarget:self action:@selector(deleteClick) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:deleteButton];
+        self.deleteButton = deleteButton;
+        
+        
+    }
+    return self;
+}
+
+- (void)deleteClick {
+    [BGANotificationCenter postNotificationName:BGAEmotionDidDeleteNotification object:nil];
+}
 
 - (void)setEmotions:(NSArray *)emotions {
     _emotions = emotions;
@@ -41,12 +60,19 @@
     CGFloat btnW = (self.width - 2 * inset) / BGAEmotionMaxCols;
     CGFloat btnH = (self.height - inset) / BGAEmotionMaxRows;
     for (int i = 0; i<count; i++) {
-        UIButton *btn = self.subviews[i];
+        // 第一个时删除按钮，这里加1
+        UIButton *btn = self.subviews[i + 1];
         btn.width = btnW;
         btn.height = btnH;
         btn.x = inset + (i%BGAEmotionMaxCols) * btnW;
         btn.y = inset + (i/BGAEmotionMaxCols) * btnH;
     }
+    
+    // 删除按钮
+    self.deleteButton.width = btnW;
+    self.deleteButton.height = btnH;
+    self.deleteButton.y = self.height - btnH;
+    self.deleteButton.x = self.width - inset - btnW;
 }
 
 - (void)btnClick:(BGAEmotionButton *)btn {
@@ -61,6 +87,16 @@
     CGRect btnFrame = [btn convertRect:btn.bounds toView:nil];
     self.popView.y = CGRectGetMidY(btnFrame) - self.popView.height;
     self.popView.centerX = CGRectGetMidX(btnFrame);
+    
+    // 等会让popView自动消失
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.popView removeFromSuperview];
+    });
+    
+    // 发出通知
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    userInfo[BGASelectEmotionKey] = btn.emotion;
+    [BGANotificationCenter postNotificationName:BGAEmotionDidSelectNotification object:nil userInfo:userInfo];
 }
 
 - (BGAEmotionPopView *)popView {

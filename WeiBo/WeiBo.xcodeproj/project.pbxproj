@@ -96,6 +96,9 @@
 		31BFEEED1B5A5A5800B32B82 /* BGAEmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEEC1B5A5A5800B32B82 /* BGAEmotionButton.m */; };
 		31BFEEF01B5A5C3C00B32B82 /* BGAEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEEF1B5A5C3C00B32B82 /* BGAEmotionPopView.m */; };
 		31BFEEF21B5A5C7300B32B82 /* BGAEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31BFEEF11B5A5C7300B32B82 /* BGAEmotionPopView.xib */; };
+		31BFEEF51B5A9A9C00B32B82 /* BGAEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEF41B5A9A9C00B32B82 /* BGAEmotionTextView.m */; };
+		31BFEEF81B5A9C2100B32B82 /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEF71B5A9C2100B32B82 /* UITextView+Extension.m */; };
+		31BFEEFB1B5AB3B000B32B82 /* BGAEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEFA1B5AB3B000B32B82 /* BGAEmotionAttachment.m */; };
 		31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C541B5433C000FBEA83 /* BGATextView.m */; };
 		31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */; };
 		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
@@ -290,6 +293,12 @@
 		31BFEEEE1B5A5C3C00B32B82 /* BGAEmotionPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionPopView.h; sourceTree = "<group>"; };
 		31BFEEEF1B5A5C3C00B32B82 /* BGAEmotionPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionPopView.m; sourceTree = "<group>"; };
 		31BFEEF11B5A5C7300B32B82 /* BGAEmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BGAEmotionPopView.xib; sourceTree = "<group>"; };
+		31BFEEF31B5A9A9C00B32B82 /* BGAEmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionTextView.h; sourceTree = "<group>"; };
+		31BFEEF41B5A9A9C00B32B82 /* BGAEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionTextView.m; sourceTree = "<group>"; };
+		31BFEEF61B5A9C2100B32B82 /* UITextView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Extension.h"; sourceTree = "<group>"; };
+		31BFEEF71B5A9C2100B32B82 /* UITextView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Extension.m"; sourceTree = "<group>"; };
+		31BFEEF91B5AB3B000B32B82 /* BGAEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionAttachment.h; sourceTree = "<group>"; };
+		31BFEEFA1B5AB3B000B32B82 /* BGAEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionAttachment.m; sourceTree = "<group>"; };
 		31DA1C531B5433C000FBEA83 /* BGATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATextView.h; sourceTree = "<group>"; };
 		31DA1C541B5433C000FBEA83 /* BGATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATextView.m; sourceTree = "<group>"; };
 		31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishToolbar.h; sourceTree = "<group>"; };
@@ -572,6 +581,8 @@
 				3177E35C1B3862BB00921C9A /* NSString+Extension.m */,
 				31BFEEE81B5A4F7900B32B82 /* NSString+Emoji.h */,
 				31BFEEE91B5A4F7900B32B82 /* NSString+Emoji.m */,
+				31BFEEF61B5A9C2100B32B82 /* UITextView+Extension.h */,
+				31BFEEF71B5A9C2100B32B82 /* UITextView+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -836,6 +847,8 @@
 			children = (
 				31BFEEE21B5955C700B32B82 /* BGAEmotion.h */,
 				31BFEEE31B5955C700B32B82 /* BGAEmotion.m */,
+				31BFEEF91B5AB3B000B32B82 /* BGAEmotionAttachment.h */,
+				31BFEEFA1B5AB3B000B32B82 /* BGAEmotionAttachment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -862,6 +875,8 @@
 				31BFEEEE1B5A5C3C00B32B82 /* BGAEmotionPopView.h */,
 				31BFEEEF1B5A5C3C00B32B82 /* BGAEmotionPopView.m */,
 				31BFEEF11B5A5C7300B32B82 /* BGAEmotionPopView.xib */,
+				31BFEEF31B5A9A9C00B32B82 /* BGAEmotionTextView.h */,
+				31BFEEF41B5A9A9C00B32B82 /* BGAEmotionTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1038,6 +1053,7 @@
 				31903FE01B0254A9006A2A46 /* BGALocal.m in Sources */,
 				31BFEED81B58220500B32B82 /* BGAEmotionListView.m in Sources */,
 				3102ADAD1B0ABC9700CC7A6C /* MJConst.m in Sources */,
+				31BFEEF51B5A9A9C00B32B82 /* BGAEmotionTextView.m in Sources */,
 				3102AD8B1B09708E00CC7A6C /* SDWebImageDownloaderOperation.m in Sources */,
 				31903F941AF6F83E006A2A46 /* BGATabBarViewController.m in Sources */,
 				3102ADB81B0B7DE400CC7A6C /* BGALoadMoreFooter.m in Sources */,
@@ -1045,6 +1061,7 @@
 				31903F961AF6F83E006A2A46 /* main.m in Sources */,
 				3102ADB01B0ABC9700CC7A6C /* MJType.m in Sources */,
 				31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */,
+				31BFEEFB1B5AB3B000B32B82 /* BGAEmotionAttachment.m in Sources */,
 				31903FEA1B036EF1006A2A46 /* MBProgressHUD+MJ.m in Sources */,
 				317BF9A41B2DDACC008B1B1A /* BGAPhoto.m in Sources */,
 				3102AD621B07B1B200CC7A6C /* Foundation+Log.m in Sources */,
@@ -1067,6 +1084,7 @@
 				3102AD8D1B09708E00CC7A6C /* SDWebImagePrefetcher.m in Sources */,
 				31903FF01B0378B9006A2A46 /* BGAAccountTool.m in Sources */,
 				3102AD861B09708E00CC7A6C /* NSData+ImageContentType.m in Sources */,
+				31BFEEF81B5A9C2100B32B82 /* UITextView+Extension.m in Sources */,
 				317E4CF91B23EB8D00A2F730 /* BGAStatusCell.m in Sources */,
 				31903F9A1AF6F83E006A2A46 /* BGATest2ViewController.m in Sources */,
 				31903FD51B0183A8006A2A46 /* AFNetworkReachabilityManager.m in Sources */,

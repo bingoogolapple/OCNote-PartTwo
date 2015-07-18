@@ -8,17 +8,18 @@
 
 #import "BGAPublishViewController.h"
 #import "BGAAccountTool.h"
-#import "BGATextView.h"
+#import "BGAEmotionTextView.h"
 #import "MBProgressHUD+MJ.h"
 #import "AFNetworking.h"
 #import "BGAPublishToolbar.h"
 #import "BGAPublishPhotosView.h"
 #import "BGAEmotionKeyboard.h"
+#import "BGAEmotion.h"
 
 @interface BGAPublishViewController()<UITextViewDelegate, BGAPublishToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 /** 输入控件 */
-@property (nonatomic, weak) BGATextView *textView;
+@property (nonatomic, weak) BGAEmotionTextView *textView;
 /** 键盘顶部的工具条 */
 @property (nonatomic, weak) BGAPublishToolbar *toolbar;
 /** 相册（存放拍照或者相册中选择的图片） */
@@ -106,7 +107,7 @@
      2> 通知:UITextViewTextDidChangeNotification
      */
     
-    BGATextView *textView = [[BGATextView alloc] init];
+    BGAEmotionTextView *textView = [[BGAEmotionTextView alloc] init];
     textView.frame = self.view.bounds;
     // 垂直方向上永远可以拖拽（有弹簧效果）
     textView.alwaysBounceVertical = YES;
@@ -137,6 +138,21 @@
     //    UIKeyboardWillHideNotification
     //    UIKeyboardDidHideNotification
     [BGANotificationCenter addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    // 表情选中的通知
+    [BGANotificationCenter addObserver:self selector:@selector(emotionDidSelect:) name:BGAEmotionDidSelectNotification object:nil];
+    
+    // 删除文字的通知
+    [BGANotificationCenter addObserver:self selector:@selector(emotionDidDelete) name:BGAEmotionDidDeleteNotification object:nil];
+}
+
+- (void)emotionDidDelete {
+    [self.textView deleteBackward];
+}
+
+- (void)emotionDidSelect:(NSNotification *)notification {
+    BGAEmotion *emotion = notification.userInfo[BGASelectEmotionKey];
+    [self.textView insertEmotion:emotion];
 }
 
 /**
@@ -145,7 +161,7 @@
 - (void)keyboardWillChangeFrame:(NSNotification *)notification {
     //    if (self.picking) return;
     
-    // 如果正在切换键盘，就不要执行后面的代码
+    // 如果正在切换键盘，就不要执行后面的代码【只拦截旧键盘的收缩】
     if (self.switchingKeybaord) return;
     
     /**
@@ -262,7 +278,7 @@
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [BGAAccountTool account].access_token;
-    params[@"status"] = self.textView.text;
+    params[@"status"] = self.textView.fullText;
     [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         [MBProgressHUD showSuccess:@"发送成功"];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -322,11 +338,11 @@
     //    [self.view.window endEditing:YES];
     //    [self.textView resignFirstResponder];
     
+    // 结束切换键盘
+    self.switchingKeybaord = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 弹出键盘
         [self.textView becomeFirstResponder];
-        // 结束切换键盘
-        self.switchingKeybaord = NO;
     });
 }
 

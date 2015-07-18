@@ -15,6 +15,7 @@
     #import "UIBarButtonItem+Extension.h"
     #import "UIWindow+Extension.h"
     #import "NSString+Extension.h"
+    #import "UITextView+Extension.h"
     #import "NSString+Emoji.h"
 
 // 添加自定义log
@@ -27,11 +28,17 @@
 // 通知中心
 #define BGANotificationCenter [NSNotificationCenter defaultCenter]
 
+// 通知
+// 表情选中的通知
+#define BGAEmotionDidSelectNotification @"BGAEmotionDidSelectNotification"
+#define BGASelectEmotionKey @"BGASelectEmotionKey"
+// 删除文字的通知
+#define BGAEmotionDidDeleteNotification @"BGAEmotionDidDeleteNotification"
+
 // RGB颜色
 #define BGAColor(r,g,b) ([UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0])
 // 随机色
 #define BGARandomColor (BGAColor(arc4random_uniform(256),arc4random_uniform(256),arc4random_uniform(256)))
-
 
 #endif
 
