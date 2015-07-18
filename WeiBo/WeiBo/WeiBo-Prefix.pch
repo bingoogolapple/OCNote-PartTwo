@@ -15,6 +15,7 @@
     #import "UIBarButtonItem+Extension.h"
     #import "UIWindow+Extension.h"
     #import "NSString+Extension.h"
+    #import "NSString+Emoji.h"
 
 // 添加自定义log
 #ifdef DEBUG

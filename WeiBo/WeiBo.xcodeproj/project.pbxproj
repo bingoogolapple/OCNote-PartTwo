@@ -91,6 +91,8 @@
 		31BFEEDE1B59495700B32B82 /* BGAEmotionTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEDD1B59495700B32B82 /* BGAEmotionTabBarButton.m */; };
 		31BFEEE01B59541500B32B82 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 31BFEEDF1B59541500B32B82 /* EmotionIcons */; };
 		31BFEEE41B5955C700B32B82 /* BGAEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEE31B5955C700B32B82 /* BGAEmotion.m */; };
+		31BFEEE71B5A4C6500B32B82 /* BGAEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEE61B5A4C6500B32B82 /* BGAEmotionPageView.m */; };
+		31BFEEEA1B5A4F7900B32B82 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEE91B5A4F7900B32B82 /* NSString+Emoji.m */; };
 		31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C541B5433C000FBEA83 /* BGATextView.m */; };
 		31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */; };
 		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
@@ -276,6 +278,10 @@
 		31BFEEDF1B59541500B32B82 /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
 		31BFEEE21B5955C700B32B82 /* BGAEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotion.h; sourceTree = "<group>"; };
 		31BFEEE31B5955C700B32B82 /* BGAEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotion.m; sourceTree = "<group>"; };
+		31BFEEE51B5A4C6500B32B82 /* BGAEmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionPageView.h; sourceTree = "<group>"; };
+		31BFEEE61B5A4C6500B32B82 /* BGAEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionPageView.m; sourceTree = "<group>"; };
+		31BFEEE81B5A4F7900B32B82 /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		31BFEEE91B5A4F7900B32B82 /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		31DA1C531B5433C000FBEA83 /* BGATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATextView.h; sourceTree = "<group>"; };
 		31DA1C541B5433C000FBEA83 /* BGATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATextView.m; sourceTree = "<group>"; };
 		31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishToolbar.h; sourceTree = "<group>"; };
@@ -556,6 +562,8 @@
 				3177E3591B38404200921C9A /* NSDate+Extension.m */,
 				3177E35B1B3862BB00921C9A /* NSString+Extension.h */,
 				3177E35C1B3862BB00921C9A /* NSString+Extension.m */,
+				31BFEEE81B5A4F7900B32B82 /* NSString+Emoji.h */,
+				31BFEEE91B5A4F7900B32B82 /* NSString+Emoji.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -839,6 +847,8 @@
 				31BFEEDA1B58222800B32B82 /* BGAEmotionTabBar.m */,
 				31BFEEDC1B59495700B32B82 /* BGAEmotionTabBarButton.h */,
 				31BFEEDD1B59495700B32B82 /* BGAEmotionTabBarButton.m */,
+				31BFEEE51B5A4C6500B32B82 /* BGAEmotionPageView.h */,
+				31BFEEE61B5A4C6500B32B82 /* BGAEmotionPageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -995,6 +1005,7 @@
 				31903FD61B0183A8006A2A46 /* AFSecurityPolicy.m in Sources */,
 				3102AD901B09708E00CC7A6C /* UIImage+MultiFormat.m in Sources */,
 				31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */,
+				31BFEEEA1B5A4F7900B32B82 /* NSString+Emoji.m in Sources */,
 				3102AD921B09708E00CC7A6C /* UIImageView+HighlightedWebCache.m in Sources */,
 				31903FD21B0183A8006A2A46 /* AFHTTPRequestOperation.m in Sources */,
 				31903FAA1AF912AD006A2A46 /* BGADropdownMenu.m in Sources */,
@@ -1002,6 +1013,7 @@
 				31903F981AF6F83E006A2A46 /* BGAProfileViewController.m in Sources */,
 				3102AD8F1B09708E00CC7A6C /* UIImage+GIF.m in Sources */,
 				31BFEED51B58213700B32B82 /* BGAEmotionKeyboard.m in Sources */,
+				31BFEEE71B5A4C6500B32B82 /* BGAEmotionPageView.m in Sources */,
 				3102AD881B09708E00CC7A6C /* SDWebImageCompat.m in Sources */,
 				31903FB01AF99350006A2A46 /* BGAHomeTitleViewController.m in Sources */,
 				3102ADB21B0ABC9700CC7A6C /* NSObject+MJKeyValue.m in Sources */,

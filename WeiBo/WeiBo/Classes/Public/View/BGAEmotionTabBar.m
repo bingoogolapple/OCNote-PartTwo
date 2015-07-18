@@ -39,12 +39,7 @@
     btn.tag = buttonType;
     [btn setTitle:title forState:UIControlStateNormal];
     [self addSubview:btn];
-    
-    // 选中“默认”按钮
-    if (buttonType == BGAEmotionTabBarButtonTypeDefault) {
-        [self btnClick:btn];
-    }
-    
+
     // 设置背景图片
     NSString *image = @"compose_emotion_table_mid_normal";
     NSString *selectImage = @"compose_emotion_table_mid_selected";
@@ -60,6 +55,11 @@
     [btn setBackgroundImage:[UIImage imageNamed:selectImage] forState:UIControlStateDisabled];
     
     return btn;
+}
+
+- (void)setDelegate:(id<BGAEmotionTabBarDelegate>)delegate {
+    _delegate = delegate;
+    [self btnClick:(BGAEmotionTabBarButton *)[self viewWithTag:BGAEmotionTabBarButtonTypeDefault]];
 }
 
 - (void)layoutSubviews {
