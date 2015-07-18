@@ -93,6 +93,9 @@
 		31BFEEE41B5955C700B32B82 /* BGAEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEE31B5955C700B32B82 /* BGAEmotion.m */; };
 		31BFEEE71B5A4C6500B32B82 /* BGAEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEE61B5A4C6500B32B82 /* BGAEmotionPageView.m */; };
 		31BFEEEA1B5A4F7900B32B82 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEE91B5A4F7900B32B82 /* NSString+Emoji.m */; };
+		31BFEEED1B5A5A5800B32B82 /* BGAEmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEEC1B5A5A5800B32B82 /* BGAEmotionButton.m */; };
+		31BFEEF01B5A5C3C00B32B82 /* BGAEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEEF1B5A5C3C00B32B82 /* BGAEmotionPopView.m */; };
+		31BFEEF21B5A5C7300B32B82 /* BGAEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31BFEEF11B5A5C7300B32B82 /* BGAEmotionPopView.xib */; };
 		31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C541B5433C000FBEA83 /* BGATextView.m */; };
 		31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */; };
 		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
@@ -282,6 +285,11 @@
 		31BFEEE61B5A4C6500B32B82 /* BGAEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionPageView.m; sourceTree = "<group>"; };
 		31BFEEE81B5A4F7900B32B82 /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
 		31BFEEE91B5A4F7900B32B82 /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
+		31BFEEEB1B5A5A5800B32B82 /* BGAEmotionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionButton.h; sourceTree = "<group>"; };
+		31BFEEEC1B5A5A5800B32B82 /* BGAEmotionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionButton.m; sourceTree = "<group>"; };
+		31BFEEEE1B5A5C3C00B32B82 /* BGAEmotionPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionPopView.h; sourceTree = "<group>"; };
+		31BFEEEF1B5A5C3C00B32B82 /* BGAEmotionPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionPopView.m; sourceTree = "<group>"; };
+		31BFEEF11B5A5C7300B32B82 /* BGAEmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BGAEmotionPopView.xib; sourceTree = "<group>"; };
 		31DA1C531B5433C000FBEA83 /* BGATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATextView.h; sourceTree = "<group>"; };
 		31DA1C541B5433C000FBEA83 /* BGATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATextView.m; sourceTree = "<group>"; };
 		31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishToolbar.h; sourceTree = "<group>"; };
@@ -849,6 +857,11 @@
 				31BFEEDD1B59495700B32B82 /* BGAEmotionTabBarButton.m */,
 				31BFEEE51B5A4C6500B32B82 /* BGAEmotionPageView.h */,
 				31BFEEE61B5A4C6500B32B82 /* BGAEmotionPageView.m */,
+				31BFEEEB1B5A5A5800B32B82 /* BGAEmotionButton.h */,
+				31BFEEEC1B5A5A5800B32B82 /* BGAEmotionButton.m */,
+				31BFEEEE1B5A5C3C00B32B82 /* BGAEmotionPopView.h */,
+				31BFEEEF1B5A5C3C00B32B82 /* BGAEmotionPopView.m */,
+				31BFEEF11B5A5C7300B32B82 /* BGAEmotionPopView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -954,6 +967,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31BFEEE01B59541500B32B82 /* EmotionIcons in Resources */,
+				31BFEEF21B5A5C7300B32B82 /* BGAEmotionPopView.xib in Resources */,
 				31903F1F1AF5F94C006A2A46 /* Images.xcassets in Resources */,
 				31903FDC1B025173006A2A46 /* local.json in Resources */,
 				3102ADBA1B0B7E1300CC7A6C /* BGALoadMoreFooter.xib in Resources */,
@@ -1004,9 +1018,11 @@
 				3102AD9A1B0A3E8E00CC7A6C /* BGAStatus.m in Sources */,
 				31903FD61B0183A8006A2A46 /* AFSecurityPolicy.m in Sources */,
 				3102AD901B09708E00CC7A6C /* UIImage+MultiFormat.m in Sources */,
+				31BFEEED1B5A5A5800B32B82 /* BGAEmotionButton.m in Sources */,
 				31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */,
 				31BFEEEA1B5A4F7900B32B82 /* NSString+Emoji.m in Sources */,
 				3102AD921B09708E00CC7A6C /* UIImageView+HighlightedWebCache.m in Sources */,
+				31BFEEF01B5A5C3C00B32B82 /* BGAEmotionPopView.m in Sources */,
 				31903FD21B0183A8006A2A46 /* AFHTTPRequestOperation.m in Sources */,
 				31903FAA1AF912AD006A2A46 /* BGADropdownMenu.m in Sources */,
 				317BF9A71B2DDF62008B1B1A /* BGAExtensionConfig.m in Sources */,

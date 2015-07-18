@@ -8,29 +8,27 @@
 
 #import "BGAEmotionPageView.h"
 #import "BGAEmotion.h"
+#import "BGAEmotionButton.h"
+#import "BGAEmotionPopView.h"
+
+@interface BGAEmotionPageView ()
+
+@property (nonatomic, strong) BGAEmotionPopView *popView;
+
+@end
 
 @implementation BGAEmotionPageView
 
-- (void)setEmotions:(NSArray *)emotions
-{
+- (void)setEmotions:(NSArray *)emotions {
     _emotions = emotions;
     
     NSUInteger count = emotions.count;
     for (int i = 0; i<count; i++) {
-        UIButton *btn = [[UIButton alloc] init];
-        BGAEmotion *emotion = emotions[i];
-        
-        if (emotion.png) {
-            // CUICatalog: Invalid asset name supplied: (null), or invalid scale factor: 2.000000
-            // 警告原因：尝试去加载的图片不存在
-            [btn setImage:[UIImage imageNamed:emotion.png] forState:UIControlStateNormal];
-        } else if (emotion.code) {
-            // 设置emoji
-            [btn setTitle:emotion.code.emoji forState:UIControlStateNormal];
-            btn.titleLabel.font = [UIFont systemFontOfSize:32];
-        }
-        
+        BGAEmotionButton *btn = [[BGAEmotionButton alloc] init];
         [self addSubview:btn];
+        btn.emotion = emotions[i];
+        
+        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
@@ -49,6 +47,27 @@
         btn.x = inset + (i%BGAEmotionMaxCols) * btnW;
         btn.y = inset + (i/BGAEmotionMaxCols) * btnH;
     }
+}
+
+- (void)btnClick:(BGAEmotionButton *)btn {
+    // 给popView传递数据
+    self.popView.emotion = btn.emotion;
+    
+    // 取得最上面的window
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    [window addSubview:self.popView];
+    
+    // 计算出被点击的按钮在window中的frame
+    CGRect btnFrame = [btn convertRect:btn.bounds toView:nil];
+    self.popView.y = CGRectGetMidY(btnFrame) - self.popView.height;
+    self.popView.centerX = CGRectGetMidX(btnFrame);
+}
+
+- (BGAEmotionPopView *)popView {
+    if (!_popView) {
+        _popView = [BGAEmotionPopView popView];
+    }
+    return _popView;
 }
 
 @end
