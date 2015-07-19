@@ -11,6 +11,7 @@
 #import "BGAEmotionTabBar.h"
 #import "BGAEmotion.h"
 #import "MJExtension.h"
+#import "BGAEmotionTool.h"
 
 @interface BGAEmotionKeyboard ()<BGAEmotionTabBarDelegate>
 
@@ -34,8 +35,15 @@
         tabBar.delegate = self;
         [self addSubview:tabBar];
         self.tabBar = tabBar;
+        
+        // 表情选中的通知
+        [BGANotificationCenter addObserver:self selector:@selector(emotionDidSelect) name:BGAEmotionDidSelectNotification object:nil];
     }
     return self;
+}
+
+- (void)emotionDidSelect {
+    self.recentListView.emotions = [BGAEmotionTool recentEmotions];
 }
 
 - (void)layoutSubviews {
@@ -80,6 +88,8 @@
 - (BGAEmotionListView *)recentListView {
     if (!_recentListView) {
         self.recentListView = [[BGAEmotionListView alloc] init];
+        // 加载沙盒中的数据
+        self.recentListView.emotions = [BGAEmotionTool recentEmotions];
     }
     return _recentListView;
 }

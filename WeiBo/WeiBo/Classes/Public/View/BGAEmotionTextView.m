@@ -33,6 +33,8 @@
             // 设置字体
             [attributedText addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attributedText.length)];
         }];
+        
+        [BGANotificationCenter postNotificationName:UITextViewTextDidChangeNotification object:self];
     }
 }
 
@@ -45,8 +47,10 @@
         BGAEmotionAttachment *attch = attrs[@"NSAttachment"];
         if (attch) {
             // 图片
+            Logger(@"附件");
             [fullText appendString:attch.emotion.chs];
         } else {
+            Logger(@"普通");
             // emoji、普通文本
             // 获得这个范围内的文字
             NSAttributedString *str = [self.attributedText attributedSubstringFromRange:range];

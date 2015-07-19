@@ -10,6 +10,7 @@
 #import "BGAEmotion.h"
 #import "BGAEmotionButton.h"
 #import "BGAEmotionPopView.h"
+#import "BGAEmotionTool.h"
 
 @interface BGAEmotionPageView ()
 
@@ -29,9 +30,54 @@
         [self addSubview:deleteButton];
         self.deleteButton = deleteButton;
         
-        
+        // 2.添加长按手势
+        [self addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressPageView:)]];
     }
     return self;
+}
+
+/**
+ *  在这个方法中处理长按手势
+ */
+- (void)longPressPageView:(UILongPressGestureRecognizer *)recognizer {
+    CGPoint location = [recognizer locationInView:recognizer.view];
+    // 获得手指所在的位置\所在的表情按钮
+    BGAEmotionButton *btn = [self emotionButtonWithLocation:location];
+    
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateEnded: // 手指已经不再触摸pageView
+            // 移除popView
+            [self.popView removeFromSuperview];
+            // 如果手指还在表情按钮上
+            if (btn) {
+                // 发出通知
+                [self selectEmotion:btn.emotion];
+            }
+            break;
+        case UIGestureRecognizerStateBegan: // 手势开始（刚检测到长按）
+        case UIGestureRecognizerStateChanged: { // 手势改变（手指的位置改变）
+            [self.popView showFrom:btn];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+/**
+ *  根据手指位置所在的表情按钮
+ */
+- (BGAEmotionButton *)emotionButtonWithLocation:(CGPoint)location {
+    NSUInteger count = self.emotions.count;
+    for (int i = 0; i<count; i++) {
+        BGAEmotionButton *btn = self.subviews[i + 1];
+        if (CGRectContainsPoint(btn.frame, location)) {
+            // 已经找到手指所在的表情按钮了，就没必要再往下遍历
+            return btn;
+        }
+    }
+    return nil;
 }
 
 - (void)deleteClick {
@@ -76,17 +122,8 @@
 }
 
 - (void)btnClick:(BGAEmotionButton *)btn {
-    // 给popView传递数据
-    self.popView.emotion = btn.emotion;
-    
-    // 取得最上面的window
-    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
-    [window addSubview:self.popView];
-    
-    // 计算出被点击的按钮在window中的frame
-    CGRect btnFrame = [btn convertRect:btn.bounds toView:nil];
-    self.popView.y = CGRectGetMidY(btnFrame) - self.popView.height;
-    self.popView.centerX = CGRectGetMidX(btnFrame);
+    // 显示popView
+    [self.popView showFrom:btn];
     
     // 等会让popView自动消失
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -94,8 +131,16 @@
     });
     
     // 发出通知
+    [self selectEmotion:btn.emotion];
+}
+
+- (void)selectEmotion:(BGAEmotion *)emotion {
+    // 将这个表情存进沙盒
+    [BGAEmotionTool addRecentEmotion:emotion];
+    
+    // 发出通知
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-    userInfo[BGASelectEmotionKey] = btn.emotion;
+    userInfo[BGASelectEmotionKey] = emotion;
     [BGANotificationCenter postNotificationName:BGAEmotionDidSelectNotification object:nil userInfo:userInfo];
 }
 

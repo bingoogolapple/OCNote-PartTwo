@@ -99,6 +99,7 @@
 		31BFEEF51B5A9A9C00B32B82 /* BGAEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEF41B5A9A9C00B32B82 /* BGAEmotionTextView.m */; };
 		31BFEEF81B5A9C2100B32B82 /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEF71B5A9C2100B32B82 /* UITextView+Extension.m */; };
 		31BFEEFB1B5AB3B000B32B82 /* BGAEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEFA1B5AB3B000B32B82 /* BGAEmotionAttachment.m */; };
+		31BFEEFF1B5B69D200B32B82 /* BGAEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEFE1B5B69D200B32B82 /* BGAEmotionTool.m */; };
 		31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C541B5433C000FBEA83 /* BGATextView.m */; };
 		31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */; };
 		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
@@ -299,6 +300,8 @@
 		31BFEEF71B5A9C2100B32B82 /* UITextView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Extension.m"; sourceTree = "<group>"; };
 		31BFEEF91B5AB3B000B32B82 /* BGAEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionAttachment.h; sourceTree = "<group>"; };
 		31BFEEFA1B5AB3B000B32B82 /* BGAEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionAttachment.m; sourceTree = "<group>"; };
+		31BFEEFD1B5B69D200B32B82 /* BGAEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAEmotionTool.h; sourceTree = "<group>"; };
+		31BFEEFE1B5B69D200B32B82 /* BGAEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAEmotionTool.m; sourceTree = "<group>"; };
 		31DA1C531B5433C000FBEA83 /* BGATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATextView.h; sourceTree = "<group>"; };
 		31DA1C541B5433C000FBEA83 /* BGATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATextView.m; sourceTree = "<group>"; };
 		31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishToolbar.h; sourceTree = "<group>"; };
@@ -853,6 +856,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		31BFEEFC1B5B69C000B32B82 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				31BFEEFD1B5B69D200B32B82 /* BGAEmotionTool.h */,
+				31BFEEFE1B5B69D200B32B82 /* BGAEmotionTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		31DA1C561B556A4C00FBEA83 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -884,6 +896,7 @@
 		31EA40C11B4EBE0A00849D81 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				31BFEEFC1B5B69C000B32B82 /* Tool */,
 				31BFEEE11B5955AF00B32B82 /* Model */,
 				31DA1C561B556A4C00FBEA83 /* View */,
 				31EA40C21B4EBEF600849D81 /* Controller */,
@@ -1012,6 +1025,7 @@
 				31903FD71B0183A8006A2A46 /* AFURLConnectionOperation.m in Sources */,
 				314331281B42F05200C6AD05 /* BGAAvatarView.m in Sources */,
 				31903F921AF6F83E006A2A46 /* UIView+Extension.m in Sources */,
+				31BFEEFF1B5B69D200B32B82 /* BGAEmotionTool.m in Sources */,
 				31903F911AF6F83E006A2A46 /* BGAHomeViewController.m in Sources */,
 				31903FEC1B036EF1006A2A46 /* MBProgressHUD.m in Sources */,
 				31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */,

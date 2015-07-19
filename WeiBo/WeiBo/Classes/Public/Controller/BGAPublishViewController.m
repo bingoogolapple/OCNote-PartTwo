@@ -198,6 +198,7 @@
  * 监听文字改变
  */
 - (void)textDidChange {
+    Logger(@"textDidChange");
     self.navigationItem.rightBarButtonItem.enabled = self.textView.hasText;
 }
 
@@ -261,7 +262,7 @@
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [BGAAccountTool account].access_token;
-    params[@"status"] = self.textView.text;
+    params[@"status"] = self.textView.fullText;
     [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         // 拼接文件数据
         UIImage *image = [self.photosView.photos firstObject];

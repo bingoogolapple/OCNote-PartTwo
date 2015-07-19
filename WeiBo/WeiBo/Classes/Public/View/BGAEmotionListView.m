@@ -37,6 +37,8 @@
         // 2.pageControl
         UIPageControl *pageControl = [[UIPageControl alloc] init];
         pageControl.userInteractionEnabled = NO;
+        // 当只有1页时，自动隐藏pageControl
+        pageControl.hidesForSinglePage = YES;
         // 设置内部的圆点图片
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_normal"] forKeyPath:@"pageImage"];
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_selected"] forKeyPath:@"currentPageImage"];
@@ -50,13 +52,16 @@
 - (void)setEmotions:(NSArray *)emotions {
     _emotions = emotions;
     
+    // 删除之前的控件
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     NSUInteger pageCount = (emotions.count - 1) / BGAEmotionPageSize + 1;
     
     // 1.设置页数
     self.pageControl.numberOfPages = pageCount;
     
     // 2.创建用来显示每一页表情的控件
-    for (int i = 0; i < self.pageControl.numberOfPages; i++) {
+    for (int i = 0; i < pageCount; i++) {
         BGAEmotionPageView *pageView = [[BGAEmotionPageView alloc] init];
         
         // 计算这一页的表情范围
@@ -75,6 +80,8 @@
         
         [self.scrollView addSubview:pageView];
     }
+    
+    [self setNeedsLayout];
 }
 
 - (void)layoutSubviews {

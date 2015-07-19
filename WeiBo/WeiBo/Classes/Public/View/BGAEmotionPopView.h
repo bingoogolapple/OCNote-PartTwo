@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class BGAEmotion;
+@class BGAEmotion, BGAEmotionButton;
 
 @interface BGAEmotionPopView : UIView
 
 + (instancetype)popView;
 
-@property (nonatomic, strong) BGAEmotion *emotion;
+- (void)showFrom:(BGAEmotionButton *)button;
 
 @end

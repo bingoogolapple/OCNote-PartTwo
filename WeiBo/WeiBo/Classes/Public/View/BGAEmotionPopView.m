@@ -22,9 +22,20 @@
     return [[[NSBundle mainBundle] loadNibNamed:@"BGAEmotionPopView" owner:nil options:nil] lastObject];
 }
 
-- (void)setEmotion:(BGAEmotion *)emotion {
-    _emotion = emotion;
-    self.emotionButton.emotion = emotion;
+- (void)showFrom:(BGAEmotionButton *)button {
+    if (button == nil) return;
+    
+    // 给popView传递数据
+    self.emotionButton.emotion = button.emotion;
+    
+    // 取得最上面的window
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    [window addSubview:self];
+    
+    // 计算出被点击的按钮在window中的frame
+    CGRect btnFrame = [button convertRect:button.bounds toView:nil];
+    self.y = CGRectGetMidY(btnFrame) - self.height;
+    self.centerX = CGRectGetMidX(btnFrame);
 }
 
 @end
