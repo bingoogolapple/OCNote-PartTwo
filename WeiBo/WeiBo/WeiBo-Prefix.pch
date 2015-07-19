@@ -17,6 +17,7 @@
     #import "NSString+Extension.h"
     #import "UITextView+Extension.h"
     #import "NSString+Emoji.h"
+    #import "BGAConst.h"
 
 // 添加自定义log
 #ifdef DEBUG
@@ -25,15 +26,11 @@
 #define Logger(...)
 #endif
 
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+
 // 通知中心
 #define BGANotificationCenter [NSNotificationCenter defaultCenter]
 
-// 通知
-// 表情选中的通知
-#define BGAEmotionDidSelectNotification @"BGAEmotionDidSelectNotification"
-#define BGASelectEmotionKey @"BGASelectEmotionKey"
-// 删除文字的通知
-#define BGAEmotionDidDeleteNotification @"BGAEmotionDidDeleteNotification"
 
 // RGB颜色
 #define BGAColor(r,g,b) ([UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0])

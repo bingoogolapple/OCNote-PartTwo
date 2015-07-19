@@ -15,6 +15,7 @@
 #import "BGAPublishPhotosView.h"
 #import "BGAEmotionKeyboard.h"
 #import "BGAEmotion.h"
+#import "BGAHttpTool.h"
 
 @interface BGAPublishViewController()<UITextViewDelegate, BGAPublishToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -276,13 +277,13 @@
 }
 
 - (void)sendWithoutImage {
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [BGAAccountTool account].access_token;
     params[@"status"] = self.textView.fullText;
-    [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+    
+    [BGAHttpTool post:@"https://api.weibo.com/2/statuses/update.json" params:params success:^(id json) {
         [MBProgressHUD showSuccess:@"发送成功"];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         [MBProgressHUD showError:@"发送失败"];
     }];
 }

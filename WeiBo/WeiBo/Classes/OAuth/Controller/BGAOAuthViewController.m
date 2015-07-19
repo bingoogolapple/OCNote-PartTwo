@@ -12,6 +12,7 @@
 #import "BGAAccount.h"
 #import "MBProgressHUD+MJ.h"
 #import "BGAAccountTool.h"
+#import "BGAHttpTool.h"
 
 @interface BGAOAuthViewController ()<UIWebViewDelegate>
 @property (nonatomic, strong) BGALocal *local;
@@ -79,12 +80,6 @@
 }
 
 - (void)accessTokenWithCode:(NSString *)code {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    // 默认的序列化器就是json
-//    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    // Request failed: unacceptable content-type: text/plain   新浪返回的头不是json，但是又是json格式的字符串，修改AFJSONResponseSerializer源码，设置可接收的格式
-    
     //client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&grant_type=authorization_code&redirect_uri=YOUR_REGISTERED_REDIRECT_URI&code=CODE
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"client_id"] = self.local.clientId;
@@ -94,18 +89,18 @@
     params[@"code"] = code;
     
     
-    [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+    [BGAHttpTool post:@"https://api.weibo.com/oauth2/access_token" params:params success:^(id json) {
         [MBProgressHUD hideHUD];
         // uid一个用户就一个,access_token一个用户给一个应用授权手会获得对应的一个accessToken
-        Logger(@"请求成功 - %@", responseObject);
+        Logger(@"请求成功 - %@", json);
         
         // 存储账号信息
-        BGAAccount *account = [BGAAccount accountWithDict:responseObject];
+        BGAAccount *account = [BGAAccount accountWithDict:json];
         [BGAAccountTool saveAccount:account];
         
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         [window switchRootViewController];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         Logger(@"请求失败 - %@", error);
         [MBProgressHUD hideHUD];
     }];

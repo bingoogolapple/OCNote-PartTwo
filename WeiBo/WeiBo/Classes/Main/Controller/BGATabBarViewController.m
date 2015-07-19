@@ -73,8 +73,12 @@
     [childVc.tabBarItem setTitleTextAttributes:selAttrs forState:UIControlStateSelected];
     
     childVc.tabBarItem.image = [UIImage imageNamed:image];
-    // 声明这张图片按照原始的样子显示，不要自动渲染成其他颜色
-    childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    if (iOS7) {
+        // 声明这张图片按照原始的样子显示，不要自动渲染成其他颜色
+        childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    } else {
+        childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    }
     
     // 如果这里设置了子控制器的颜色，会导致一下子创建4个子控制器的View
 //    childVc.view.backgroundColor = BGARandomColor;
