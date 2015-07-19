@@ -10,6 +10,7 @@
 
 #import "BGAEmotionTool.h"
 #import "BGAEmotion.h"
+#import "MJExtension.h"
 
 @implementation BGAEmotionTool
 
@@ -31,6 +32,19 @@ static NSMutableArray *_recentEmotions;
     
     // 将所有的表情数据写入沙盒
     [NSKeyedArchiver archiveRootObject:_recentEmotions toFile:BGARecentEmotionsPath];
+}
+
++ (BGAEmotion *)emotionWithChs:(NSString *)chs {
+    NSArray *defaults = [self defaultEmotions];
+    for (BGAEmotion *emotion in defaults) {
+        if ([emotion.chs isEqualToString:chs]) return emotion;
+    }
+    
+    NSArray *lxhs = [self lxhEmotions];
+    for (BGAEmotion *emotion in lxhs) {
+        if ([emotion.chs isEqualToString:chs]) return emotion;
+    }
+    return nil;
 }
 
 /**
@@ -62,5 +76,31 @@ static NSMutableArray *_recentEmotions;
 //            break;
 //        }
 //    }
+
+
+static NSArray *_emojiEmotions, *_defaultEmotions, *_lxhEmotions;
++ (NSArray *)emojiEmotions {
+    if (!_emojiEmotions) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
+        _emojiEmotions = [BGAEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+    }
+    return _emojiEmotions;
+}
+
++ (NSArray *)defaultEmotions {
+    if (!_defaultEmotions) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info.plist" ofType:nil];
+        _defaultEmotions = [BGAEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+    }
+    return _defaultEmotions;
+}
+
++ (NSArray *)lxhEmotions {
+    if (!_lxhEmotions) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info.plist" ofType:nil];
+        _lxhEmotions = [BGAEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+    }
+    return _lxhEmotions;
+}
 
 @end

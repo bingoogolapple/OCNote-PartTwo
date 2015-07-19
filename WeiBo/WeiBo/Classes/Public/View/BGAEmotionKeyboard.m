@@ -97,8 +97,7 @@
 - (BGAEmotionListView *)defaultListView {
     if (!_defaultListView) {
         self.defaultListView = [[BGAEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info.plist" ofType:nil];
-        self.defaultListView.emotions = [BGAEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+        self.defaultListView.emotions = [BGAEmotionTool defaultEmotions];
     }
     return _defaultListView;
 }
@@ -106,8 +105,7 @@
 - (BGAEmotionListView *)emojiListView {
     if (!_emojiListView) {
         self.emojiListView = [[BGAEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
-        self.emojiListView.emotions = [BGAEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+        self.emojiListView.emotions = [BGAEmotionTool emojiEmotions];
     }
     return _emojiListView;
 }
@@ -115,8 +113,7 @@
 - (BGAEmotionListView *)lxhListView {
     if (!_lxhListView) {
         self.lxhListView = [[BGAEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info.plist" ofType:nil];
-        self.lxhListView.emotions = [BGAEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+        self.lxhListView.emotions = [BGAEmotionTool lxhEmotions];
     }
     return _lxhListView;
 }

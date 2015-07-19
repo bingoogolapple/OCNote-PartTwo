@@ -203,7 +203,7 @@
     self.sourceLabel.text = status.source;
     /** 正文 */
     self.contentLabel.frame = statusFrame.contentLabelFrame;
-    self.contentLabel.text = statusFrame.status.text;
+    self.contentLabel.attributedText = statusFrame.status.attributedText;
     /** 配图 */
     if (status.pic_urls.count) {
         self.photosView.frame = statusFrame.photosViewFrame;
@@ -215,15 +215,13 @@
     
     if (status.retweeted_status) {
         BGAStatus *retweeted_status = status.retweeted_status;
-        BGAUser *retweeted_status_user = retweeted_status.user;
         
         self.retweetView.hidden = NO;
         // 转发微博整体
         self.retweetView.frame = statusFrame.retweetViewFrame;
         // 转发微博正文
         self.retweetContentLabel.frame = statusFrame.retweetContentLabelFrame;
-        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@", retweeted_status_user.name, retweeted_status.text];
-        self.retweetContentLabel.text = retweetContent;
+        self.retweetContentLabel.attributedText = status.retweetedAttributedText;
         // 被转发微博配图
         if (retweeted_status.pic_urls.count) {
             self.retweetPhotosView.frame = statusFrame.retweetPhotosViewFrame;

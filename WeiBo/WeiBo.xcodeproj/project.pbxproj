@@ -102,6 +102,9 @@
 		31BFEEFF1B5B69D200B32B82 /* BGAEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEEFE1B5B69D200B32B82 /* BGAEmotionTool.m */; };
 		31BFEF031B5B8EFE00B32B82 /* BGAHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEF021B5B8EFE00B32B82 /* BGAHttpTool.m */; };
 		31BFEF0B1B5B951E00B32B82 /* BGAConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEF0A1B5B951E00B32B82 /* BGAConst.m */; };
+		31BFEF0E1B5BDBAA00B32B82 /* BGATextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEF0D1B5BDBAA00B32B82 /* BGATextPart.m */; };
+		31BFEF121B5BDCB900B32B82 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEF111B5BDCB900B32B82 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		31BFEF141B5BFCB900B32B82 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BFEF131B5BFCB900B32B82 /* libicucore.dylib */; };
 		31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C541B5433C000FBEA83 /* BGATextView.m */; };
 		31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */; };
 		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
@@ -308,6 +311,11 @@
 		31BFEF021B5B8EFE00B32B82 /* BGAHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAHttpTool.m; sourceTree = "<group>"; };
 		31BFEF091B5B951E00B32B82 /* BGAConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAConst.h; sourceTree = "<group>"; };
 		31BFEF0A1B5B951E00B32B82 /* BGAConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAConst.m; sourceTree = "<group>"; };
+		31BFEF0C1B5BDBAA00B32B82 /* BGATextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATextPart.h; sourceTree = "<group>"; };
+		31BFEF0D1B5BDBAA00B32B82 /* BGATextPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATextPart.m; sourceTree = "<group>"; };
+		31BFEF101B5BDCB900B32B82 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		31BFEF111B5BDCB900B32B82 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		31BFEF131B5BFCB900B32B82 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		31DA1C531B5433C000FBEA83 /* BGATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATextView.h; sourceTree = "<group>"; };
 		31DA1C541B5433C000FBEA83 /* BGATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATextView.m; sourceTree = "<group>"; };
 		31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishToolbar.h; sourceTree = "<group>"; };
@@ -323,6 +331,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31BFEF141B5BFCB900B32B82 /* libicucore.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +430,7 @@
 		31903F051AF5F94B006A2A46 = {
 			isa = PBXGroup;
 			children = (
+				31BFEF131B5BFCB900B32B82 /* libicucore.dylib */,
 				31903F101AF5F94B006A2A46 /* WeiBo */,
 				31903F2A1AF5F94C006A2A46 /* WeiBoTests */,
 				31903F0F1AF5F94B006A2A46 /* Products */,
@@ -557,6 +567,8 @@
 				317BF9A31B2DDACC008B1B1A /* BGAPhoto.m */,
 				317BF9A51B2DDF62008B1B1A /* BGAExtensionConfig.h */,
 				317BF9A61B2DDF62008B1B1A /* BGAExtensionConfig.m */,
+				31BFEF0C1B5BDBAA00B32B82 /* BGATextPart.h */,
+				31BFEF0D1B5BDBAA00B32B82 /* BGATextPart.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -611,6 +623,7 @@
 		31903F731AF6F83E006A2A46 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				31BFEF0F1B5BDCB900B32B82 /* RegexKitLite */,
 				3102AD9B1B0ABC9700CC7A6C /* MJExtension */,
 				3102AD631B09708E00CC7A6C /* SDWebImage */,
 				31903FE41B036EF1006A2A46 /* MBProgressHUD */,
@@ -883,6 +896,15 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		31BFEF0F1B5BDCB900B32B82 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				31BFEF101B5BDCB900B32B82 /* RegexKitLite.h */,
+				31BFEF111B5BDCB900B32B82 /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
+			sourceTree = "<group>";
+		};
 		31DA1C561B556A4C00FBEA83 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1055,6 +1077,7 @@
 				3102ADB41B0ABC9700CC7A6C /* NSString+MJExtension.m in Sources */,
 				31EA40C51B4EBF4B00849D81 /* BGAPublishViewController.m in Sources */,
 				31903FDA1B0183A8006A2A46 /* AFURLSessionManager.m in Sources */,
+				31BFEF121B5BDCB900B32B82 /* RegexKitLite.m in Sources */,
 				3102AD911B09708E00CC7A6C /* UIImage+WebP.m in Sources */,
 				31903FB81AFC3690006A2A46 /* BGANewFeatureViewController.m in Sources */,
 				3102AD871B09708E00CC7A6C /* SDImageCache.m in Sources */,
@@ -1096,6 +1119,7 @@
 				31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */,
 				31BFEEFB1B5AB3B000B32B82 /* BGAEmotionAttachment.m in Sources */,
 				31903FEA1B036EF1006A2A46 /* MBProgressHUD+MJ.m in Sources */,
+				31BFEF0E1B5BDBAA00B32B82 /* BGATextPart.m in Sources */,
 				317BF9A41B2DDACC008B1B1A /* BGAPhoto.m in Sources */,
 				31BFEF0B1B5B951E00B32B82 /* BGAConst.m in Sources */,
 				3102AD621B07B1B200CC7A6C /* Foundation+Log.m in Sources */,

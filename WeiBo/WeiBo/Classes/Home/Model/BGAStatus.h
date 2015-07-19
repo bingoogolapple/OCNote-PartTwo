@@ -16,6 +16,8 @@
 
 /**	string	微博信息内容*/
 @property (nonatomic, copy) NSString *text;
+/**	string	微博信息内容 -- 带有属性的(特殊文字会高亮显示\显示表情)*/
+@property (nonatomic, copy) NSAttributedString *attributedText;
 
 /**	object	微博作者的用户信息字段 详细*/
 @property (nonatomic, strong) BGAUser *user;
@@ -31,6 +33,8 @@
 
 /** 被转发的原微博 */
 @property (nonatomic, strong) BGAStatus *retweeted_status;
+/**	被转发的原微博信息内容 -- 带有属性的(特殊文字会高亮显示\显示表情)*/
+@property (nonatomic, copy) NSAttributedString *retweetedAttributedText;
 
 /** 转发数 */
 @property (nonatomic, assign) int reposts_count;
