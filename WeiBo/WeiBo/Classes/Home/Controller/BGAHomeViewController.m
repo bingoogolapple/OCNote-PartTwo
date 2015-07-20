@@ -352,4 +352,8 @@
     return statusFrames;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Logger(@"didSelectRowAtIndexPath---%d", indexPath.row);
+}
+
 @end

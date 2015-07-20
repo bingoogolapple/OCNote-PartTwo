@@ -15,6 +15,7 @@
 #import "BGAStatusToolbar.h"
 #import "BGAStatusPhotosView.h"
 #import "BGAAvatarView.h"
+#import "BGAStatusTextView.h"
 
 @interface BGAStatusCell()
 
@@ -34,14 +35,14 @@
 /** 来源 */
 @property (nonatomic, weak) UILabel *sourceLabel;
 /** 正文 */
-@property (nonatomic, weak) UILabel *contentLabel;
+@property (nonatomic, weak) BGAStatusTextView *contentLabel;
 
 
 // 转发微博
 /** 转发微博整体 */
 @property (nonatomic, weak) UIView *retweetView;
 /** 转发微博正文+昵称 */
-@property (nonatomic, weak) UILabel *retweetContentLabel;
+@property (nonatomic, weak) BGAStatusTextView *retweetContentLabel;
 /** 转发微博配图 */
 @property (nonatomic, weak) BGAStatusPhotosView *retweetPhotosView;
 
@@ -118,10 +119,8 @@
     [originalView addSubview:sourceLabel];
     self.sourceLabel = sourceLabel;
     /** 正文 */
-    UILabel *contentLabel = [[UILabel alloc] init];
+    BGAStatusTextView *contentLabel = [[BGAStatusTextView alloc] init];
     contentLabel.font = BGAStatusCellContentFont;
-    // A value of 0 means no limit
-    contentLabel.numberOfLines = 0;
     [originalView addSubview:contentLabel];
     self.contentLabel = contentLabel;
     /** 配图 */
@@ -138,10 +137,8 @@
     self.retweetView = retweetView;
     
     /** 转发微博正文+昵称 */
-    UILabel *retweetContentLabel = [[UILabel alloc] init];
+    BGAStatusTextView *retweetContentLabel = [[BGAStatusTextView alloc] init];
     retweetContentLabel.font = BGARetweetStatusCellContentFont;
-    // A value of 0 means no limit
-    retweetContentLabel.numberOfLines = 0;
     [retweetView addSubview:retweetContentLabel];
     self.retweetContentLabel = retweetContentLabel;
     

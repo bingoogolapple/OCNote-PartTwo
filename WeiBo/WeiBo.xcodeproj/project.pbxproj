@@ -105,6 +105,8 @@
 		31BFEF0E1B5BDBAA00B32B82 /* BGATextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEF0D1B5BDBAA00B32B82 /* BGATextPart.m */; };
 		31BFEF121B5BDCB900B32B82 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEF111B5BDCB900B32B82 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		31BFEF141B5BFCB900B32B82 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BFEF131B5BFCB900B32B82 /* libicucore.dylib */; };
+		31BFEF171B5D2AD400B32B82 /* BGAStatusTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEF161B5D2AD400B32B82 /* BGAStatusTextView.m */; };
+		31BFEF1A1B5D2DD200B32B82 /* BGASpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFEF191B5D2DD200B32B82 /* BGASpecial.m */; };
 		31DA1C551B5433C000FBEA83 /* BGATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C541B5433C000FBEA83 /* BGATextView.m */; };
 		31DA1C591B556A6B00FBEA83 /* BGAPublishToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DA1C581B556A6B00FBEA83 /* BGAPublishToolbar.m */; };
 		31E336971B40484900BC12E4 /* BGAStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */; };
@@ -316,6 +318,10 @@
 		31BFEF101B5BDCB900B32B82 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		31BFEF111B5BDCB900B32B82 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		31BFEF131B5BFCB900B32B82 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		31BFEF151B5D2AD400B32B82 /* BGAStatusTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAStatusTextView.h; sourceTree = "<group>"; };
+		31BFEF161B5D2AD400B32B82 /* BGAStatusTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGAStatusTextView.m; sourceTree = "<group>"; };
+		31BFEF181B5D2DD200B32B82 /* BGASpecial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGASpecial.h; sourceTree = "<group>"; };
+		31BFEF191B5D2DD200B32B82 /* BGASpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGASpecial.m; sourceTree = "<group>"; };
 		31DA1C531B5433C000FBEA83 /* BGATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGATextView.h; sourceTree = "<group>"; };
 		31DA1C541B5433C000FBEA83 /* BGATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGATextView.m; sourceTree = "<group>"; };
 		31DA1C571B556A6B00FBEA83 /* BGAPublishToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGAPublishToolbar.h; sourceTree = "<group>"; };
@@ -423,6 +429,8 @@
 				31E336961B40484900BC12E4 /* BGAStatusPhotosView.m */,
 				314331201B418E1B00C6AD05 /* BGAStatusPhotoView.h */,
 				314331211B418E1B00C6AD05 /* BGAStatusPhotoView.m */,
+				31BFEF151B5D2AD400B32B82 /* BGAStatusTextView.h */,
+				31BFEF161B5D2AD400B32B82 /* BGAStatusTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -569,6 +577,8 @@
 				317BF9A61B2DDF62008B1B1A /* BGAExtensionConfig.m */,
 				31BFEF0C1B5BDBAA00B32B82 /* BGATextPart.h */,
 				31BFEF0D1B5BDBAA00B32B82 /* BGATextPart.m */,
+				31BFEF181B5D2DD200B32B82 /* BGASpecial.h */,
+				31BFEF191B5D2DD200B32B82 /* BGASpecial.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1075,6 +1085,7 @@
 				31BFEEDE1B59495700B32B82 /* BGAEmotionTabBarButton.m in Sources */,
 				31903FA11AF8F587006A2A46 /* BGASearchBar.m in Sources */,
 				3102ADB41B0ABC9700CC7A6C /* NSString+MJExtension.m in Sources */,
+				31BFEF1A1B5D2DD200B32B82 /* BGASpecial.m in Sources */,
 				31EA40C51B4EBF4B00849D81 /* BGAPublishViewController.m in Sources */,
 				31903FDA1B0183A8006A2A46 /* AFURLSessionManager.m in Sources */,
 				31BFEF121B5BDCB900B32B82 /* RegexKitLite.m in Sources */,
@@ -1111,6 +1122,7 @@
 				3102ADAD1B0ABC9700CC7A6C /* MJConst.m in Sources */,
 				31BFEEF51B5A9A9C00B32B82 /* BGAEmotionTextView.m in Sources */,
 				3102AD8B1B09708E00CC7A6C /* SDWebImageDownloaderOperation.m in Sources */,
+				31BFEF171B5D2AD400B32B82 /* BGAStatusTextView.m in Sources */,
 				31903F941AF6F83E006A2A46 /* BGATabBarViewController.m in Sources */,
 				3102ADB81B0B7DE400CC7A6C /* BGALoadMoreFooter.m in Sources */,
 				31903FD41B0183A8006A2A46 /* AFHTTPSessionManager.m in Sources */,
