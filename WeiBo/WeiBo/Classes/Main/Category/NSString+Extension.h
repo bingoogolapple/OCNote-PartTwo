@@ -12,4 +12,9 @@
 - (CGSize)sizeWithFont:(UIFont*)font;
 
 - (CGSize)sizeWithFont:(UIFont*)font maxWidth:(CGFloat)maxWidth;
+
+/**
+ *  计算当前文件\文件夹的内容大小
+ */
+- (NSInteger)fileSize;
 @end

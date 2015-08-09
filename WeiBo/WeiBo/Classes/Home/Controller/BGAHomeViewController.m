@@ -19,6 +19,7 @@
 #import "BGAStatusCell.h"
 #import "BGAStatusFrame.h"
 #import "BGAHttpTool.h"
+#import "BGAStatusTool.h"
 
 
 @interface BGAHomeViewController ()<BGADropdownMenuDelegate>
@@ -103,33 +104,56 @@
 
 - (void)refresh:(UIRefreshControl *)control {
     Logger(@"下拉刷新");
-
     BGAAccount *account = [BGAAccountTool account];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = account.access_token;
+    //    params[@"count"] = @7;
     
-    BGAStatusFrame *firstStatusFrame = [self.statuseFrames firstObject];
-    if (firstStatusFrame) {
-        params[@"since_id"] = firstStatusFrame.status.idstr;
+    // 取出最前面的微博（最新的微博，ID最大的微博）
+    BGAStatusFrame *firstStatusF = [self.statuseFrames firstObject];
+    if (firstStatusF) {
+        // 若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0
+        params[@"since_id"] = firstStatusF.status.idstr;
     }
     
-    [BGAHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" params:params success:^(id json) {
-        [control endRefreshing];
-        Logger(@"加载最新状态成功 - %@", json);
-        NSArray *newStatuses = [BGAStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
-        NSArray *newStatusFrames = [self statusFramesWithStatuses:newStatuses];
+    // 定义一个block处理返回的字典数据
+    void (^dealingResult)(NSArray *) = ^(NSArray *statuses){
+        // 将 "微博字典"数组 转为 "微博模型"数组
+        NSArray *newStatuses = [BGAStatus objectArrayWithKeyValuesArray:statuses];
         
-        NSRange range = NSMakeRange(0, newStatusFrames.count);
+        // 将 HWStatus数组 转为 HWStatusFrame数组
+        NSArray *newFrames = [self stausFramesWithStatuses:newStatuses];
+        
+        // 将最新的微博数据，添加到总数组的最前面
+        NSRange range = NSMakeRange(0, newFrames.count);
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.statuseFrames insertObjects:newFrames atIndexes:set];
         
-        [self.statuseFrames insertObjects:newStatusFrames atIndexes:set];
-        
+        // 刷新表格
         [self.tableView reloadData];
         
+        // 结束刷新
+        [control endRefreshing];
+        
+        // 显示最新微博的数量
         [self showNewStatusCount:newStatuses.count];
-    } failure:^(NSError *error) {
-        Logger(@"加载最新状态失败 - %@", error);
-    }];
+    };
+    
+    // 2.先尝试从数据库中加载微博数据
+    NSArray *statuses = [BGAStatusTool statusesWithParams:params];
+    if (statuses.count) { // 数据库有缓存数据
+        dealingResult(statuses);
+    } else {
+        [BGAHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" params:params success:^(id json) {
+            Logger(@"加载最新状态成功 - %@", json);
+            [BGAStatusTool saveStatuses:json[@"statuses"]];
+            
+            dealingResult(json[@"statuses"]);
+        } failure:^(NSError *error) {
+            Logger(@"加载最新状态失败 - %@", error);
+            [control endRefreshing];
+        }];
+    }
 }
 
 - (void)showNewStatusCount:(int)count {
@@ -174,22 +198,17 @@
     return _statuseFrames;
 }
 
-- (void)loadNewStatus {
-    BGAAccount *account = [BGAAccountTool account];
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = account.access_token;
-//    params[@"count"] = @7;
-    
-    [BGAHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" params:params success:^(id json) {
-        Logger(@"加载最新状态成功 - %@", json);
-        NSArray *newStatuses = [BGAStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
-        
-        [self.statuseFrames addObjectsFromArray:newStatuses];
-        
-        [self.tableView reloadData];
-    } failure:^(NSError *error) {
-         Logger(@"加载最新状态失败 - %@", error);
-    }];
+/**
+ *  将HWStatus模型转为BGAStatusFrame模型
+ */
+- (NSArray *)stausFramesWithStatuses:(NSArray *)statuses {
+    NSMutableArray *frames = [NSMutableArray array];
+    for (BGAStatus *status in statuses) {
+        BGAStatusFrame *f = [[BGAStatusFrame alloc] init];
+        f.status = status;
+        [frames addObject:f];
+    }
+    return frames;
 }
 
 - (void)setupUserInfo {
@@ -322,9 +341,10 @@
         params[@"max_id"] = @(maxId);
     }
     
-    [BGAHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" params:params success:^(id json) {
+    // 处理字典数据
+    void (^dealingResult)(NSArray *) = ^(NSArray *statuses) {
         // 将 "微博字典"数组 转为 "微博模型"数组
-        NSArray *newStatuses = [BGAStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
+        NSArray *newStatuses = [BGAStatus objectArrayWithKeyValuesArray:statuses];
         NSArray *newStatusFrames = [self statusFramesWithStatuses:newStatuses];
         // 将更多的微博数据，添加到总数组的最后面
         [self.statuseFrames addObjectsFromArray:newStatusFrames];
@@ -334,12 +354,25 @@
         
         // 结束刷新(隐藏footer)
         self.tableView.tableFooterView.hidden = YES;
-    } failure:^(NSError *error) {
-        Logger(@"请求失败-%@", error);
+    };
+    
+    // 2.加载沙盒中的数据
+    NSArray *statuses = [BGAStatusTool statusesWithParams:params];
+    if (statuses.count) {// 将 HWStatus数组 转为 HWStatusFrame数组
+        dealingResult(statuses);
+    } else {
+        [BGAHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" params:params success:^(id json) {
+            // 缓存新浪返回的字典数组
+            [BGAStatusTool saveStatuses:json[@"statuses"]];
+            
+            dealingResult(json[@"statuses"]);
+        } failure:^(NSError *error) {
+            Logger(@"请求失败-%@", error);
         
-        // 结束刷新
-        self.tableView.tableFooterView.hidden = YES;
-    }];
+            // 结束刷新
+            self.tableView.tableFooterView.hidden = YES;
+        }];
+    }
 }
 
 - (NSArray *)statusFramesWithStatuses:(NSArray *)statuses {
